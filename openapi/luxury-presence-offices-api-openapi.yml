@@ -1,0 +1,998 @@
+openapi: 3.0.0
+info:
+  title: API Documentation Agents Offices API
+  description: Luxury Presence API Documentation.
+  version: '1.0'
+  contact: {}
+servers:
+- url: https://api.luxurypresence.com
+  description: Production API server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Offices
+paths:
+  /cms/v1/offices:
+    get:
+      operationId: OfficesController_handleGetOffices
+      parameters:
+      - name: offset
+        required: false
+        in: query
+        description: The number of items to skip
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: The number of items to fetch
+        schema:
+          type: number
+      - name: externalSource
+        required: false
+        in: query
+        description: The external source of the office
+        schema:
+          type: string
+      - name: externalIds
+        required: false
+        in: query
+        description: The external IDs of the offices
+        schema:
+          type: array
+          items:
+            type: string
+      - name: search
+        required: false
+        in: query
+        description: The search query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOfficesResponseDto'
+              example:
+                count: 1
+                items:
+                - officeId: 8068aff2-246c-4e01-b548-044d7ca1460f
+                  mediaId:
+                  - f534988e-4671-4709-bb82-c06bc8b02d87
+                  mediaIds:
+                  - f534988e-4671-4709-bb82-c06bc8b02d87
+                  externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                  externalSource: anywhere_listing_syndication
+                  name: 1655 Almeida Street
+                  slug: my-office
+                  officeMlsId: '12313'
+                  shortDescription: null
+                  fullDescription: null
+                  address:
+                    line1: null
+                    line2: null
+                    city: null
+                    state: null
+                    postCode: null
+                    country: null
+                  phone: null
+                  email: null
+                  officeHours:
+                    Friday:
+                      closed: false
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Monday:
+                      closed: false
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Sunday:
+                      closed: true
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Tuesday:
+                      closed: false
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Saturday:
+                      closed: true
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Thursday:
+                      closed: false
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                    Wednesday:
+                      closed: false
+                      closingAt: '17:00'
+                      openingAt: 09:00
+                  coordinates: {}
+                  googlePlaceData: null
+                  seoTitle: my office
+                  seoDescription: null
+                  createdAt: '2023-12-20T20:14:46.382Z'
+                  updatedAt: '2024-05-09T22:47:08.962Z'
+      summary: Fetch existing offices
+      tags:
+      - Offices
+    post:
+      operationId: OfficesController_handlePostOffice
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOfficeDto'
+      responses:
+        '201':
+          description: Office has been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeDto'
+              example:
+                officeId: 8068aff2-246c-4e01-b548-044d7ca1460f
+                mediaId:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                mediaIds:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                externalSource: anywhere_listing_syndication
+                name: 1655 Almeida Street
+                slug: my-office
+                officeMlsId: '12313'
+                shortDescription: null
+                fullDescription: null
+                address:
+                  line1: null
+                  line2: null
+                  city: null
+                  state: null
+                  postCode: null
+                  country: null
+                phone: null
+                email: null
+                officeHours:
+                  Friday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Monday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Sunday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Tuesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Saturday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Thursday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Wednesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                coordinates: {}
+                googlePlaceData: null
+                seoTitle: my office
+                seoDescription: null
+                createdAt: '2023-12-20T20:14:46.382Z'
+                updatedAt: '2024-05-09T22:47:08.962Z'
+      summary: Create a new office
+      tags:
+      - Offices
+  /cms/v1/offices/{id}:
+    get:
+      operationId: OfficesController_handleGetOffice
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office to fetch
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The office has been successfully fetched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeDto'
+              example:
+                officeId: 8068aff2-246c-4e01-b548-044d7ca1460f
+                mediaId:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                mediaIds:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                externalSource: anywhere_listing_syndication
+                name: 1655 Almeida Street
+                slug: my-office
+                officeMlsId: '12313'
+                shortDescription: null
+                fullDescription: null
+                address:
+                  line1: null
+                  line2: null
+                  city: null
+                  state: null
+                  postCode: null
+                  country: null
+                phone: null
+                email: null
+                officeHours:
+                  Friday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Monday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Sunday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Tuesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Saturday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Thursday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Wednesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                coordinates: {}
+                googlePlaceData: null
+                seoTitle: my office
+                seoDescription: null
+                createdAt: '2023-12-20T20:14:46.382Z'
+                updatedAt: '2024-05-09T22:47:08.962Z'
+        '404':
+          description: Office not found.
+      summary: Fetch an existing office
+      tags:
+      - Offices
+    patch:
+      operationId: OfficesController_handlePatchOffice
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office to update
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateOfficeDto'
+      responses:
+        '200':
+          description: The office has been successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeDto'
+              example:
+                officeId: 8068aff2-246c-4e01-b548-044d7ca1460f
+                mediaId:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                mediaIds:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                externalSource: anywhere_listing_syndication
+                name: 1655 Almeida Street
+                slug: my-office
+                officeMlsId: '12313'
+                shortDescription: null
+                fullDescription: null
+                address:
+                  line1: null
+                  line2: null
+                  city: null
+                  state: null
+                  postCode: null
+                  country: null
+                phone: null
+                email: null
+                officeHours:
+                  Friday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Monday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Sunday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Tuesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Saturday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Thursday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Wednesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                coordinates: {}
+                googlePlaceData: null
+                seoTitle: my office
+                seoDescription: null
+                createdAt: '2023-12-20T20:14:46.382Z'
+                updatedAt: '2024-05-09T22:47:08.962Z'
+        '404':
+          description: Office not found.
+      summary: Update an existing office
+      tags:
+      - Offices
+    delete:
+      operationId: OfficesController_handleDeleteOffice
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office to delete
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The office has been successfully deleted.
+        '404':
+          description: Office not found.
+      summary: Delete an office
+      tags:
+      - Offices
+  /cms/v1/offices/bulkCreate:
+    post:
+      operationId: OfficesController_handleBulkCreateOffices
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateOfficeDto'
+      responses:
+        '201':
+          description: Offices have been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfficeDto'
+              example:
+              - officeId: 8068aff2-246c-4e01-b548-044d7ca1460f
+                mediaId:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                mediaIds:
+                - f534988e-4671-4709-bb82-c06bc8b02d87
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                externalSource: anywhere_listing_syndication
+                name: 1655 Almeida Street
+                slug: my-office
+                officeMlsId: '12313'
+                shortDescription: null
+                fullDescription: null
+                address:
+                  line1: null
+                  line2: null
+                  city: null
+                  state: null
+                  postCode: null
+                  country: null
+                phone: null
+                email: null
+                officeHours:
+                  Friday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Monday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Sunday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Tuesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Saturday:
+                    closed: true
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Thursday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                  Wednesday:
+                    closed: false
+                    closingAt: '17:00'
+                    openingAt: 09:00
+                coordinates: {}
+                googlePlaceData: null
+                seoTitle: my office
+                seoDescription: null
+                createdAt: '2023-12-20T20:14:46.382Z'
+                updatedAt: '2024-05-09T22:47:08.962Z'
+        '400':
+          description: The request failed.
+      summary: Bulk create new offices
+      tags:
+      - Offices
+  /cms/v1/offices/bulkDelete:
+    delete:
+      operationId: OfficesController_handleBulkDeleteOffice
+      parameters:
+      - name: officeId
+        required: true
+        in: query
+        description: The items to delete
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: The offices have been successfully deleted.
+        '404':
+          description: Offices not found.
+      summary: Delete multiple offices
+      tags:
+      - Offices
+  /cms/v1/offices/{id}/agents:
+    get:
+      operationId: OfficesController_handleGetOfficeAgents
+      parameters:
+      - name: offset
+        required: false
+        in: query
+        description: The number of items to skip
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: The number of items to fetch
+        schema:
+          type: number
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: Office members have been successfully fetched.
+      summary: Fetch members of a specific office
+      tags:
+      - Offices
+    delete:
+      operationId: OfficesController_handleDeleteOfficeAgents
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteOfficeAgentDto'
+      responses:
+        '200':
+          description: Agents have been successfully removed from office.
+      summary: Remove members from a specific office
+      tags:
+      - Offices
+    post:
+      operationId: OfficesController_handlePostOfficeAgents
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the office
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOfficeAgentDto'
+      responses:
+        '200':
+          description: Agents have been successfully added to office.
+          content:
+            application/json:
+              example:
+                officeId: c7c65a4c-4620-48d6-8463-6dab4ccf4cd8
+                agentId: 3dd21116-d8d1-469d-9772-777b337b061b
+                order: 1
+      summary: Add agent(s) to an office
+      tags:
+      - Offices
+components:
+  schemas:
+    BulkCreateOfficeDto:
+      type: object
+      properties:
+        offices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateOfficeDto'
+      required:
+      - offices
+    UpdateOfficeDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Office
+          description: The office name
+        mediaId:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID(s). This field is for reference/tracking purposes only and is not a direct link to the media.
+          type: array
+          items:
+            type: string
+        mediaUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the office media
+        tags:
+          example:
+          - beach
+          - rental
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: beach-office
+          description: The office slug. Will be used as path for the details page
+        officeMlsId:
+          example: HDSU1931
+          description: The office MLS ID or an array of office MLS IDs
+          type: array
+          items:
+            type: string
+        shortDescription:
+          type: string
+          example: 'The #1 office in the Central New York area.'
+          description: The office short description
+        fullDescription:
+          type: string
+          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
+          description: The office long description
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        coordinates:
+          example:
+            latitude: 40.7630185
+            longitude: -73.9694391
+          description: The office coordinates
+          allOf:
+          - $ref: '#/components/schemas/CoordinatesDto'
+        officeHours:
+          example:
+            Monday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Tuesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Wednesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Thursday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Friday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+          description: The office working hours. Sending a partial object replaces any existing office hour data
+          allOf:
+          - $ref: '#/components/schemas/OfficeHoursDto'
+        phoneNumber:
+          type: string
+          example: 123-457-8910
+          description: The office phone number
+        email:
+          type: string
+          example: office@email.com
+          description: The office email address
+        seoTitle:
+          type: string
+          example: Office Name | San Francisco Real Estate
+          description: The office SEO title
+        seoDescription:
+          type: string
+          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
+          description: The office SEO description
+    CreateOfficeDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Office
+          description: The office name
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        mediaUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the office media
+        tags:
+          type: object
+          example:
+          - beach
+          - rental
+          description: Tag or array of tags for later filtering on website
+        slug:
+          type: string
+          example: beach-office
+          description: The office slug. Will be used as path for the details page
+        officeMlsId:
+          example: HDSU1931
+          description: The office MLS ID or an array of office MLS IDs
+          type: array
+          items:
+            type: string
+        shortDescription:
+          type: string
+          example: 'The #1 office in the Central New York area.'
+          description: The office short description
+        fullDescription:
+          type: string
+          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
+          description: The office long description
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        coordinates:
+          example:
+            latitude: 40.7630185
+            longitude: -73.9694391
+          description: The office coordinates
+          allOf:
+          - $ref: '#/components/schemas/CoordinatesDto'
+        phoneNumber:
+          type: string
+          example: 123-457-8910
+          description: The office phone number
+        email:
+          type: string
+          example: office@email.com
+          description: The office email address
+        officeHours:
+          example:
+            Monday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Tuesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Wednesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Thursday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Friday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+          description: The office working hours
+          allOf:
+          - $ref: '#/components/schemas/OfficeHoursDto'
+        seoTitle:
+          type: string
+          example: Office Name | San Francisco Real Estate
+          description: The office SEO title
+        seoDescription:
+          type: string
+          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
+          description: The office SEO description
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The office external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The office external ID
+      required:
+      - name
+    WorkingHoursDto:
+      type: object
+      properties:
+        closed:
+          type: boolean
+          example: false
+          description: Whether or not the office is closed that day
+        closingAt:
+          type: string
+          example: '17:00'
+          description: The closing time
+        openingAt:
+          type: string
+          example: 09:00
+          description: The opening time
+    OfficeDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Office
+          description: The office name
+        mediaId:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Array of media UUIDs associated with this office. Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaIds instead.
+          deprecated: true
+          type: array
+          items:
+            type: string
+        mediaIds:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Array of media UUIDs associated with this office — offices can have multiple media assets, so this is an array (unlike the single mediaId avatar on agents and teams). Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}.
+          type: array
+          items:
+            type: string
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The office external ID
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The office external source
+        tags:
+          example:
+          - beach
+          - rental
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: beach-office
+          description: The office slug. Will be used as path for the details page
+        officeMlsId:
+          example: HDSU1931
+          description: The office MLS ID or an array of office MLS IDs
+          type: array
+          items:
+            type: string
+        shortDescription:
+          type: string
+          example: 'The #1 office in the Central New York area.'
+          description: The office description (short)
+        fullDescription:
+          type: string
+          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
+          description: The office description (long)
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        phoneNumber:
+          type: string
+          example: 123-457-8910
+          description: The office phone number
+        email:
+          type: string
+          example: office@email.com
+          description: The office email address
+        seoTitle:
+          type: string
+          example: office@email.com
+          description: The office SEO title
+        seoDescription:
+          type: string
+          example: office@email.com
+          description: The office SEO description
+      required:
+      - name
+    CreateOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    CoordinatesDto:
+      type: object
+      properties:
+        latitude:
+          type: number
+          example: 40.7630185
+          description: The latitude
+        longitude:
+          type: number
+          example: -73.9694391
+          description: The longitude
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+    DeleteOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    GetOfficesResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfficeDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    OfficeHoursDto:
+      type: object
+      properties:
+        Monday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '16:00'
+          description: The working hours on Mondays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Tuesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Tuesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Wednesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Wednesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Thursday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Thursdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Friday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Fridays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header.

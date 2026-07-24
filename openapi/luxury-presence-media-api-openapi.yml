@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: API Documentation Agents Media API
+  description: Luxury Presence API Documentation.
+  version: '1.0'
+  contact: {}
+servers:
+- url: https://api.luxurypresence.com
+  description: Production API server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Media
+paths:
+  /cms/v1/media/{mediaId}:
+    get:
+      operationId: MediaReadController_getMedia
+      parameters:
+      - name: mediaId
+        required: true
+        in: path
+        description: The UUID of the media record to fetch
+        schema:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          type: string
+      responses:
+        '200':
+          description: The media record has been successfully fetched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMediaResponseDto'
+        '400':
+          description: Invalid mediaId format or missing company context.
+        '404':
+          description: Media not found.
+        '500':
+          description: Internal server error — GraphQL or upstream failure.
+      summary: Fetch a media record by ID
+      tags:
+      - Media
+components:
+  schemas:
+    GetMediaResponseDto:
+      type: object
+      properties:
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The media UUID
+        resourceType:
+          type: string
+          example: image
+          description: The media resource type (e.g. "image", "video")
+        format:
+          type: string
+          example: jpg
+          description: The media format (e.g. "jpg", "png", "webp", "svg")
+        width:
+          type: number
+          example: 1920
+          description: Original width in pixels
+        height:
+          type: number
+          example: 1080
+          description: Original height in pixels
+        alt:
+          type: string
+          example: A beautiful oceanfront property
+          description: Alt text for the media
+        description:
+          type: string
+          example: A panoramic view of the oceanfront property at sunset
+          description: Media description
+        url:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example.jpg
+          description: The raw/base URL as originally uploaded. No CDN width transformation applied. Use this when you need the untransformed full-resolution asset.
+        originalUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_original.jpg
+          description: The Cloudinary or Cloudflare URL without any size transformation. Falls back to url if no CDN URL is available. Use this for the highest-quality untransformed version.
+        thumbnailUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_thumbnail.jpg
+          description: CDN URL resized to 320px wide. Ideal for small previews, thumbnails, and icons. May be omitted — use url as fallback.
+        smallUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_small.jpg
+          description: CDN URL resized to 960px wide. Ideal for mobile-sized images. May be omitted — use url as fallback.
+        mediumUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_medium.jpg
+          description: CDN URL resized to 1280px wide. Good general-purpose size for tablet and medium displays. May be omitted — use url as fallback.
+        largeUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_large.jpg
+          description: CDN URL resized to 1920px wide. Ideal for hero images and full-width desktop displays. May be omitted — use url as fallback.
+        xLargeUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_xlarge.jpg
+          description: CDN URL resized to 2560px wide. For large and retina displays. May be omitted — falls back to largeUrl on the CDN.
+        xxLargeUrl:
+          type: string
+          example: https://cdn.luxurypresence.com/media/example_xxlarge.jpg
+          description: CDN URL resized to 3456px wide. For ultra-high-resolution displays. May be omitted — falls back to largeUrl on the CDN.
+      required:
+      - mediaId
+      - url
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header.

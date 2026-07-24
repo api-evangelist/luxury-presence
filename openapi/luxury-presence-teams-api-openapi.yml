@@ -1,0 +1,725 @@
+openapi: 3.0.0
+info:
+  title: API Documentation Agents Teams API
+  description: Luxury Presence API Documentation.
+  version: '1.0'
+  contact: {}
+servers:
+- url: https://api.luxurypresence.com
+  description: Production API server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Teams
+paths:
+  /cms/v1/teams:
+    get:
+      operationId: TeamsController_handleGetTeams
+      parameters:
+      - name: offset
+        required: false
+        in: query
+        description: The number of items to skip
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: The number of items to fetch
+        schema:
+          type: number
+      - name: externalIds
+        required: false
+        in: query
+        description: The external IDs of the teams
+        schema:
+          type: array
+          items:
+            type: string
+      - name: externalSource
+        required: false
+        in: query
+        description: The external source of the teams
+        schema:
+          type: string
+      - name: search
+        required: false
+        in: query
+        description: Allows filtering teams by name or email.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTeamsResponseDto'
+              example:
+                count: 1
+                items:
+                - teamId: fdf7a2ee-72d9-4c45-aa39-ecddac6659cb
+                  name: Testier Team
+                  email: test@testierestate.com
+                  externalSource: anywhere_listing_syncdication
+                  externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                  bioShortDescription: null
+                  bioLongDescription: null
+                  address: null
+                  phoneNumber: null
+                  secondaryNumber: null
+                  postalCode: null
+                  avatarId: null
+                  mediaId: null
+                  websiteUrl: null
+                  socialLinks: {}
+                  tags: []
+                  seoTitle: null
+                  slug: team-3
+                  seoDesc: null
+                  createdBy: 800fef83-98f4-4e4e-9dc8-15e418e1fb0c
+                  createdAt: '2024-09-26T21:27:53.283Z'
+                  updatedAt: '2024-09-26T21:27:53.283Z'
+                  deletedAt: null
+                  displayOrder: null
+      summary: Fetch existing teams
+      tags:
+      - Teams
+    post:
+      operationId: TeamsController_handlePostTeam
+      parameters:
+      - name: doNotAllowDuplicates
+        required: false
+        in: query
+        description: If true, teams can not have the same email address
+        schema:
+          default: true
+          example: true
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamDto'
+      responses:
+        '201':
+          description: Team has been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDto'
+              example:
+                teamId: fdf7a2ee-72d9-4c45-aa39-ecddac6659cb
+                name: Testier Team
+                email: test@testierestate.com
+                externalSource: anywhere_listing_syncdication
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                bioShortDescription: null
+                bioLongDescription: null
+                address: null
+                phoneNumber: null
+                secondaryNumber: null
+                postalCode: null
+                avatarId: null
+                mediaId: null
+                websiteUrl: null
+                socialLinks: {}
+                tags: []
+                seoTitle: null
+                slug: team-3
+                seoDesc: null
+                createdBy: 800fef83-98f4-4e4e-9dc8-15e418e1fb0c
+                createdAt: '2024-09-26T21:27:53.283Z'
+                updatedAt: '2024-09-26T21:27:53.283Z'
+                deletedAt: null
+                displayOrder: null
+      summary: Create a new team
+      tags:
+      - Teams
+  /cms/v1/teams/{id}:
+    get:
+      operationId: TeamsController_handleGetTeam
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team to fetch
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The team has been successfully fetched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDto'
+              example:
+                teamId: fdf7a2ee-72d9-4c45-aa39-ecddac6659cb
+                name: Testier Team
+                email: test@testierestate.com
+                externalSource: anywhere_listing_syncdication
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                bioShortDescription: null
+                bioLongDescription: null
+                address: null
+                phoneNumber: null
+                secondaryNumber: null
+                postalCode: null
+                avatarId: null
+                mediaId: null
+                websiteUrl: null
+                socialLinks: {}
+                tags: []
+                seoTitle: null
+                slug: team-3
+                seoDesc: null
+                createdBy: 800fef83-98f4-4e4e-9dc8-15e418e1fb0c
+                createdAt: '2024-09-26T21:27:53.283Z'
+                updatedAt: '2024-09-26T21:27:53.283Z'
+                deletedAt: null
+                displayOrder: null
+        '404':
+          description: Team not found.
+      summary: Fetch an existing team
+      tags:
+      - Teams
+    patch:
+      operationId: TeamsController_handlePatchTeam
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team to update
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      - name: doNotAllowDuplicates
+        required: false
+        in: query
+        description: If true, teams can not have the same email address
+        schema:
+          default: true
+          example: true
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamDto'
+      responses:
+        '200':
+          description: The team has been successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDto'
+              example:
+                teamId: fdf7a2ee-72d9-4c45-aa39-ecddac6659cb
+                name: Testier Team
+                email: test@testierestate.com
+                externalSource: anywhere_listing_syncdication
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                bioShortDescription: null
+                bioLongDescription: null
+                address: null
+                phoneNumber: null
+                secondaryNumber: null
+                postalCode: null
+                avatarId: null
+                mediaId: null
+                websiteUrl: null
+                socialLinks: {}
+                tags: []
+                seoTitle: null
+                slug: team-3
+                seoDesc: null
+                createdBy: 800fef83-98f4-4e4e-9dc8-15e418e1fb0c
+                createdAt: '2024-09-26T21:27:53.283Z'
+                updatedAt: '2024-09-26T21:27:53.283Z'
+                deletedAt: null
+                displayOrder: null
+        '404':
+          description: Team not found.
+      summary: Update an existing team
+      tags:
+      - Teams
+    delete:
+      operationId: TeamsController_handleDeleteTeam
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team to delete
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: Team has been successfully deleted.
+        '404':
+          description: Team not found.
+      summary: Delete an existing team
+      tags:
+      - Teams
+  /cms/v1/teams/{id}/agents:
+    get:
+      operationId: TeamsController_handleGetTeamAgents
+      parameters:
+      - name: offset
+        required: false
+        in: query
+        description: The number of items to skip
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: The number of items to fetch
+        schema:
+          type: number
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: Team members have been successfully fetched.
+      summary: Fetch members of a specific team
+      tags:
+      - Teams
+    delete:
+      operationId: TeamsController_handleDeleteTeamAgents
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteTeamAgentDto'
+      responses:
+        '200':
+          description: Agents have been successfully removed from team.
+      summary: Remove members from a specific team
+      tags:
+      - Teams
+    post:
+      operationId: TeamsController_handlePostTeamAgents
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the team
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTeamAgentDto'
+      responses:
+        '200':
+          description: Agents have been successfully added to team.
+          content:
+            application/json:
+              example:
+                teamId: c7c65a4c-4620-48d6-8463-6dab4ccf4cd8
+                agentId: 3dd21116-d8d1-469d-9772-777b337b061b
+                order: 1
+      summary: Add agent(s) to a team
+      tags:
+      - Teams
+  /cms/v1/teams/bulkCreate:
+    post:
+      operationId: TeamsController_handleBulkCreateTeams
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/CreateTeamDto'
+      responses:
+        '201':
+          description: Teams have been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDto'
+              example:
+              - teamId: fdf7a2ee-72d9-4c45-aa39-ecddac6659cb
+                name: Testier Team
+                email: test@testierestate.com
+                externalSource: anywhere_listing_syncdication
+                externalId: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+                bioShortDescription: null
+                bioLongDescription: null
+                address: null
+                phoneNumber: null
+                secondaryNumber: null
+                postalCode: null
+                avatarId: null
+                mediaId: null
+                websiteUrl: null
+                socialLinks: {}
+                tags: []
+                seoTitle: null
+                slug: team-3
+                seoDesc: null
+                createdBy: 800fef83-98f4-4e4e-9dc8-15e418e1fb0c
+                createdAt: '2024-09-26T21:27:53.283Z'
+                updatedAt: '2024-09-26T21:27:53.283Z'
+                deletedAt: null
+                displayOrder: null
+        '400':
+          description: The request failed.
+      summary: Bulk create new teams
+      tags:
+      - Teams
+  /cms/v1/teams/bulkDelete:
+    delete:
+      operationId: TeamsController_handleBulkDeleteTeam
+      parameters:
+      - name: teamId
+        required: true
+        in: query
+        description: The items to delete
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: The teams have been successfully deleted.
+        '404':
+          description: Teams not found.
+      summary: Delete multiple teams
+      tags:
+      - Teams
+components:
+  schemas:
+    TeamDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The team email
+        externalSource:
+          type: string
+          example: anywhere_listing_syncdication
+          description: The team external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The team external id
+        name:
+          type: string
+          example: John
+          description: The team name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The team phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The team secondary phone number
+        seoTitle:
+          type: string
+          example: team@email.com
+          description: The team SEO title
+        seoDesc:
+          type: string
+          example: team@email.com
+          description: The team SEO description
+        bioLongDescription:
+          type: string
+          example: A detailed description of the team
+          description: The team long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the team
+          description: The team short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the team avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
+          deprecated: true
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The team website URL
+        tags:
+          example: premium,best,exclusive
+          description: Comma separated tags
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: west-team
+          description: The team slug
+    CreateTeamDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The team email
+        name:
+          type: string
+          example: The Presence Team
+          description: The team name
+        externalSource:
+          type: string
+          example: anywhere_listing_syncdication
+          description: The team external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The team external id
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The team phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The team secondary phone number
+        seoTitle:
+          type: string
+          example: Presence Team | NYC Real Estate
+          description: The team SEO title
+        seoDesc:
+          type: string
+          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
+          description: The team SEO description
+        bioShortDescription:
+          type: string
+          example: A short description of The team
+          description: The team short bio
+        bioLongDescription:
+          type: string
+          example: A long description of the team
+          description: The team long bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The team address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the team avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The team website URL
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: presence-team
+          description: The team slug. Will be used as path for the details page
+      required:
+      - email
+      - name
+    GetTeamsResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+    UpdateTeamDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The team email
+        name:
+          type: string
+          example: The Presence Team
+          description: The team name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The team phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The team secondary phone number
+        seoTitle:
+          type: string
+          example: Presence Team | NYC Real Estate
+          description: The team SEO title
+        seoDesc:
+          type: string
+          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
+          description: The team SEO description
+        bioShortDescription:
+          type: string
+          example: A short description of The team
+          description: The team short bio
+        bioLongDescription:
+          type: string
+          example: A long description of the team
+          description: The team long bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The team address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the team avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The team website URL
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: presence-team
+          description: The team slug. Will be used as path for the details page
+        externalSource:
+          type: string
+          example: anywhere_listing_syncdication
+          description: The team external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The team external id
+    CreateTeamAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    DeleteTeamAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header.

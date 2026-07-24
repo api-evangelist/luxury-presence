@@ -1,0 +1,479 @@
+openapi: 3.0.0
+info:
+  title: API Documentation Agents Webhooks API
+  description: Luxury Presence API Documentation.
+  version: '1.0'
+  contact: {}
+servers:
+- url: https://api.luxurypresence.com
+  description: Production API server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Webhooks
+paths:
+  /crm/v1/webhooks:
+    post:
+      operationId: WebhookController_createWebhook
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWebhookDto'
+      responses:
+        '201':
+          description: Webhook subscription created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponseDto'
+        '400':
+          description: Invalid webhook data
+      summary: Create webhook subscription
+      tags:
+      - Webhooks
+    get:
+      operationId: WebhookController_listWebhooks
+      parameters: []
+      responses:
+        '200':
+          description: List of webhook subscriptions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookResponseDto'
+      summary: List webhook subscriptions
+      tags:
+      - Webhooks
+  /crm/v1/webhooks/{id}:
+    get:
+      operationId: WebhookController_getWebhook
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: Webhook subscription ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Webhook subscription details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponseDto'
+        '404':
+          description: Webhook subscription not found
+      summary: Get webhook subscription
+      tags:
+      - Webhooks
+    patch:
+      operationId: WebhookController_updateWebhook
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: Webhook subscription ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWebhookDto'
+      responses:
+        '200':
+          description: Webhook subscription updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookResponseDto'
+        '400':
+          description: Invalid webhook data
+        '404':
+          description: Webhook subscription not found
+      summary: Update webhook subscription
+      tags:
+      - Webhooks
+    delete:
+      operationId: WebhookController_deleteWebhook
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: Webhook subscription ID
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Webhook subscription deleted successfully
+        '404':
+          description: Webhook subscription not found
+      summary: Delete webhook subscription
+      tags:
+      - Webhooks
+  /crm/v1/webhooks/webhook-example:
+    post:
+      operationId: WebhookController_exampleWebhookPayload
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookPayloadDto'
+      responses:
+        '201':
+          description: ''
+      summary: Example webhook payload (for docs only)
+      tags:
+      - Webhooks
+components:
+  schemas:
+    WebhookPayloadDto:
+      type: object
+      properties:
+        eventName:
+          type: string
+          description: The event that triggered the webhook
+          example: leads
+        companyId:
+          type: string
+          description: The account which the webhook belongs to
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+        data:
+          description: The webhook payload data containing lead information
+          allOf:
+          - $ref: '#/components/schemas/LeadDto'
+      required:
+      - eventName
+      - companyId
+      - data
+    CreateWebhookDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-webhook-secret
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+      required:
+      - name
+      - url
+      - events
+    WebhookResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The webhook ID
+          example: 123e4567-e89b-12d3-a456-426614174000
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The event(s) that trigger the webhook
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+        createdAt:
+          format: date-time
+          type: string
+          description: When the webhook was created
+          example: '2023-01-01T00:00:00.000Z'
+        updatedAt:
+          format: date-time
+          type: string
+          description: When the webhook was last updated
+          example: '2023-01-02T00:00:00.000Z'
+      required:
+      - id
+      - name
+      - url
+      - events
+      - isActive
+      - createdAt
+      - updatedAt
+    LeadDto:
+      type: object
+      properties:
+        leadId:
+          type: string
+          example: 1d53e414-c8ad-49b8-9e23-2046f846d3d9
+          description: The lead ID
+        leadEmail:
+          type: string
+          example: buyer@gmail.com
+          description: The lead email address
+        leadFirstName:
+          type: string
+          example: Fluffy
+          description: The lead first name
+        leadLastName:
+          type: string
+          example: Trang
+          description: The lead last name
+        leadPhoneNumber:
+          type: string
+          example: (718) 555-5555
+          description: The lead phone number
+        leadSource:
+          type: string
+          enum:
+          - CONTACT_INQUIRY
+          - NEWSLETTER_SIGNUP
+          - HOME_SEARCH
+          - HOME_VALUE
+          - EBOOK
+          - NEW_ACCOUNT
+          - REFERRAL
+          - GOOGLE_SIGN_ON
+          - FORCED_LEAD_CAPTURE
+          - PROPERTY_ACCESS
+          - CONTACT
+          - IMPORTED
+          - COPILOT
+          - DASHBOARD
+          - FOLLOWUPBOSS
+          - BLN
+          example: HOME_SEARCH
+          description: The lead source
+        leadOrigin:
+          type: string
+          enum:
+          - HOME_SEARCH
+          - CLIENT_WEBSITE
+          - REFERRAL
+          - COPILOT
+          - FOLLOWUPBOSS
+          - DASHBOARD
+          example: HOME_SEARCH
+          description: The lead origin
+        activityType:
+          type: string
+          enum:
+          - SIGNUP
+          - SHARE_LISTING
+          - ADD_FAVORITE
+          - REMOVE_FAVORITE
+          - ADD_SEARCH
+          - REMOVE_SEARCH
+          - CONTACT_INQUIRY
+          - NEWSLETTER_SIGNUP
+          - HOME_SEARCH
+          - HOME_VALUE
+          - EBOOK
+          - LOGIN
+          - REFERRAL
+          - GOOGLE_SIGN_ON
+          - FORCED_LEAD_CAPTURE
+          - PROPERTY_ACCESS
+          - VIEW_LISTING
+          - COMM_BROKERAGE_OPT_OUT
+          - COMM_BROKERAGE_OPT_IN
+          - COMM_OPT_IN
+          - COMM_OPT_OUT
+          - SHARE_PRIVATE_LISTING
+          description: The lead activity or origin
+          example: ADD_FAVORITE
+        activityListingId:
+          type: string
+          example: b8fb82d6-03f4-42f3-ab57-526493b60949
+          description: The activity listing ID
+        activityAction:
+          type: string
+          enum:
+          - SIGNUP
+          - SHARE_LISTING
+          - ADD_FAVORITE
+          - REMOVE_FAVORITE
+          - ADD_SEARCH
+          - REMOVE_SEARCH
+          - CONTACT_INQUIRY
+          - NEWSLETTER_SIGNUP
+          - HOME_SEARCH
+          - HOME_VALUE
+          - EBOOK
+          - LOGIN
+          - REFERRAL
+          - GOOGLE_SIGN_ON
+          - FORCED_LEAD_CAPTURE
+          - PROPERTY_ACCESS
+          - VIEW_LISTING
+          - COMM_BROKERAGE_OPT_OUT
+          - COMM_BROKERAGE_OPT_IN
+          - COMM_OPT_IN
+          - COMM_OPT_OUT
+          - SHARE_PRIVATE_LISTING
+          example: ADD_FAVORITE
+          description: The activity action
+        activityMessage:
+          type: string
+          example: ''
+          description: The activity message
+        activityListingMlsId:
+          type: string
+          example: RLS30036941
+          description: The activity listing MLS ID
+        activityListingAddress:
+          type: string
+          example: 52 JANE Street 20
+          description: The activity listing address
+        activityListingCity:
+          type: string
+          example: New York City
+          description: The activity listing city
+        activityListingState:
+          type: string
+          example: NY
+          description: The activity listing state
+        activityListingZip:
+          type: string
+          example: '10014'
+          description: The activity listing zip code
+        activitySourceUrl:
+          type: string
+          example: p-110e844c-6254-4378-a176-f04ed117be61.staging.presencepreview.site/home-search/listings/b8fb82d6-03f4-42f3-ab57-526493b60949
+          description: The lead activity source URL, likely your website
+        meta:
+          description: Metadata object
+          allOf:
+          - $ref: '#/components/schemas/MetaDto'
+        assignedAgents:
+          description: Array of assigned agents
+          type: array
+          items:
+            $ref: '#/components/schemas/AssignedAgentDto'
+        assignedAgent:
+          description: Assigned agent object
+          allOf:
+          - $ref: '#/components/schemas/AssignedAgentDto'
+        isNewLead:
+          type: boolean
+          example: false
+          description: Whether this is a new lead
+        newPhoneNumber:
+          type: boolean
+          example: false
+          description: Whether this is a new phone number
+        companyName:
+          type: string
+          example: The Aster Group !!
+          description: The company name
+      required:
+      - activityType
+      - activitySourceUrl
+    MetaDto:
+      type: object
+      properties:
+        property:
+          type: object
+          example: null
+          description: Property metadata
+        development:
+          type: object
+          example: null
+          description: Development metadata
+    AssignedAgentDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+          description: Agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: Agent last name
+        email:
+          type: string
+          example: agent@example.com
+          description: Agent email address
+        mlsAgentId:
+          type: string
+          example: MLS123456
+          description: MLS agent ID
+    UpdateWebhookDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The webhook name
+          example: My Updated Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://updated-example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-updated-webhook-secret
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: new-value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header.

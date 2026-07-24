@@ -1,0 +1,1043 @@
+openapi: 3.0.0
+info:
+  title: API Documentation Agents API
+  description: Luxury Presence API Documentation.
+  version: '1.0'
+  contact: {}
+servers:
+- url: https://api.luxurypresence.com
+  description: Production API server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Agents
+paths:
+  /cms/v1/agents:
+    get:
+      operationId: AgentsController_handleGetAgents
+      parameters:
+      - name: offset
+        required: false
+        in: query
+        description: The number of items to skip
+        schema:
+          type: number
+      - name: limit
+        required: false
+        in: query
+        description: The number of items to fetch
+        schema:
+          type: number
+      - name: tags
+        required: false
+        in: query
+        description: Filter agents by tags
+        schema:
+          type: array
+          items:
+            type: string
+      - name: tagsMode
+        required: false
+        in: query
+        description: Mode to use for tags filters (default is ANY)
+        schema:
+          enum:
+          - ANY
+          - ALL
+          - NOT
+          - NOT_ALL
+          type: string
+      - name: externalSource
+        required: false
+        in: query
+        description: Filter agents by external source
+        schema:
+          type: string
+      - name: externalIds
+        required: false
+        in: query
+        description: Filter agents by external IDs
+        schema:
+          type: array
+          items:
+            type: string
+      - name: search
+        required: false
+        in: query
+        description: Search agents by name or email
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAgentsResponseDto'
+              example:
+                count: 1
+                items:
+                - agentId: 1b87e039-6d6d-4bda-ba32-259ded3c3f92
+                  firstName: Desiree
+                  lastName: Marks
+                  email: null
+                  displayOrder: 22
+                  phoneNumber: null
+                  secondaryNumber: null
+                  avatarId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                  mediaId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                  secondaryAvatarId: null
+                  secondaryMediaId: null
+                  videoId: null
+                  videoUrl: null
+                  position: null
+                  isLeadAgent: false
+                  websiteUrl: null
+                  bioLongDescription: null
+                  bioShortDescription: null
+                  address:
+                    line1: Beach avenue, 4834
+                    line2: null
+                    city: San Francisco
+                    state: CA
+                    postCode: '80246'
+                    country: United States
+                  socialLinks:
+                    facebook: https://facebook.com/123
+                    instagram: https://instagram.com/123
+                    podcast: https://podcast.com/123
+                    linkedin: https://linkedin.com/123
+                    youtube: https://youtube.com/123
+                    twitter: https://twitter.com/123
+                    tiktok: https://tiktok.com/123
+                    zillow: https://zillow.com/123
+                    yelp: https://yelp.com/123
+                    google: https://google.com/123
+                  postalCode: null
+                  seoTitle: Desiree Marks
+                  seoDescription: null
+                  license: null
+                  mlsIds: []
+                  slug: desiree-asdsad
+                  tags: []
+                  createdAt: '2023-01-05T18:18:52.473Z'
+                  updatedAt: '2025-01-23T15:01:53.276Z'
+      summary: Fetch existing agents
+      tags:
+      - Agents
+    post:
+      operationId: AgentsController_handlePostAgent
+      parameters:
+      - name: doNotAllowDuplicates
+        required: false
+        in: query
+        description: If true, agents can not have the same license number or email address
+        schema:
+          default: true
+          example: true
+          type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAgentDto'
+      responses:
+        '201':
+          description: Agent has been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDto'
+              example:
+                agentId: 1b87e039-6d6d-4bda-ba32-259ded3c3f92
+                firstName: Desiree
+                lastName: Marks
+                email: null
+                displayOrder: 22
+                phoneNumber: null
+                secondaryNumber: null
+                avatarId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                mediaId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                secondaryAvatarId: null
+                secondaryMediaId: null
+                videoId: null
+                videoUrl: null
+                position: null
+                isLeadAgent: false
+                websiteUrl: null
+                bioLongDescription: null
+                bioShortDescription: null
+                address:
+                  line1: Beach avenue, 4834
+                  line2: null
+                  city: San Francisco
+                  state: CA
+                  postCode: '80246'
+                  country: United States
+                socialLinks:
+                  facebook: https://facebook.com/123
+                  instagram: https://instagram.com/123
+                  podcast: https://podcast.com/123
+                  linkedin: https://linkedin.com/123
+                  youtube: https://youtube.com/123
+                  twitter: https://twitter.com/123
+                  tiktok: https://tiktok.com/123
+                  zillow: https://zillow.com/123
+                  yelp: https://yelp.com/123
+                  google: https://google.com/123
+                postalCode: null
+                seoTitle: Desiree Marks
+                seoDescription: null
+                license: null
+                mlsIds: []
+                slug: desiree-asdsad
+                tags: []
+                createdAt: '2023-01-05T18:18:52.473Z'
+                updatedAt: '2025-01-23T15:01:53.276Z'
+        '400':
+          description: The request failed.
+          content:
+            application/json:
+              examples:
+                Existing Agent License:
+                  summary: An agent with given license already exists
+                  value: An agent with given license already exists
+                Existing Agent Email Address:
+                  summary: An agent with given email address already exists
+                  value: An agent with given email address already exists
+      summary: Create a new agent
+      tags:
+      - Agents
+  /cms/v1/agents/{id}:
+    get:
+      operationId: AgentsController_handleGetAgent
+      parameters:
+      - name: id
+        required: true
+        in: path
+        description: The ID of the agent to fetch
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The agent has been successfully fetched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDto'
+              example:
+                agentId: 1b87e039-6d6d-4bda-ba32-259ded3c3f92
+                firstName: Desiree
+                lastName: Marks
+                email: null
+                displayOrder: 22
+                phoneNumber: null
+                secondaryNumber: null
+                avatarId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                mediaId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                secondaryAvatarId: null
+                secondaryMediaId: null
+                videoId: null
+                videoUrl: null
+                position: null
+                isLeadAgent: false
+                websiteUrl: null
+                bioLongDescription: null
+                bioShortDescription: null
+                address:
+                  line1: Beach avenue, 4834
+                  line2: null
+                  city: San Francisco
+                  state: CA
+                  postCode: '80246'
+                  country: United States
+                socialLinks:
+                  facebook: https://facebook.com/123
+                  instagram: https://instagram.com/123
+                  podcast: https://podcast.com/123
+                  linkedin: https://linkedin.com/123
+                  youtube: https://youtube.com/123
+                  twitter: https://twitter.com/123
+                  tiktok: https://tiktok.com/123
+                  zillow: https://zillow.com/123
+                  yelp: https://yelp.com/123
+                  google: https://google.com/123
+                postalCode: null
+                seoTitle: Desiree Marks
+                seoDescription: null
+                license: null
+                mlsIds: []
+                slug: desiree-asdsad
+                tags: []
+                createdAt: '2023-01-05T18:18:52.473Z'
+                updatedAt: '2025-01-23T15:01:53.276Z'
+        '404':
+          description: Agent not found.
+      summary: Fetch an existing agent
+      tags:
+      - Agents
+    patch:
+      operationId: AgentsController_handlePatchAgent
+      parameters:
+      - name: doNotAllowDuplicates
+        required: false
+        in: query
+        description: If true, agents can not have the same license number or email address
+        schema:
+          default: true
+          example: true
+          type: boolean
+      - name: id
+        required: true
+        in: path
+        description: The ID of the agent to update
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAgentDto'
+      responses:
+        '200':
+          description: The agent has been successfully updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDto'
+              example:
+                agentId: 1b87e039-6d6d-4bda-ba32-259ded3c3f92
+                firstName: Desiree
+                lastName: Marks
+                email: null
+                displayOrder: 22
+                phoneNumber: null
+                secondaryNumber: null
+                avatarId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                mediaId: 94b2d5b1-db80-476e-a7d5-3336436fa1ca
+                secondaryAvatarId: null
+                secondaryMediaId: null
+                videoId: null
+                videoUrl: null
+                position: null
+                isLeadAgent: false
+                websiteUrl: null
+                bioLongDescription: null
+                bioShortDescription: null
+                address:
+                  line1: Beach avenue, 4834
+                  line2: null
+                  city: San Francisco
+                  state: CA
+                  postCode: '80246'
+                  country: United States
+                socialLinks:
+                  facebook: https://facebook.com/123
+                  instagram: https://instagram.com/123
+                  podcast: https://podcast.com/123
+                  linkedin: https://linkedin.com/123
+                  youtube: https://youtube.com/123
+                  twitter: https://twitter.com/123
+                  tiktok: https://tiktok.com/123
+                  zillow: https://zillow.com/123
+                  yelp: https://yelp.com/123
+                  google: https://google.com/123
+                postalCode: null
+                seoTitle: Desiree Marks
+                seoDescription: null
+                license: null
+                mlsIds: []
+                slug: desiree-asdsad
+                tags: []
+                createdAt: '2023-01-05T18:18:52.473Z'
+                updatedAt: '2025-01-23T15:01:53.276Z'
+        '404':
+          description: Agent not found.
+      summary: Update an existing agent
+      tags:
+      - Agents
+    delete:
+      operationId: AgentsController_handleDeleteAgent
+      parameters:
+      - name: action
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: id
+        required: true
+        in: path
+        description: The ID of the agent to delete
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The agent has been successfully deleted.
+        '404':
+          description: Agent not found.
+      summary: Delete an existing agent
+      tags:
+      - Agents
+  /cms/v1/agents/bulkCreate:
+    post:
+      operationId: AgentsController_handleBulkCreateAgents
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkCreateAgentDto'
+      responses:
+        '201':
+          description: Agents created. With mlsAuthorizations, returns a per-agent results envelope { items[] }; 201 covers full and partial success. Without mlsAuthorizations the legacy data[] shape is returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    description: Per-agent result, 1:1 with the input agents[] order.
+                    items:
+                      type: object
+                      properties:
+                        agent:
+                          $ref: '#/components/schemas/AgentDto'
+                        mlsAuthorizationResults:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              mlsId:
+                                type: string
+                              status:
+                                type: string
+                                enum:
+                                - created
+                                - failed
+                              mlsAuthorizationId:
+                                type: string
+                              message:
+                                type: string
+                        warnings:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                                example: MLS_IDS_IGNORED
+                              message:
+                                type: string
+                        error:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                              example: BOARD_NOT_FOUND
+                            message:
+                              type: string
+        '400':
+          description: The request failed.
+        '502':
+          description: Every agent in the batch failed; per-agent errors are in items[].
+      summary: Bulk create new agents
+      tags:
+      - Agents
+  /cms/v1/agents/{id}/social-links/{type}:
+    delete:
+      operationId: AgentsController_handleDeleteAgentSocialLink
+      parameters:
+      - name: type
+        required: true
+        in: path
+        description: The type of social link to delete
+        schema:
+          enum:
+          - BROKERAGE
+          - FACEBOOK
+          - INSTAGRAM
+          - LINKEDIN
+          - PODCAST
+          - TWITTER
+          - YOUTUBE
+          - TIKTOK
+          - ZILLOW
+          - YELP
+          - GOOGLE
+          type: string
+      - name: id
+        required: true
+        in: path
+        description: The ID of the agent to delete
+        schema:
+          example: 21293a39-185c-4b5d-8171-994881cd5150
+          type: string
+      responses:
+        '200':
+          description: The social link has been successfully deleted.
+        '404':
+          description: Social link not found.
+      summary: Delete an agent social link
+      tags:
+      - Agents
+  /cms/v1/agents/bulkDelete:
+    delete:
+      operationId: AgentsController_handleBulkDeleteAgent
+      parameters:
+      - name: action
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: agentId
+        required: true
+        in: query
+        description: The items to delete
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: The agents have been successfully deleted.
+        '404':
+          description: Agents not found.
+      summary: Delete multiple agents
+      tags:
+      - Agents
+components:
+  schemas:
+    GetAgentsResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    AgentDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The agent email
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external ID
+        externalSource:
+          type: string
+          example: external_source
+          description: The agent external source
+        firstName:
+          type: string
+          example: John
+          description: The agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: The agent last name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent secondary phone number
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
+          deprecated: true
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+        secondaryAvatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent secondary avatar
+        secondaryAvatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use secondaryMediaId instead.
+          deprecated: true
+        secondaryMediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+        videoId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's video. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+        videoUrl:
+          type: string
+          example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
+          description: A URL containing agent video
+        position:
+          type: string
+          example: Executive Assistant
+          description: The agent position
+        isLeadAgent:
+          type: boolean
+          example: true
+          description: Whether or not to mark agent as lead agent
+        bioLongDescription:
+          type: string
+          example: A detailed description of the agent
+          description: The agent long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the agent
+          description: The agent short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The agent's personal website URL
+        seoTitle:
+          type: string
+          example: Premium real estate agent
+          description: The agent SEO title
+        seoDescription:
+          type: string
+          example: Premium real estate agent who has over 10 years of experience
+          description: The agent SEO description
+        license:
+          type: string
+          example: '123456'
+          description: The agent license
+        mlsIds:
+          example: HDSU1931
+          description: The agent MLS ID or an array of agent MLS IDs
+          type: array
+          items:
+            type: string
+        mlsAgentId:
+          type: string
+          example: HDSU1931,HDSU1932,HDSU1933
+          description: Comma-separated string of agent MLS IDs (generated from mlsIds array). Use mlsIds instead.
+          deprecated: true
+        slug:
+          type: string
+          example: marvin-west
+          description: The agent slug
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        offices:
+          description: Comma separated office IDs
+          example:
+          - 9322c384-fd8e-4a13-80cd-1cbd1ef95ba8
+          - 986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e
+          type: array
+          items:
+            type: string
+    UpdateAgentDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The agent email
+        firstName:
+          type: string
+          example: John
+          description: The agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: The agent last name
+        displayOrder:
+          type: number
+          example: 32
+          description: The agent display order
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent secondary phone number
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        secondaryAvatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent secondary avatar
+        secondaryAvatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoUrl:
+          type: string
+          example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
+          description: A URL containing the agent video
+        position:
+          type: string
+          example: Real Estate Agent
+          description: The agent position
+        isLeadAgent:
+          type: boolean
+          example: true
+          description: Whether or not to mark agent as lead agent
+        networkAgent:
+          type: boolean
+          example: true
+          description: Whether or not to mark agent as network agent
+        bioLongDescription:
+          type: string
+          example: A detailed description of the agent
+          description: The agent long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the agent
+          description: The agent short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        socialLinks:
+          example:
+            facebook: https://facebook.com/123
+            instagram: https://instagram.com/123
+            podcast: https://podcast.com/123
+            linkedin: https://linkedin.com/123
+            youtube: https://youtube.com/123
+            twitter: https://twitter.com/123
+            tiktok: https://tiktok.com/123
+            zillow: https://zillow.com/123
+            yelp: https://yelp.com/123
+            google: https://google.com/123
+          description: The agent social links
+          allOf:
+          - $ref: '#/components/schemas/SocialLinksDto'
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The agent's personal website URL
+        seoTitle:
+          type: string
+          example: Premium real estate agent
+          description: The agent SEO title
+        seoDescription:
+          type: string
+          example: Premium real estate agent who has over 10 years of experience
+          description: The agent SEO description
+        license:
+          type: string
+          example: '123456'
+          description: The agent license
+        mlsIds:
+          example: HDSU1931
+          description: The agent MLS ID or an array of agent MLS IDs
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: marvin-west
+          description: The agent slug. Will be used as path for the details page
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        offices:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: office id or array of office ids
+          type: array
+          items:
+            type: string
+        externalSource:
+          type: string
+          example: anywhere_listing_syncdication
+          description: The agent external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external id
+    BulkCreateAgentDto:
+      type: object
+      properties:
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateAgentDto'
+      required:
+      - agents
+    CreateAgentDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The agent email
+        firstName:
+          type: string
+          example: John
+          description: The agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: The agent last name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent secondary phone number
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        secondaryAvatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent secondary avatar
+        secondaryAvatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoUrl:
+          type: string
+          example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
+          description: A URL containing the agent video
+        position:
+          type: string
+          example: Real Estate Agent
+          description: The agent position
+        isLeadAgent:
+          type: boolean
+          example: true
+          description: Whether or not to mark agent as lead agent
+        bioLongDescription:
+          type: string
+          example: A detailed description of the agent
+          description: The agent long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the agent
+          description: The agent short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The agent address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        socialLinks:
+          example:
+            facebook: https://facebook.com/123
+            instagram: https://instagram.com/123
+            podcast: https://podcast.com/123
+            linkedin: https://linkedin.com/123
+            youtube: https://youtube.com/123
+            twitter: https://twitter.com/123
+            tiktok: https://tiktok.com/123
+            zillow: https://zillow.com/123
+            yelp: https://yelp.com/123
+            google: https://google.com/123
+          description: The agent social links
+          allOf:
+          - $ref: '#/components/schemas/SocialLinksDto'
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The agent's personal website URL
+        seoTitle:
+          type: string
+          example: Premium real estate agent
+          description: The agent SEO title
+        seoDescription:
+          type: string
+          example: Premium real estate agent who has over 10 years of experience
+          description: The agent SEO description
+        license:
+          type: string
+          example: '123456'
+          description: The agent license
+        mlsIds:
+          example: HDSU1931
+          description: The agent MLS ID or an array of agent MLS IDs
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: marvin-west
+          description: The agent slug. Will be used as path for the details page
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        offices:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: agent office or array of agent offices
+          type: array
+          items:
+            type: string
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The agent external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external id
+      required:
+      - email
+      - firstName
+      - lastName
+    SocialLinksDto:
+      type: object
+      properties:
+        facebook:
+          type: string
+          example: https://facebook.com/123
+          description: The Facebook Profile URL
+        instagram:
+          type: string
+          example: https://instagram.com/123
+          description: The Instagram Profile URL
+        youtube:
+          type: string
+          example: https://youtube.com/123
+          description: The Youtube URL
+        linkedin:
+          type: string
+          example: https://linkedin.com/in/123
+          description: The linkedin Profile URL
+        twitter:
+          type: string
+          example: https://x.com/123
+          description: The X Profile URL
+        tiktok:
+          type: string
+          example: https://tiktok.com/123
+          description: The tiktok Profile URL
+        zillow:
+          type: string
+          example: https://zillow.com/123
+          description: The Zillow Profile URL
+        yelp:
+          type: string
+          example: https://yelp.com/123
+          description: The Yelp Profile URL
+        google:
+          type: string
+          example: https://google.com/123
+          description: The Google Profile URL
+        podcast:
+          type: string
+          example: https://podcast.com/123
+          description: The podcast URL
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header.
