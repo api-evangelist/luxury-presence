@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/luxury-presence-cms-openapi.json
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: Public API documented as OpenAPI 3.0.0 (reconstructed from ReadMe reference pages).
+  - id: api-key-auth
+    conforms: true
+    evidence: securityScheme apiKey in header (x-api-key).
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth2/OIDC security scheme; API-key only.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors returned as plain HTTP status + JSON body, not application/problem+json.
+  - id: pagination-limit-offset
+    conforms: true
+    evidence: List endpoints accept limit/offset query params.
+  - id: webhooks
+    conforms: true
+    evidence: Webhook subscription endpoints (/crm/v1/webhooks) with HMAC-SHA256 signature verification.
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: No Sunset/Deprecation header support documented.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key mechanism documented.

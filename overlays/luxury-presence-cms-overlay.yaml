@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Luxury Presence Public API
+  version: 1.0.0
+extends: openapi/luxury-presence-cms-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enrichment: local-v1
+      x-api-key-header: x-api-key
+      x-rate-limit: 500/min per endpoint
+      x-webhooks: HMAC-SHA256 signed lead-activity events
+  - target: $.info
+    update:
+      contact:
+        name: Luxury Presence Support
+        email: support@luxurypresence.com
+        url: https://help.luxurypresence.com/helpcenter/s/
+  - target: $.info
+    update:
+      termsOfService: https://www.luxurypresence.com/terms-of-service/
+  - target: $.servers
+    update:
+      - url: https://api.luxurypresence.com
+        description: Production API server (base paths /cms/v1 and /crm/v1)

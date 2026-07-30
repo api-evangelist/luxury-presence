@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.luxurypresence.com/docs/getting-started
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.luxurypresence.com/docs/getting-started
+  notes: Versions targeted in the URL path, e.g. /cms/v1/agents.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or Sunset/Deprecation header support found.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+status_page_notes: >-
+  No public status page found (status.luxurypresence.com did not resolve).
+deprecated_operations: []

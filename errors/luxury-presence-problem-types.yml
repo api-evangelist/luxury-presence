@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.luxurypresence.com/docs/request-limits-error-handling-1
+derived_from: openapi/luxury-presence-cms-openapi.json
+format: http-status
+notes: >-
+  Luxury Presence returns plain HTTP status codes with a JSON body (no
+  application/problem+json / RFC 9457 envelope observed). Titles and remediation
+  below are captured verbatim from the published error-handling reference; the
+  status codes are cross-checked against the OpenAPI operation responses
+  (200/201/204 success; 400/404/429/500/502 errors).
+problems:
+  - status: 400
+    title: Bad Request
+    description: An invalid input parameter was passed into the request.
+    remediation: >-
+      Check data formatting and required fields. Agent records must have a unique
+      email address and a unique license number; duplicates are rejected with 400.
+  - status: 401
+    title: Not Authorized
+    description: >-
+      This may occur because you're missing an API key, or using one that isn't
+      active.
+    remediation: Check that the x-api-key header is present and the key is active.
+  - status: 404
+    title: Object Not Found
+    description: >-
+      This may occur when trying to update or delete a record that no longer
+      exists.
+    remediation: Verify the resource id exists before update/delete.
+  - status: 429
+    title: Too Many Requests
+    description: >-
+      You are exceeding the rate limit (500 requests per minute per endpoint).
+    remediation: >-
+      Use the bulk endpoints where possible and add more interval between
+      requests.
+  - status: 500
+    title: Internal Server Error
+    description: An internal error occurred.
+    remediation: Contact Luxury Presence support.
+  - status: 502
+    title: Bad Gateway
+    description: Upstream error surfaced on bulk-create operations.
+    source_operation: openapi/luxury-presence-cms-openapi.json#AgentsController_handleBulkCreateAgents

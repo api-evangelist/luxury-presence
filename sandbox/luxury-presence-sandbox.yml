@@ -1,0 +1,19 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.luxurypresence.com/docs/notes-on-agent-endpoints
+sandbox:
+  available: true
+  description: >-
+    Luxury Presence provides a Sandbox Account for testing API requests. Per the
+    Usage & Considerations docs: "You can test API requests via your Sandbox
+    Account by sending requests to our endpoints with your API Key."
+  test_separation: >-
+    Testing is done against a separate Sandbox Account (not a distinct base URL
+    or key-prefix scheme documented publicly). Requests use the same x-api-key
+    header mechanism as production.
+test_values:
+  published: false
+  notes: >-
+    No magic/test identifiers, test cards, or fixture tokens are published in the
+    public docs. Not fabricating any.
+docs: https://docs.luxurypresence.com/docs/notes-on-agent-endpoints

@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.luxurypresence.com/docs/getting-started
+derived_from: openapi/luxury-presence-cms-openapi.json
+authentication:
+  style: api-key
+  header: x-api-key
+  docs: https://docs.luxurypresence.com/docs/getting-started
+  notes: >-
+    Key generated in the dashboard (Settings > API Keys); admin role required to
+    manage keys. See authentication/luxury-presence-authentication.yml.
+versioning:
+  scheme: uri-path
+  example: https://api.luxurypresence.com/cms/v1/agents
+  current: v1
+  base_paths:
+    - /cms/v1   # agents, offices, teams, media
+    - /crm/v1   # webhooks
+pagination:
+  style: limit-offset
+  params:
+    - limit
+    - offset
+  example: /cms/v1/agents?limit=10&offset=10
+  response_meta: meta   # GetAgentsResponseDto / GetOfficesResponseDto / GetTeamsResponseDto carry a MetaDto
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented. Bulk create/delete
+    endpoints exist but do not advertise idempotent replay semantics.
+rate_limiting:
+  limit: 500 requests per minute per endpoint
+  exceeded_status: 429
+  docs: https://docs.luxurypresence.com/docs/request-limits-error-handling-1
+  guidance: Use bulk endpoints and add interval between requests.
+error_envelope:
+  format: http-status + json body
+  problem_details_rfc9457: false
+  catalog: errors/luxury-presence-problem-types.yml
+media_references:
+  notes: >-
+    Media (avatars, videos) are referenced by UUID on agent/office/team records
+    and resolved to CDN URLs via GET /cms/v1/media/{mediaId}.
+webhooks:
+  supported: true
+  surface: asyncapi/luxury-presence-leads-asyncapi.yml
+  signing: HMAC-SHA256 (x-lp-signature, x-lp-timestamp, x-lp-signature-version)
+cross_links:
+  authentication: authentication/luxury-presence-authentication.yml
+  errors: errors/luxury-presence-problem-types.yml
+  lifecycle: lifecycle/luxury-presence-lifecycle.yml
+  sandbox: sandbox/luxury-presence-sandbox.yml

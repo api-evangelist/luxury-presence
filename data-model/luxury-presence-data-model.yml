@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/luxury-presence-cms-openapi.json
+notes: >-
+  Entity-relationship graph derived from the Public API OpenAPI schemas and the
+  membership endpoints (offices/{id}/agents, teams/{id}/agents). Media is
+  referenced by UUID on entity records and resolved via GET /cms/v1/media/{id}.
+entities:
+  - name: Agent
+    schema: AgentDto
+    id: uuid
+    media_fields: [avatar, secondaryAvatar, video]
+  - name: Office
+    schema: OfficeDto
+    id: uuid
+  - name: Team
+    schema: TeamDto
+    id: uuid
+  - name: Media
+    schema: GetMediaResponseDto
+    id: uuid
+  - name: Webhook
+    schema: WebhookResponseDto
+    id: uuid
+  - name: Lead
+    schema: LeadDto
+    notes: Delivered via webhook payloads, not a CRUD resource.
+relationships:
+  - from: Office
+    to: Agent
+    type: has_many
+    via: offices/{id}/agents
+  - from: Team
+    to: Agent
+    type: has_many
+    via: teams/{id}/agents
+  - from: Agent
+    to: Office
+    type: belongs_to
+    via: office membership
+  - from: Agent
+    to: Team
+    type: belongs_to
+    via: team membership
+  - from: Agent
+    to: Media
+    type: has_many
+    via: avatar/secondaryAvatar/video UUID fields
+  - from: Office
+    to: Media
+    type: has_many
+    via: media UUID fields
+  - from: Team
+    to: Media
+    type: has_one
+    via: avatar UUID field
+  - from: Webhook
+    to: Company
+    type: belongs_to
+    via: companyId
+  - from: Lead
+    to: Agent
+    type: has_many
+    via: assignedAgents

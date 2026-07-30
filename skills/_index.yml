@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/luxury-presence-cms-openapi.json
+skills:
+  - file: luxury-presence-onboard-agents.md
+    name: Onboard agents to Luxury Presence
+    api: openapi/luxury-presence-cms-openapi.json
+    operations:
+      - AgentsController_handleBulkCreateAgents
+      - AgentsController_handleGetAgents
+      - AgentsController_handleGetAgent
+      - AgentsController_handlePatchAgent
+  - file: luxury-presence-manage-office-roster.md
+    name: Manage an office roster
+    api: openapi/luxury-presence-cms-openapi.json
+    operations:
+      - OfficesController_handlePostOffice
+      - OfficesController_handleGetOfficeAgents
+      - OfficesController_handlePostOfficeAgents
+      - OfficesController_handleDeleteOfficeAgents
+  - file: luxury-presence-subscribe-lead-webhooks.md
+    name: Subscribe to lead-activity webhooks
+    api: openapi/luxury-presence-cms-openapi.json
+    operations:
+      - WebhookController_createWebhook
+      - WebhookController_listWebhooks
+      - WebhookController_getWebhook
+      - WebhookController_deleteWebhook

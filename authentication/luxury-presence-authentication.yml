@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/luxury-presence-cms-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent
+    as the x-api-key request header.
+  sources:
+  - openapi/luxury-presence-cms-openapi.json

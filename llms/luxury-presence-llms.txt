@@ -1,0 +1,47 @@
+# Luxury Presence Public API Documentation
+
+> Documentation for Luxury Presence Public API
+
+## Guides
+- [Getting Started](https://docs.luxurypresence.com/docs/getting-started.md)
+- [Usage & Considerations](https://docs.luxurypresence.com/docs/notes-on-agent-endpoints.md)
+- [Request Limits & Error Handling](https://docs.luxurypresence.com/docs/request-limits-error-handling-1.md)
+- [Webhook Signature Verification](https://docs.luxurypresence.com/docs/webhook-signature-verification.md): This explains how to verify webhooks requests being sent from Luxury Presence.
+- [Webhook Events](https://docs.luxurypresence.com/docs/webhook-events.md): See what events are supported through webhooks integration
+
+## API Reference
+- [Fetch existing agents](https://docs.luxurypresence.com/reference/agentscontroller_handlegetagents.md)
+- [Create a new agent](https://docs.luxurypresence.com/reference/agentscontroller_handlepostagent.md)
+- [Fetch an existing agent](https://docs.luxurypresence.com/reference/agentscontroller_handlegetagent.md)
+- [Update an existing agent](https://docs.luxurypresence.com/reference/agentscontroller_handlepatchagent.md)
+- [Delete an existing agent](https://docs.luxurypresence.com/reference/agentscontroller_handledeleteagent.md)
+- [Bulk create new agents](https://docs.luxurypresence.com/reference/agentscontroller_handlebulkcreateagents.md)
+- [Delete an agent social link](https://docs.luxurypresence.com/reference/agentscontroller_handledeleteagentsociallink-1.md)
+- [Delete multiple agents](https://docs.luxurypresence.com/reference/agentscontroller_handlebulkdeleteagent.md)
+- [Fetch a media record by ID](https://docs.luxurypresence.com/reference/mediareadcontroller_getmedia.md)
+- [Fetch existing offices](https://docs.luxurypresence.com/reference/officescontroller_handlegetoffices.md)
+- [Create a new office](https://docs.luxurypresence.com/reference/officescontroller_handlepostoffice.md)
+- [Fetch an existing office](https://docs.luxurypresence.com/reference/officescontroller_handlegetoffice.md)
+- [Update an existing office](https://docs.luxurypresence.com/reference/officescontroller_handlepatchoffice.md)
+- [Delete an office](https://docs.luxurypresence.com/reference/officescontroller_handledeleteoffice.md)
+- [Bulk create new offices](https://docs.luxurypresence.com/reference/officescontroller_handlebulkcreateoffices.md)
+- [Delete multiple offices](https://docs.luxurypresence.com/reference/officescontroller_handlebulkdeleteoffice.md)
+- [Fetch members of a specific office](https://docs.luxurypresence.com/reference/officescontroller_handlegetofficeagents.md)
+- [Remove members from a specific office](https://docs.luxurypresence.com/reference/officescontroller_handledeleteofficeagents.md)
+- [Add agent(s) to an office](https://docs.luxurypresence.com/reference/officescontroller_handlepostofficeagents.md)
+- [Fetch existing teams](https://docs.luxurypresence.com/reference/teamscontroller_handlegetteams.md)
+- [Create a new team](https://docs.luxurypresence.com/reference/teamscontroller_handlepostteam.md)
+- [Fetch an existing team](https://docs.luxurypresence.com/reference/teamscontroller_handlegetteam.md)
+- [Update an existing team](https://docs.luxurypresence.com/reference/teamscontroller_handlepatchteam.md)
+- [Delete an existing team](https://docs.luxurypresence.com/reference/teamscontroller_handledeleteteam.md)
+- [Fetch members of a specific team](https://docs.luxurypresence.com/reference/teamscontroller_handlegetteamagents.md)
+- [Remove members from a specific team](https://docs.luxurypresence.com/reference/teamscontroller_handledeleteteamagents.md)
+- [Add agent(s) to a team](https://docs.luxurypresence.com/reference/teamscontroller_handlepostteamagents.md)
+- [Bulk create new teams](https://docs.luxurypresence.com/reference/teamscontroller_handlebulkcreateteams.md)
+- [Delete multiple teams](https://docs.luxurypresence.com/reference/teamscontroller_handlebulkdeleteteam.md)
+- [Create webhook subscription](https://docs.luxurypresence.com/reference/webhookcontroller_createwebhook.md)
+- [List webhook subscriptions](https://docs.luxurypresence.com/reference/webhookcontroller_listwebhooks.md)
+- [Get webhook subscription](https://docs.luxurypresence.com/reference/webhookcontroller_getwebhook.md)
+- [Update webhook subscription](https://docs.luxurypresence.com/reference/webhookcontroller_updatewebhook.md)
+- [Delete webhook subscription](https://docs.luxurypresence.com/reference/webhookcontroller_deletewebhook.md)
+- [Example webhook payload (for docs only)](https://docs.luxurypresence.com/reference/webhookcontroller_examplewebhookpayload.md)

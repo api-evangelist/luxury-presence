@@ -1,0 +1,14 @@
+{
+  "repo": "luxury-presence",
+  "feeds": [
+    {
+      "source": "https://help.luxurypresence.com/helpcenter/s/",
+      "feed_url": "https://help.luxurypresence.com/helpcenter/s/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-07-25T15:00:33Z"
+}

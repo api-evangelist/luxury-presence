@@ -1,0 +1,4375 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Documentation",
+    "description": "Luxury Presence API Documentation.",
+    "version": "1.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.luxurypresence.com",
+      "description": "Production API server"
+    }
+  ],
+  "paths": {
+    "/cms/v1/agents": {
+      "get": {
+        "operationId": "AgentsController_handleGetAgents",
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to skip",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to fetch",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query",
+            "description": "Filter agents by tags",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "tagsMode",
+            "required": false,
+            "in": "query",
+            "description": "Mode to use for tags filters (default is ANY)",
+            "schema": {
+              "enum": [
+                "ANY",
+                "ALL",
+                "NOT",
+                "NOT_ALL"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalSource",
+            "required": false,
+            "in": "query",
+            "description": "Filter agents by external source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalIds",
+            "required": false,
+            "in": "query",
+            "description": "Filter agents by external IDs",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Search agents by name or email",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAgentsResponseDto"
+                },
+                "example": {
+                  "count": 1,
+                  "items": [
+                    {
+                      "agentId": "1b87e039-6d6d-4bda-ba32-259ded3c3f92",
+                      "firstName": "Desiree",
+                      "lastName": "Marks",
+                      "email": null,
+                      "displayOrder": 22,
+                      "phoneNumber": null,
+                      "secondaryNumber": null,
+                      "avatarId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                      "mediaId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                      "secondaryAvatarId": null,
+                      "secondaryMediaId": null,
+                      "videoId": null,
+                      "videoUrl": null,
+                      "position": null,
+                      "isLeadAgent": false,
+                      "websiteUrl": null,
+                      "bioLongDescription": null,
+                      "bioShortDescription": null,
+                      "address": {
+                        "line1": "Beach avenue, 4834",
+                        "line2": null,
+                        "city": "San Francisco",
+                        "state": "CA",
+                        "postCode": "80246",
+                        "country": "United States"
+                      },
+                      "socialLinks": {
+                        "facebook": "https://facebook.com/123",
+                        "instagram": "https://instagram.com/123",
+                        "podcast": "https://podcast.com/123",
+                        "linkedin": "https://linkedin.com/123",
+                        "youtube": "https://youtube.com/123",
+                        "twitter": "https://twitter.com/123",
+                        "tiktok": "https://tiktok.com/123",
+                        "zillow": "https://zillow.com/123",
+                        "yelp": "https://yelp.com/123",
+                        "google": "https://google.com/123"
+                      },
+                      "postalCode": null,
+                      "seoTitle": "Desiree Marks",
+                      "seoDescription": null,
+                      "license": null,
+                      "mlsIds": [],
+                      "slug": "desiree-asdsad",
+                      "tags": [],
+                      "createdAt": "2023-01-05T18:18:52.473Z",
+                      "updatedAt": "2025-01-23T15:01:53.276Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Fetch existing agents",
+        "tags": [
+          "Agents"
+        ]
+      },
+      "post": {
+        "operationId": "AgentsController_handlePostAgent",
+        "parameters": [
+          {
+            "name": "doNotAllowDuplicates",
+            "required": false,
+            "in": "query",
+            "description": "If true, agents can not have the same license number or email address",
+            "schema": {
+              "default": true,
+              "example": true,
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Agent has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentDto"
+                },
+                "example": {
+                  "agentId": "1b87e039-6d6d-4bda-ba32-259ded3c3f92",
+                  "firstName": "Desiree",
+                  "lastName": "Marks",
+                  "email": null,
+                  "displayOrder": 22,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "avatarId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "mediaId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "secondaryAvatarId": null,
+                  "secondaryMediaId": null,
+                  "videoId": null,
+                  "videoUrl": null,
+                  "position": null,
+                  "isLeadAgent": false,
+                  "websiteUrl": null,
+                  "bioLongDescription": null,
+                  "bioShortDescription": null,
+                  "address": {
+                    "line1": "Beach avenue, 4834",
+                    "line2": null,
+                    "city": "San Francisco",
+                    "state": "CA",
+                    "postCode": "80246",
+                    "country": "United States"
+                  },
+                  "socialLinks": {
+                    "facebook": "https://facebook.com/123",
+                    "instagram": "https://instagram.com/123",
+                    "podcast": "https://podcast.com/123",
+                    "linkedin": "https://linkedin.com/123",
+                    "youtube": "https://youtube.com/123",
+                    "twitter": "https://twitter.com/123",
+                    "tiktok": "https://tiktok.com/123",
+                    "zillow": "https://zillow.com/123",
+                    "yelp": "https://yelp.com/123",
+                    "google": "https://google.com/123"
+                  },
+                  "postalCode": null,
+                  "seoTitle": "Desiree Marks",
+                  "seoDescription": null,
+                  "license": null,
+                  "mlsIds": [],
+                  "slug": "desiree-asdsad",
+                  "tags": [],
+                  "createdAt": "2023-01-05T18:18:52.473Z",
+                  "updatedAt": "2025-01-23T15:01:53.276Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed.",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Existing Agent License": {
+                    "summary": "An agent with given license already exists",
+                    "value": "An agent with given license already exists"
+                  },
+                  "Existing Agent Email Address": {
+                    "summary": "An agent with given email address already exists",
+                    "value": "An agent with given email address already exists"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new agent",
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/cms/v1/agents/{id}": {
+      "get": {
+        "operationId": "AgentsController_handleGetAgent",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the agent to fetch",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The agent has been successfully fetched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentDto"
+                },
+                "example": {
+                  "agentId": "1b87e039-6d6d-4bda-ba32-259ded3c3f92",
+                  "firstName": "Desiree",
+                  "lastName": "Marks",
+                  "email": null,
+                  "displayOrder": 22,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "avatarId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "mediaId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "secondaryAvatarId": null,
+                  "secondaryMediaId": null,
+                  "videoId": null,
+                  "videoUrl": null,
+                  "position": null,
+                  "isLeadAgent": false,
+                  "websiteUrl": null,
+                  "bioLongDescription": null,
+                  "bioShortDescription": null,
+                  "address": {
+                    "line1": "Beach avenue, 4834",
+                    "line2": null,
+                    "city": "San Francisco",
+                    "state": "CA",
+                    "postCode": "80246",
+                    "country": "United States"
+                  },
+                  "socialLinks": {
+                    "facebook": "https://facebook.com/123",
+                    "instagram": "https://instagram.com/123",
+                    "podcast": "https://podcast.com/123",
+                    "linkedin": "https://linkedin.com/123",
+                    "youtube": "https://youtube.com/123",
+                    "twitter": "https://twitter.com/123",
+                    "tiktok": "https://tiktok.com/123",
+                    "zillow": "https://zillow.com/123",
+                    "yelp": "https://yelp.com/123",
+                    "google": "https://google.com/123"
+                  },
+                  "postalCode": null,
+                  "seoTitle": "Desiree Marks",
+                  "seoDescription": null,
+                  "license": null,
+                  "mlsIds": [],
+                  "slug": "desiree-asdsad",
+                  "tags": [],
+                  "createdAt": "2023-01-05T18:18:52.473Z",
+                  "updatedAt": "2025-01-23T15:01:53.276Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Agent not found."
+          }
+        },
+        "summary": "Fetch an existing agent",
+        "tags": [
+          "Agents"
+        ]
+      },
+      "patch": {
+        "operationId": "AgentsController_handlePatchAgent",
+        "parameters": [
+          {
+            "name": "doNotAllowDuplicates",
+            "required": false,
+            "in": "query",
+            "description": "If true, agents can not have the same license number or email address",
+            "schema": {
+              "default": true,
+              "example": true,
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the agent to update",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The agent has been successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentDto"
+                },
+                "example": {
+                  "agentId": "1b87e039-6d6d-4bda-ba32-259ded3c3f92",
+                  "firstName": "Desiree",
+                  "lastName": "Marks",
+                  "email": null,
+                  "displayOrder": 22,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "avatarId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "mediaId": "94b2d5b1-db80-476e-a7d5-3336436fa1ca",
+                  "secondaryAvatarId": null,
+                  "secondaryMediaId": null,
+                  "videoId": null,
+                  "videoUrl": null,
+                  "position": null,
+                  "isLeadAgent": false,
+                  "websiteUrl": null,
+                  "bioLongDescription": null,
+                  "bioShortDescription": null,
+                  "address": {
+                    "line1": "Beach avenue, 4834",
+                    "line2": null,
+                    "city": "San Francisco",
+                    "state": "CA",
+                    "postCode": "80246",
+                    "country": "United States"
+                  },
+                  "socialLinks": {
+                    "facebook": "https://facebook.com/123",
+                    "instagram": "https://instagram.com/123",
+                    "podcast": "https://podcast.com/123",
+                    "linkedin": "https://linkedin.com/123",
+                    "youtube": "https://youtube.com/123",
+                    "twitter": "https://twitter.com/123",
+                    "tiktok": "https://tiktok.com/123",
+                    "zillow": "https://zillow.com/123",
+                    "yelp": "https://yelp.com/123",
+                    "google": "https://google.com/123"
+                  },
+                  "postalCode": null,
+                  "seoTitle": "Desiree Marks",
+                  "seoDescription": null,
+                  "license": null,
+                  "mlsIds": [],
+                  "slug": "desiree-asdsad",
+                  "tags": [],
+                  "createdAt": "2023-01-05T18:18:52.473Z",
+                  "updatedAt": "2025-01-23T15:01:53.276Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Agent not found."
+          }
+        },
+        "summary": "Update an existing agent",
+        "tags": [
+          "Agents"
+        ]
+      },
+      "delete": {
+        "operationId": "AgentsController_handleDeleteAgent",
+        "parameters": [
+          {
+            "name": "action",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the agent to delete",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The agent has been successfully deleted."
+          },
+          "404": {
+            "description": "Agent not found."
+          }
+        },
+        "summary": "Delete an existing agent",
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/cms/v1/agents/bulkCreate": {
+      "post": {
+        "operationId": "AgentsController_handleBulkCreateAgents",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkCreateAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Agents created. With mlsAuthorizations, returns a per-agent results envelope { items[] }; 201 covers full and partial success. Without mlsAuthorizations the legacy data[] shape is returned.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "description": "Per-agent result, 1:1 with the input agents[] order.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "agent": {
+                            "$ref": "#/components/schemas/AgentDto"
+                          },
+                          "mlsAuthorizationResults": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "mlsId": {
+                                  "type": "string"
+                                },
+                                "status": {
+                                  "type": "string",
+                                  "enum": [
+                                    "created",
+                                    "failed"
+                                  ]
+                                },
+                                "mlsAuthorizationId": {
+                                  "type": "string"
+                                },
+                                "message": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "warnings": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "code": {
+                                  "type": "string",
+                                  "example": "MLS_IDS_IGNORED"
+                                },
+                                "message": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "error": {
+                            "type": "object",
+                            "properties": {
+                              "code": {
+                                "type": "string",
+                                "example": "BOARD_NOT_FOUND"
+                              },
+                              "message": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed."
+          },
+          "502": {
+            "description": "Every agent in the batch failed; per-agent errors are in items[]."
+          }
+        },
+        "summary": "Bulk create new agents",
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/cms/v1/agents/{id}/social-links/{type}": {
+      "delete": {
+        "operationId": "AgentsController_handleDeleteAgentSocialLink",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "The type of social link to delete",
+            "schema": {
+              "enum": [
+                "BROKERAGE",
+                "FACEBOOK",
+                "INSTAGRAM",
+                "LINKEDIN",
+                "PODCAST",
+                "TWITTER",
+                "YOUTUBE",
+                "TIKTOK",
+                "ZILLOW",
+                "YELP",
+                "GOOGLE"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the agent to delete",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The social link has been successfully deleted."
+          },
+          "404": {
+            "description": "Social link not found."
+          }
+        },
+        "summary": "Delete an agent social link",
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/cms/v1/agents/bulkDelete": {
+      "delete": {
+        "operationId": "AgentsController_handleBulkDeleteAgent",
+        "parameters": [
+          {
+            "name": "action",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "agentId",
+            "required": true,
+            "in": "query",
+            "description": "The items to delete",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The agents have been successfully deleted."
+          },
+          "404": {
+            "description": "Agents not found."
+          }
+        },
+        "summary": "Delete multiple agents",
+        "tags": [
+          "Agents"
+        ]
+      }
+    },
+    "/cms/v1/media/{mediaId}": {
+      "get": {
+        "operationId": "MediaReadController_getMedia",
+        "parameters": [
+          {
+            "name": "mediaId",
+            "required": true,
+            "in": "path",
+            "description": "The UUID of the media record to fetch",
+            "schema": {
+              "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The media record has been successfully fetched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetMediaResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid mediaId format or missing company context."
+          },
+          "404": {
+            "description": "Media not found."
+          },
+          "500": {
+            "description": "Internal server error \u2014 GraphQL or upstream failure."
+          }
+        },
+        "summary": "Fetch a media record by ID",
+        "tags": [
+          "Media"
+        ]
+      }
+    },
+    "/cms/v1/offices": {
+      "get": {
+        "operationId": "OfficesController_handleGetOffices",
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to skip",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to fetch",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "externalSource",
+            "required": false,
+            "in": "query",
+            "description": "The external source of the office",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalIds",
+            "required": false,
+            "in": "query",
+            "description": "The external IDs of the offices",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "The search query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOfficesResponseDto"
+                },
+                "example": {
+                  "count": 1,
+                  "items": [
+                    {
+                      "officeId": "8068aff2-246c-4e01-b548-044d7ca1460f",
+                      "mediaId": [
+                        "f534988e-4671-4709-bb82-c06bc8b02d87"
+                      ],
+                      "mediaIds": [
+                        "f534988e-4671-4709-bb82-c06bc8b02d87"
+                      ],
+                      "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                      "externalSource": "anywhere_listing_syndication",
+                      "name": "1655 Almeida Street",
+                      "slug": "my-office",
+                      "officeMlsId": "12313",
+                      "shortDescription": null,
+                      "fullDescription": null,
+                      "address": {
+                        "line1": null,
+                        "line2": null,
+                        "city": null,
+                        "state": null,
+                        "postCode": null,
+                        "country": null
+                      },
+                      "phone": null,
+                      "email": null,
+                      "officeHours": {
+                        "Friday": {
+                          "closed": false,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Monday": {
+                          "closed": false,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Sunday": {
+                          "closed": true,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Tuesday": {
+                          "closed": false,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Saturday": {
+                          "closed": true,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Thursday": {
+                          "closed": false,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        },
+                        "Wednesday": {
+                          "closed": false,
+                          "closingAt": "17:00",
+                          "openingAt": "09:00"
+                        }
+                      },
+                      "coordinates": {},
+                      "googlePlaceData": null,
+                      "seoTitle": "my office",
+                      "seoDescription": null,
+                      "createdAt": "2023-12-20T20:14:46.382Z",
+                      "updatedAt": "2024-05-09T22:47:08.962Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Fetch existing offices",
+        "tags": [
+          "Offices"
+        ]
+      },
+      "post": {
+        "operationId": "OfficesController_handlePostOffice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOfficeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Office has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeDto"
+                },
+                "example": {
+                  "officeId": "8068aff2-246c-4e01-b548-044d7ca1460f",
+                  "mediaId": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "mediaIds": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "externalSource": "anywhere_listing_syndication",
+                  "name": "1655 Almeida Street",
+                  "slug": "my-office",
+                  "officeMlsId": "12313",
+                  "shortDescription": null,
+                  "fullDescription": null,
+                  "address": {
+                    "line1": null,
+                    "line2": null,
+                    "city": null,
+                    "state": null,
+                    "postCode": null,
+                    "country": null
+                  },
+                  "phone": null,
+                  "email": null,
+                  "officeHours": {
+                    "Friday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Monday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Sunday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Tuesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Saturday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Thursday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Wednesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    }
+                  },
+                  "coordinates": {},
+                  "googlePlaceData": null,
+                  "seoTitle": "my office",
+                  "seoDescription": null,
+                  "createdAt": "2023-12-20T20:14:46.382Z",
+                  "updatedAt": "2024-05-09T22:47:08.962Z"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new office",
+        "tags": [
+          "Offices"
+        ]
+      }
+    },
+    "/cms/v1/offices/{id}": {
+      "get": {
+        "operationId": "OfficesController_handleGetOffice",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office to fetch",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The office has been successfully fetched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeDto"
+                },
+                "example": {
+                  "officeId": "8068aff2-246c-4e01-b548-044d7ca1460f",
+                  "mediaId": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "mediaIds": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "externalSource": "anywhere_listing_syndication",
+                  "name": "1655 Almeida Street",
+                  "slug": "my-office",
+                  "officeMlsId": "12313",
+                  "shortDescription": null,
+                  "fullDescription": null,
+                  "address": {
+                    "line1": null,
+                    "line2": null,
+                    "city": null,
+                    "state": null,
+                    "postCode": null,
+                    "country": null
+                  },
+                  "phone": null,
+                  "email": null,
+                  "officeHours": {
+                    "Friday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Monday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Sunday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Tuesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Saturday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Thursday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Wednesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    }
+                  },
+                  "coordinates": {},
+                  "googlePlaceData": null,
+                  "seoTitle": "my office",
+                  "seoDescription": null,
+                  "createdAt": "2023-12-20T20:14:46.382Z",
+                  "updatedAt": "2024-05-09T22:47:08.962Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Office not found."
+          }
+        },
+        "summary": "Fetch an existing office",
+        "tags": [
+          "Offices"
+        ]
+      },
+      "patch": {
+        "operationId": "OfficesController_handlePatchOffice",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office to update",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOfficeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The office has been successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeDto"
+                },
+                "example": {
+                  "officeId": "8068aff2-246c-4e01-b548-044d7ca1460f",
+                  "mediaId": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "mediaIds": [
+                    "f534988e-4671-4709-bb82-c06bc8b02d87"
+                  ],
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "externalSource": "anywhere_listing_syndication",
+                  "name": "1655 Almeida Street",
+                  "slug": "my-office",
+                  "officeMlsId": "12313",
+                  "shortDescription": null,
+                  "fullDescription": null,
+                  "address": {
+                    "line1": null,
+                    "line2": null,
+                    "city": null,
+                    "state": null,
+                    "postCode": null,
+                    "country": null
+                  },
+                  "phone": null,
+                  "email": null,
+                  "officeHours": {
+                    "Friday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Monday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Sunday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Tuesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Saturday": {
+                      "closed": true,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Thursday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    },
+                    "Wednesday": {
+                      "closed": false,
+                      "closingAt": "17:00",
+                      "openingAt": "09:00"
+                    }
+                  },
+                  "coordinates": {},
+                  "googlePlaceData": null,
+                  "seoTitle": "my office",
+                  "seoDescription": null,
+                  "createdAt": "2023-12-20T20:14:46.382Z",
+                  "updatedAt": "2024-05-09T22:47:08.962Z"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Office not found."
+          }
+        },
+        "summary": "Update an existing office",
+        "tags": [
+          "Offices"
+        ]
+      },
+      "delete": {
+        "operationId": "OfficesController_handleDeleteOffice",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office to delete",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The office has been successfully deleted."
+          },
+          "404": {
+            "description": "Office not found."
+          }
+        },
+        "summary": "Delete an office",
+        "tags": [
+          "Offices"
+        ]
+      }
+    },
+    "/cms/v1/offices/bulkCreate": {
+      "post": {
+        "operationId": "OfficesController_handleBulkCreateOffices",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BulkCreateOfficeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Offices have been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeDto"
+                },
+                "example": [
+                  {
+                    "officeId": "8068aff2-246c-4e01-b548-044d7ca1460f",
+                    "mediaId": [
+                      "f534988e-4671-4709-bb82-c06bc8b02d87"
+                    ],
+                    "mediaIds": [
+                      "f534988e-4671-4709-bb82-c06bc8b02d87"
+                    ],
+                    "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                    "externalSource": "anywhere_listing_syndication",
+                    "name": "1655 Almeida Street",
+                    "slug": "my-office",
+                    "officeMlsId": "12313",
+                    "shortDescription": null,
+                    "fullDescription": null,
+                    "address": {
+                      "line1": null,
+                      "line2": null,
+                      "city": null,
+                      "state": null,
+                      "postCode": null,
+                      "country": null
+                    },
+                    "phone": null,
+                    "email": null,
+                    "officeHours": {
+                      "Friday": {
+                        "closed": false,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Monday": {
+                        "closed": false,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Sunday": {
+                        "closed": true,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Tuesday": {
+                        "closed": false,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Saturday": {
+                        "closed": true,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Thursday": {
+                        "closed": false,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      },
+                      "Wednesday": {
+                        "closed": false,
+                        "closingAt": "17:00",
+                        "openingAt": "09:00"
+                      }
+                    },
+                    "coordinates": {},
+                    "googlePlaceData": null,
+                    "seoTitle": "my office",
+                    "seoDescription": null,
+                    "createdAt": "2023-12-20T20:14:46.382Z",
+                    "updatedAt": "2024-05-09T22:47:08.962Z"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed."
+          }
+        },
+        "summary": "Bulk create new offices",
+        "tags": [
+          "Offices"
+        ]
+      }
+    },
+    "/cms/v1/offices/bulkDelete": {
+      "delete": {
+        "operationId": "OfficesController_handleBulkDeleteOffice",
+        "parameters": [
+          {
+            "name": "officeId",
+            "required": true,
+            "in": "query",
+            "description": "The items to delete",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The offices have been successfully deleted."
+          },
+          "404": {
+            "description": "Offices not found."
+          }
+        },
+        "summary": "Delete multiple offices",
+        "tags": [
+          "Offices"
+        ]
+      }
+    },
+    "/cms/v1/offices/{id}/agents": {
+      "get": {
+        "operationId": "OfficesController_handleGetOfficeAgents",
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to skip",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to fetch",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Office members have been successfully fetched."
+          }
+        },
+        "summary": "Fetch members of a specific office",
+        "tags": [
+          "Offices"
+        ]
+      },
+      "delete": {
+        "operationId": "OfficesController_handleDeleteOfficeAgents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteOfficeAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Agents have been successfully removed from office."
+          }
+        },
+        "summary": "Remove members from a specific office",
+        "tags": [
+          "Offices"
+        ]
+      },
+      "post": {
+        "operationId": "OfficesController_handlePostOfficeAgents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the office",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOfficeAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Agents have been successfully added to office.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "officeId": "c7c65a4c-4620-48d6-8463-6dab4ccf4cd8",
+                  "agentId": "3dd21116-d8d1-469d-9772-777b337b061b",
+                  "order": 1
+                }
+              }
+            }
+          }
+        },
+        "summary": "Add agent(s) to an office",
+        "tags": [
+          "Offices"
+        ]
+      }
+    },
+    "/cms/v1/teams": {
+      "get": {
+        "operationId": "TeamsController_handleGetTeams",
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to skip",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to fetch",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "externalIds",
+            "required": false,
+            "in": "query",
+            "description": "The external IDs of the teams",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "externalSource",
+            "required": false,
+            "in": "query",
+            "description": "The external source of the teams",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Allows filtering teams by name or email.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTeamsResponseDto"
+                },
+                "example": {
+                  "count": 1,
+                  "items": [
+                    {
+                      "teamId": "fdf7a2ee-72d9-4c45-aa39-ecddac6659cb",
+                      "name": "Testier Team",
+                      "email": "test@testierestate.com",
+                      "externalSource": "anywhere_listing_syncdication",
+                      "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                      "bioShortDescription": null,
+                      "bioLongDescription": null,
+                      "address": null,
+                      "phoneNumber": null,
+                      "secondaryNumber": null,
+                      "postalCode": null,
+                      "avatarId": null,
+                      "mediaId": null,
+                      "websiteUrl": null,
+                      "socialLinks": {},
+                      "tags": [],
+                      "seoTitle": null,
+                      "slug": "team-3",
+                      "seoDesc": null,
+                      "createdBy": "800fef83-98f4-4e4e-9dc8-15e418e1fb0c",
+                      "createdAt": "2024-09-26T21:27:53.283Z",
+                      "updatedAt": "2024-09-26T21:27:53.283Z",
+                      "deletedAt": null,
+                      "displayOrder": null
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Fetch existing teams",
+        "tags": [
+          "Teams"
+        ]
+      },
+      "post": {
+        "operationId": "TeamsController_handlePostTeam",
+        "parameters": [
+          {
+            "name": "doNotAllowDuplicates",
+            "required": false,
+            "in": "query",
+            "description": "If true, teams can not have the same email address",
+            "schema": {
+              "default": true,
+              "example": true,
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeamDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Team has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamDto"
+                },
+                "example": {
+                  "teamId": "fdf7a2ee-72d9-4c45-aa39-ecddac6659cb",
+                  "name": "Testier Team",
+                  "email": "test@testierestate.com",
+                  "externalSource": "anywhere_listing_syncdication",
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "bioShortDescription": null,
+                  "bioLongDescription": null,
+                  "address": null,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "postalCode": null,
+                  "avatarId": null,
+                  "mediaId": null,
+                  "websiteUrl": null,
+                  "socialLinks": {},
+                  "tags": [],
+                  "seoTitle": null,
+                  "slug": "team-3",
+                  "seoDesc": null,
+                  "createdBy": "800fef83-98f4-4e4e-9dc8-15e418e1fb0c",
+                  "createdAt": "2024-09-26T21:27:53.283Z",
+                  "updatedAt": "2024-09-26T21:27:53.283Z",
+                  "deletedAt": null,
+                  "displayOrder": null
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new team",
+        "tags": [
+          "Teams"
+        ]
+      }
+    },
+    "/cms/v1/teams/{id}": {
+      "get": {
+        "operationId": "TeamsController_handleGetTeam",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team to fetch",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The team has been successfully fetched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamDto"
+                },
+                "example": {
+                  "teamId": "fdf7a2ee-72d9-4c45-aa39-ecddac6659cb",
+                  "name": "Testier Team",
+                  "email": "test@testierestate.com",
+                  "externalSource": "anywhere_listing_syncdication",
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "bioShortDescription": null,
+                  "bioLongDescription": null,
+                  "address": null,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "postalCode": null,
+                  "avatarId": null,
+                  "mediaId": null,
+                  "websiteUrl": null,
+                  "socialLinks": {},
+                  "tags": [],
+                  "seoTitle": null,
+                  "slug": "team-3",
+                  "seoDesc": null,
+                  "createdBy": "800fef83-98f4-4e4e-9dc8-15e418e1fb0c",
+                  "createdAt": "2024-09-26T21:27:53.283Z",
+                  "updatedAt": "2024-09-26T21:27:53.283Z",
+                  "deletedAt": null,
+                  "displayOrder": null
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Team not found."
+          }
+        },
+        "summary": "Fetch an existing team",
+        "tags": [
+          "Teams"
+        ]
+      },
+      "patch": {
+        "operationId": "TeamsController_handlePatchTeam",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team to update",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          },
+          {
+            "name": "doNotAllowDuplicates",
+            "required": false,
+            "in": "query",
+            "description": "If true, teams can not have the same email address",
+            "schema": {
+              "default": true,
+              "example": true,
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTeamDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The team has been successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamDto"
+                },
+                "example": {
+                  "teamId": "fdf7a2ee-72d9-4c45-aa39-ecddac6659cb",
+                  "name": "Testier Team",
+                  "email": "test@testierestate.com",
+                  "externalSource": "anywhere_listing_syncdication",
+                  "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                  "bioShortDescription": null,
+                  "bioLongDescription": null,
+                  "address": null,
+                  "phoneNumber": null,
+                  "secondaryNumber": null,
+                  "postalCode": null,
+                  "avatarId": null,
+                  "mediaId": null,
+                  "websiteUrl": null,
+                  "socialLinks": {},
+                  "tags": [],
+                  "seoTitle": null,
+                  "slug": "team-3",
+                  "seoDesc": null,
+                  "createdBy": "800fef83-98f4-4e4e-9dc8-15e418e1fb0c",
+                  "createdAt": "2024-09-26T21:27:53.283Z",
+                  "updatedAt": "2024-09-26T21:27:53.283Z",
+                  "deletedAt": null,
+                  "displayOrder": null
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Team not found."
+          }
+        },
+        "summary": "Update an existing team",
+        "tags": [
+          "Teams"
+        ]
+      },
+      "delete": {
+        "operationId": "TeamsController_handleDeleteTeam",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team to delete",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team has been successfully deleted."
+          },
+          "404": {
+            "description": "Team not found."
+          }
+        },
+        "summary": "Delete an existing team",
+        "tags": [
+          "Teams"
+        ]
+      }
+    },
+    "/cms/v1/teams/{id}/agents": {
+      "get": {
+        "operationId": "TeamsController_handleGetTeamAgents",
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to skip",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "The number of items to fetch",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Team members have been successfully fetched."
+          }
+        },
+        "summary": "Fetch members of a specific team",
+        "tags": [
+          "Teams"
+        ]
+      },
+      "delete": {
+        "operationId": "TeamsController_handleDeleteTeamAgents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteTeamAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Agents have been successfully removed from team."
+          }
+        },
+        "summary": "Remove members from a specific team",
+        "tags": [
+          "Teams"
+        ]
+      },
+      "post": {
+        "operationId": "TeamsController_handlePostTeamAgents",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The ID of the team",
+            "schema": {
+              "example": "21293a39-185c-4b5d-8171-994881cd5150",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTeamAgentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Agents have been successfully added to team.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "teamId": "c7c65a4c-4620-48d6-8463-6dab4ccf4cd8",
+                  "agentId": "3dd21116-d8d1-469d-9772-777b337b061b",
+                  "order": 1
+                }
+              }
+            }
+          }
+        },
+        "summary": "Add agent(s) to a team",
+        "tags": [
+          "Teams"
+        ]
+      }
+    },
+    "/cms/v1/teams/bulkCreate": {
+      "post": {
+        "operationId": "TeamsController_handleBulkCreateTeams",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/CreateTeamDto"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Teams have been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamDto"
+                },
+                "example": [
+                  {
+                    "teamId": "fdf7a2ee-72d9-4c45-aa39-ecddac6659cb",
+                    "name": "Testier Team",
+                    "email": "test@testierestate.com",
+                    "externalSource": "anywhere_listing_syncdication",
+                    "externalId": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+                    "bioShortDescription": null,
+                    "bioLongDescription": null,
+                    "address": null,
+                    "phoneNumber": null,
+                    "secondaryNumber": null,
+                    "postalCode": null,
+                    "avatarId": null,
+                    "mediaId": null,
+                    "websiteUrl": null,
+                    "socialLinks": {},
+                    "tags": [],
+                    "seoTitle": null,
+                    "slug": "team-3",
+                    "seoDesc": null,
+                    "createdBy": "800fef83-98f4-4e4e-9dc8-15e418e1fb0c",
+                    "createdAt": "2024-09-26T21:27:53.283Z",
+                    "updatedAt": "2024-09-26T21:27:53.283Z",
+                    "deletedAt": null,
+                    "displayOrder": null
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "The request failed."
+          }
+        },
+        "summary": "Bulk create new teams",
+        "tags": [
+          "Teams"
+        ]
+      }
+    },
+    "/cms/v1/teams/bulkDelete": {
+      "delete": {
+        "operationId": "TeamsController_handleBulkDeleteTeam",
+        "parameters": [
+          {
+            "name": "teamId",
+            "required": true,
+            "in": "query",
+            "description": "The items to delete",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The teams have been successfully deleted."
+          },
+          "404": {
+            "description": "Teams not found."
+          }
+        },
+        "summary": "Delete multiple teams",
+        "tags": [
+          "Teams"
+        ]
+      }
+    },
+    "/crm/v1/webhooks": {
+      "post": {
+        "operationId": "WebhookController_createWebhook",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Webhook subscription created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid webhook data"
+          }
+        },
+        "summary": "Create webhook subscription",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "get": {
+        "operationId": "WebhookController_listWebhooks",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of webhook subscriptions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WebhookResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List webhook subscriptions",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/crm/v1/webhooks/{id}": {
+      "get": {
+        "operationId": "WebhookController_getWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Webhook subscription ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Webhook subscription details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Webhook subscription not found"
+          }
+        },
+        "summary": "Get webhook subscription",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "patch": {
+        "operationId": "WebhookController_updateWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Webhook subscription ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateWebhookDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook subscription updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WebhookResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid webhook data"
+          },
+          "404": {
+            "description": "Webhook subscription not found"
+          }
+        },
+        "summary": "Update webhook subscription",
+        "tags": [
+          "Webhooks"
+        ]
+      },
+      "delete": {
+        "operationId": "WebhookController_deleteWebhook",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Webhook subscription ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Webhook subscription deleted successfully"
+          },
+          "404": {
+            "description": "Webhook subscription not found"
+          }
+        },
+        "summary": "Delete webhook subscription",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    },
+    "/crm/v1/webhooks/webhook-example": {
+      "post": {
+        "operationId": "WebhookController_exampleWebhookPayload",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WebhookPayloadDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "Example webhook payload (for docs only)",
+        "tags": [
+          "Webhooks"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddressDto": {
+        "type": "object",
+        "properties": {
+          "line1": {
+            "type": "string",
+            "example": "Beach avenue, 4834",
+            "description": "The address first line"
+          },
+          "line2": {
+            "type": "string",
+            "example": "Beach avenue, 4834",
+            "description": "The address second line"
+          },
+          "city": {
+            "type": "string",
+            "example": "San Francisco",
+            "description": "The address city"
+          },
+          "state": {
+            "type": "string",
+            "example": "CA",
+            "description": "The agent address state"
+          },
+          "country": {
+            "type": "string",
+            "example": "United States",
+            "description": "The agent address country"
+          },
+          "postCode": {
+            "type": "string",
+            "example": "80246",
+            "description": "The agent address postal code"
+          }
+        }
+      },
+      "AgentDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The agent email"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The agent external ID"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "external_source",
+            "description": "The agent external source"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "description": "The agent first name"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "description": "The agent last name"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent secondary phone number"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.",
+            "deprecated": true
+          },
+          "mediaId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}."
+          },
+          "secondaryAvatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent secondary avatar"
+          },
+          "secondaryAvatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use secondaryMediaId instead.",
+            "deprecated": true
+          },
+          "secondaryMediaId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}."
+          },
+          "videoId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the agent's video. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}."
+          },
+          "videoUrl": {
+            "type": "string",
+            "example": "https://www.youtube.com/watch?v=ZU7RcwBxe3g",
+            "description": "A URL containing agent video"
+          },
+          "position": {
+            "type": "string",
+            "example": "Executive Assistant",
+            "description": "The agent position"
+          },
+          "isLeadAgent": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether or not to mark agent as lead agent"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A detailed description of the agent",
+            "description": "The agent long bio"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of the agent",
+            "description": "The agent short bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The agent's personal website URL"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Premium real estate agent",
+            "description": "The agent SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "Premium real estate agent who has over 10 years of experience",
+            "description": "The agent SEO description"
+          },
+          "license": {
+            "type": "string",
+            "example": "123456",
+            "description": "The agent license"
+          },
+          "mlsIds": {
+            "example": "HDSU1931",
+            "description": "The agent MLS ID or an array of agent MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mlsAgentId": {
+            "type": "string",
+            "example": "HDSU1931,HDSU1932,HDSU1933",
+            "description": "Comma-separated string of agent MLS IDs (generated from mlsIds array). Use mlsIds instead.",
+            "deprecated": true
+          },
+          "slug": {
+            "type": "string",
+            "example": "marvin-west",
+            "description": "The agent slug"
+          },
+          "tags": {
+            "example": [
+              "premium",
+              "agent",
+              "exclusive"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "offices": {
+            "description": "Comma separated office IDs",
+            "example": [
+              "9322c384-fd8e-4a13-80cd-1cbd1ef95ba8",
+              "986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "GetAgentsResponseDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentDto"
+            }
+          },
+          "count": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "items",
+          "count"
+        ]
+      },
+      "SocialLinksDto": {
+        "type": "object",
+        "properties": {
+          "facebook": {
+            "type": "string",
+            "example": "https://facebook.com/123",
+            "description": "The Facebook Profile URL"
+          },
+          "instagram": {
+            "type": "string",
+            "example": "https://instagram.com/123",
+            "description": "The Instagram Profile URL"
+          },
+          "youtube": {
+            "type": "string",
+            "example": "https://youtube.com/123",
+            "description": "The Youtube URL"
+          },
+          "linkedin": {
+            "type": "string",
+            "example": "https://linkedin.com/in/123",
+            "description": "The linkedin Profile URL"
+          },
+          "twitter": {
+            "type": "string",
+            "example": "https://x.com/123",
+            "description": "The X Profile URL"
+          },
+          "tiktok": {
+            "type": "string",
+            "example": "https://tiktok.com/123",
+            "description": "The tiktok Profile URL"
+          },
+          "zillow": {
+            "type": "string",
+            "example": "https://zillow.com/123",
+            "description": "The Zillow Profile URL"
+          },
+          "yelp": {
+            "type": "string",
+            "example": "https://yelp.com/123",
+            "description": "The Yelp Profile URL"
+          },
+          "google": {
+            "type": "string",
+            "example": "https://google.com/123",
+            "description": "The Google Profile URL"
+          },
+          "podcast": {
+            "type": "string",
+            "example": "https://podcast.com/123",
+            "description": "The podcast URL"
+          }
+        }
+      },
+      "CreateAgentDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The agent email"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "description": "The agent first name"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "description": "The agent last name"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent secondary phone number"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "secondaryAvatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent secondary avatar"
+          },
+          "secondaryAvatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "videoId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "videoUrl": {
+            "type": "string",
+            "example": "https://www.youtube.com/watch?v=ZU7RcwBxe3g",
+            "description": "A URL containing the agent video"
+          },
+          "position": {
+            "type": "string",
+            "example": "Real Estate Agent",
+            "description": "The agent position"
+          },
+          "isLeadAgent": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether or not to mark agent as lead agent"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A detailed description of the agent",
+            "description": "The agent long bio"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of the agent",
+            "description": "The agent short bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The agent address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "socialLinks": {
+            "example": {
+              "facebook": "https://facebook.com/123",
+              "instagram": "https://instagram.com/123",
+              "podcast": "https://podcast.com/123",
+              "linkedin": "https://linkedin.com/123",
+              "youtube": "https://youtube.com/123",
+              "twitter": "https://twitter.com/123",
+              "tiktok": "https://tiktok.com/123",
+              "zillow": "https://zillow.com/123",
+              "yelp": "https://yelp.com/123",
+              "google": "https://google.com/123"
+            },
+            "description": "The agent social links",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SocialLinksDto"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The agent's personal website URL"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Premium real estate agent",
+            "description": "The agent SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "Premium real estate agent who has over 10 years of experience",
+            "description": "The agent SEO description"
+          },
+          "license": {
+            "type": "string",
+            "example": "123456",
+            "description": "The agent license"
+          },
+          "mlsIds": {
+            "example": "HDSU1931",
+            "description": "The agent MLS ID or an array of agent MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "marvin-west",
+            "description": "The agent slug. Will be used as path for the details page"
+          },
+          "tags": {
+            "example": [
+              "premium",
+              "agent",
+              "exclusive"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "offices": {
+            "example": [
+              "f534988e-4671-4709-bb82-c06bc8b02d87"
+            ],
+            "description": "agent office or array of agent offices",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syndication",
+            "description": "The agent external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The agent external id"
+          }
+        },
+        "required": [
+          "email",
+          "firstName",
+          "lastName"
+        ]
+      },
+      "UpdateAgentDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The agent email"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "description": "The agent first name"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "description": "The agent last name"
+          },
+          "displayOrder": {
+            "type": "number",
+            "example": 32,
+            "description": "The agent display order"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The agent secondary phone number"
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "secondaryAvatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the agent secondary avatar"
+          },
+          "secondaryAvatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "videoId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "videoUrl": {
+            "type": "string",
+            "example": "https://www.youtube.com/watch?v=ZU7RcwBxe3g",
+            "description": "A URL containing the agent video"
+          },
+          "position": {
+            "type": "string",
+            "example": "Real Estate Agent",
+            "description": "The agent position"
+          },
+          "isLeadAgent": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether or not to mark agent as lead agent"
+          },
+          "networkAgent": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether or not to mark agent as network agent"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A detailed description of the agent",
+            "description": "The agent long bio"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of the agent",
+            "description": "The agent short bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "socialLinks": {
+            "example": {
+              "facebook": "https://facebook.com/123",
+              "instagram": "https://instagram.com/123",
+              "podcast": "https://podcast.com/123",
+              "linkedin": "https://linkedin.com/123",
+              "youtube": "https://youtube.com/123",
+              "twitter": "https://twitter.com/123",
+              "tiktok": "https://tiktok.com/123",
+              "zillow": "https://zillow.com/123",
+              "yelp": "https://yelp.com/123",
+              "google": "https://google.com/123"
+            },
+            "description": "The agent social links",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SocialLinksDto"
+              }
+            ]
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The agent's personal website URL"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Premium real estate agent",
+            "description": "The agent SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "Premium real estate agent who has over 10 years of experience",
+            "description": "The agent SEO description"
+          },
+          "license": {
+            "type": "string",
+            "example": "123456",
+            "description": "The agent license"
+          },
+          "mlsIds": {
+            "example": "HDSU1931",
+            "description": "The agent MLS ID or an array of agent MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "marvin-west",
+            "description": "The agent slug. Will be used as path for the details page"
+          },
+          "tags": {
+            "example": [
+              "premium",
+              "agent",
+              "exclusive"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "offices": {
+            "example": [
+              "f534988e-4671-4709-bb82-c06bc8b02d87"
+            ],
+            "description": "office id or array of office ids",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syncdication",
+            "description": "The agent external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The agent external id"
+          }
+        }
+      },
+      "BulkCreateAgentDto": {
+        "type": "object",
+        "properties": {
+          "agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateAgentDto"
+            }
+          }
+        },
+        "required": [
+          "agents"
+        ]
+      },
+      "GetMediaResponseDto": {
+        "type": "object",
+        "properties": {
+          "mediaId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "The media UUID"
+          },
+          "resourceType": {
+            "type": "string",
+            "example": "image",
+            "description": "The media resource type (e.g. \"image\", \"video\")"
+          },
+          "format": {
+            "type": "string",
+            "example": "jpg",
+            "description": "The media format (e.g. \"jpg\", \"png\", \"webp\", \"svg\")"
+          },
+          "width": {
+            "type": "number",
+            "example": 1920,
+            "description": "Original width in pixels"
+          },
+          "height": {
+            "type": "number",
+            "example": 1080,
+            "description": "Original height in pixels"
+          },
+          "alt": {
+            "type": "string",
+            "example": "A beautiful oceanfront property",
+            "description": "Alt text for the media"
+          },
+          "description": {
+            "type": "string",
+            "example": "A panoramic view of the oceanfront property at sunset",
+            "description": "Media description"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example.jpg",
+            "description": "The raw/base URL as originally uploaded. No CDN width transformation applied. Use this when you need the untransformed full-resolution asset."
+          },
+          "originalUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_original.jpg",
+            "description": "The Cloudinary or Cloudflare URL without any size transformation. Falls back to url if no CDN URL is available. Use this for the highest-quality untransformed version."
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_thumbnail.jpg",
+            "description": "CDN URL resized to 320px wide. Ideal for small previews, thumbnails, and icons. May be omitted \u2014 use url as fallback."
+          },
+          "smallUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_small.jpg",
+            "description": "CDN URL resized to 960px wide. Ideal for mobile-sized images. May be omitted \u2014 use url as fallback."
+          },
+          "mediumUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_medium.jpg",
+            "description": "CDN URL resized to 1280px wide. Good general-purpose size for tablet and medium displays. May be omitted \u2014 use url as fallback."
+          },
+          "largeUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_large.jpg",
+            "description": "CDN URL resized to 1920px wide. Ideal for hero images and full-width desktop displays. May be omitted \u2014 use url as fallback."
+          },
+          "xLargeUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_xlarge.jpg",
+            "description": "CDN URL resized to 2560px wide. For large and retina displays. May be omitted \u2014 falls back to largeUrl on the CDN."
+          },
+          "xxLargeUrl": {
+            "type": "string",
+            "example": "https://cdn.luxurypresence.com/media/example_xxlarge.jpg",
+            "description": "CDN URL resized to 3456px wide. For ultra-high-resolution displays. May be omitted \u2014 falls back to largeUrl on the CDN."
+          }
+        },
+        "required": [
+          "mediaId",
+          "url"
+        ]
+      },
+      "OfficeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Beach Office",
+            "description": "The office name"
+          },
+          "mediaId": {
+            "example": [
+              "f534988e-4671-4709-bb82-c06bc8b02d87"
+            ],
+            "description": "Array of media UUIDs associated with this office. Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaIds instead.",
+            "deprecated": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mediaIds": {
+            "example": [
+              "f534988e-4671-4709-bb82-c06bc8b02d87"
+            ],
+            "description": "Array of media UUIDs associated with this office \u2014 offices can have multiple media assets, so this is an array (unlike the single mediaId avatar on agents and teams). Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The office external ID"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syndication",
+            "description": "The office external source"
+          },
+          "tags": {
+            "example": [
+              "beach",
+              "rental"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "beach-office",
+            "description": "The office slug. Will be used as path for the details page"
+          },
+          "officeMlsId": {
+            "example": "HDSU1931",
+            "description": "The office MLS ID or an array of office MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shortDescription": {
+            "type": "string",
+            "example": "The #1 office in the Central New York area.",
+            "description": "The office description (short)"
+          },
+          "fullDescription": {
+            "type": "string",
+            "example": "We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...",
+            "description": "The office description (long)"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-457-8910",
+            "description": "The office phone number"
+          },
+          "email": {
+            "type": "string",
+            "example": "office@email.com",
+            "description": "The office email address"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "office@email.com",
+            "description": "The office SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "office@email.com",
+            "description": "The office SEO description"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "GetOfficesResponseDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfficeDto"
+            }
+          },
+          "count": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "items",
+          "count"
+        ]
+      },
+      "CoordinatesDto": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "example": 40.7630185,
+            "description": "The latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "example": -73.9694391,
+            "description": "The longitude"
+          }
+        }
+      },
+      "WorkingHoursDto": {
+        "type": "object",
+        "properties": {
+          "closed": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether or not the office is closed that day"
+          },
+          "closingAt": {
+            "type": "string",
+            "example": "17:00",
+            "description": "The closing time"
+          },
+          "openingAt": {
+            "type": "string",
+            "example": "09:00",
+            "description": "The opening time"
+          }
+        }
+      },
+      "OfficeHoursDto": {
+        "type": "object",
+        "properties": {
+          "Monday": {
+            "example": {
+              "closed": false,
+              "openingAt": "09:00",
+              "closingAt": "16:00"
+            },
+            "description": "The working hours on Mondays",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkingHoursDto"
+              }
+            ]
+          },
+          "Tuesday": {
+            "example": {
+              "closed": false,
+              "openingAt": "09:00",
+              "closingAt": "17:00"
+            },
+            "description": "The working hours on Tuesdays",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkingHoursDto"
+              }
+            ]
+          },
+          "Wednesday": {
+            "example": {
+              "closed": false,
+              "openingAt": "09:00",
+              "closingAt": "17:00"
+            },
+            "description": "The working hours on Wednesdays",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkingHoursDto"
+              }
+            ]
+          },
+          "Thursday": {
+            "example": {
+              "closed": false,
+              "openingAt": "09:00",
+              "closingAt": "17:00"
+            },
+            "description": "The working hours on Thursdays",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkingHoursDto"
+              }
+            ]
+          },
+          "Friday": {
+            "example": {
+              "closed": false,
+              "openingAt": "09:00",
+              "closingAt": "17:00"
+            },
+            "description": "The working hours on Fridays",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WorkingHoursDto"
+              }
+            ]
+          }
+        }
+      },
+      "CreateOfficeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Beach Office",
+            "description": "The office name"
+          },
+          "mediaId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "mediaUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the office media"
+          },
+          "tags": {
+            "type": "object",
+            "example": [
+              "beach",
+              "rental"
+            ],
+            "description": "Tag or array of tags for later filtering on website"
+          },
+          "slug": {
+            "type": "string",
+            "example": "beach-office",
+            "description": "The office slug. Will be used as path for the details page"
+          },
+          "officeMlsId": {
+            "example": "HDSU1931",
+            "description": "The office MLS ID or an array of office MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shortDescription": {
+            "type": "string",
+            "example": "The #1 office in the Central New York area.",
+            "description": "The office short description"
+          },
+          "fullDescription": {
+            "type": "string",
+            "example": "We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...",
+            "description": "The office long description"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "coordinates": {
+            "example": {
+              "latitude": 40.7630185,
+              "longitude": -73.9694391
+            },
+            "description": "The office coordinates",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CoordinatesDto"
+              }
+            ]
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-457-8910",
+            "description": "The office phone number"
+          },
+          "email": {
+            "type": "string",
+            "example": "office@email.com",
+            "description": "The office email address"
+          },
+          "officeHours": {
+            "example": {
+              "Monday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Tuesday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Wednesday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Thursday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Friday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              }
+            },
+            "description": "The office working hours",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OfficeHoursDto"
+              }
+            ]
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Office Name | San Francisco Real Estate",
+            "description": "The office SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "Connect with our team of dedicated agents. We're committed to providing exceptional service.",
+            "description": "The office SEO description"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syndication",
+            "description": "The office external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The office external ID"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "UpdateOfficeDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Beach Office",
+            "description": "The office name"
+          },
+          "mediaId": {
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID(s). This field is for reference/tracking purposes only and is not a direct link to the media.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mediaUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the office media"
+          },
+          "tags": {
+            "example": [
+              "beach",
+              "rental"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "beach-office",
+            "description": "The office slug. Will be used as path for the details page"
+          },
+          "officeMlsId": {
+            "example": "HDSU1931",
+            "description": "The office MLS ID or an array of office MLS IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shortDescription": {
+            "type": "string",
+            "example": "The #1 office in the Central New York area.",
+            "description": "The office short description"
+          },
+          "fullDescription": {
+            "type": "string",
+            "example": "We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...",
+            "description": "The office long description"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "coordinates": {
+            "example": {
+              "latitude": 40.7630185,
+              "longitude": -73.9694391
+            },
+            "description": "The office coordinates",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CoordinatesDto"
+              }
+            ]
+          },
+          "officeHours": {
+            "example": {
+              "Monday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Tuesday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Wednesday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Thursday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              },
+              "Friday": {
+                "closed": false,
+                "openingAt": "09:00",
+                "closingAt": "16:00"
+              }
+            },
+            "description": "The office working hours. Sending a partial object replaces any existing office hour data",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OfficeHoursDto"
+              }
+            ]
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-457-8910",
+            "description": "The office phone number"
+          },
+          "email": {
+            "type": "string",
+            "example": "office@email.com",
+            "description": "The office email address"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Office Name | San Francisco Real Estate",
+            "description": "The office SEO title"
+          },
+          "seoDescription": {
+            "type": "string",
+            "example": "Connect with our team of dedicated agents. We're committed to providing exceptional service.",
+            "description": "The office SEO description"
+          }
+        }
+      },
+      "BulkCreateOfficeDto": {
+        "type": "object",
+        "properties": {
+          "offices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateOfficeDto"
+            }
+          }
+        },
+        "required": [
+          "offices"
+        ]
+      },
+      "DeleteOfficeAgentDto": {
+        "type": "object",
+        "properties": {
+          "agentIds": {
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "The agent ID or an array of agent IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "agentIds"
+        ]
+      },
+      "CreateOfficeAgentDto": {
+        "type": "object",
+        "properties": {
+          "agentIds": {
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "The agent ID or an array of agent IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "agentIds"
+        ]
+      },
+      "TeamDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The team email"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syncdication",
+            "description": "The team external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The team external id"
+          },
+          "name": {
+            "type": "string",
+            "example": "John",
+            "description": "The team name"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team secondary phone number"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "team@email.com",
+            "description": "The team SEO title"
+          },
+          "seoDesc": {
+            "type": "string",
+            "example": "team@email.com",
+            "description": "The team SEO description"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A detailed description of the team",
+            "description": "The team long bio"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of the team",
+            "description": "The team short bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The office address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the team avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.",
+            "deprecated": true
+          },
+          "mediaId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}."
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The team website URL"
+          },
+          "tags": {
+            "example": "premium,best,exclusive",
+            "description": "Comma separated tags",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "west-team",
+            "description": "The team slug"
+          }
+        }
+      },
+      "GetTeamsResponseDto": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeamDto"
+            }
+          },
+          "count": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "items",
+          "count"
+        ]
+      },
+      "CreateTeamDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The team email"
+          },
+          "name": {
+            "type": "string",
+            "example": "The Presence Team",
+            "description": "The team name"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syncdication",
+            "description": "The team external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The team external id"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team secondary phone number"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Presence Team | NYC Real Estate",
+            "description": "The team SEO title"
+          },
+          "seoDesc": {
+            "type": "string",
+            "example": "Connect with our team of dedicated agents. We're committed to providing exceptional service.",
+            "description": "The team SEO description"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of The team",
+            "description": "The team short bio"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A long description of the team",
+            "description": "The team long bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The team address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the team avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The team website URL"
+          },
+          "tags": {
+            "example": [
+              "premium",
+              "agent",
+              "exclusive"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "presence-team",
+            "description": "The team slug. Will be used as path for the details page"
+          }
+        },
+        "required": [
+          "email",
+          "name"
+        ]
+      },
+      "UpdateTeamDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "email@example.com",
+            "description": "The team email"
+          },
+          "name": {
+            "type": "string",
+            "example": "The Presence Team",
+            "description": "The team name"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team phone number"
+          },
+          "secondaryNumber": {
+            "type": "string",
+            "example": "123-435-5321",
+            "description": "The team secondary phone number"
+          },
+          "seoTitle": {
+            "type": "string",
+            "example": "Presence Team | NYC Real Estate",
+            "description": "The team SEO title"
+          },
+          "seoDesc": {
+            "type": "string",
+            "example": "Connect with our team of dedicated agents. We're committed to providing exceptional service.",
+            "description": "The team SEO description"
+          },
+          "bioShortDescription": {
+            "type": "string",
+            "example": "A short description of The team",
+            "description": "The team short bio"
+          },
+          "bioLongDescription": {
+            "type": "string",
+            "example": "A long description of the team",
+            "description": "The team long bio"
+          },
+          "address": {
+            "example": {
+              "line1": "Beach avenue, 4834",
+              "line2": null,
+              "city": "San Francisco",
+              "state": "CA",
+              "postCode": "80246",
+              "country": "United States"
+            },
+            "description": "The team address",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            ]
+          },
+          "avatarUrl": {
+            "type": "string",
+            "example": "https://www.example.com/images/example.jpg",
+            "description": "An image URL containing the team avatar"
+          },
+          "avatarId": {
+            "type": "string",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media."
+          },
+          "websiteUrl": {
+            "type": "string",
+            "example": "example.com",
+            "description": "The team website URL"
+          },
+          "tags": {
+            "example": [
+              "premium",
+              "agent",
+              "exclusive"
+            ],
+            "description": "Tag or array of tags for later filtering on website",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slug": {
+            "type": "string",
+            "example": "presence-team",
+            "description": "The team slug. Will be used as path for the details page"
+          },
+          "externalSource": {
+            "type": "string",
+            "example": "anywhere_listing_syncdication",
+            "description": "The team external source"
+          },
+          "externalId": {
+            "type": "string",
+            "example": "0B4F722E-6FAE-4D56-BA9F-F325180C9BCE",
+            "description": "The team external id"
+          }
+        }
+      },
+      "DeleteTeamAgentDto": {
+        "type": "object",
+        "properties": {
+          "agentIds": {
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "The agent ID or an array of agent IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "agentIds"
+        ]
+      },
+      "CreateTeamAgentDto": {
+        "type": "object",
+        "properties": {
+          "agentIds": {
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87",
+            "description": "The agent ID or an array of agent IDs",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "agentIds"
+        ]
+      },
+      "CreateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The webhook name",
+            "example": "My Webhook"
+          },
+          "url": {
+            "type": "string",
+            "description": "The endpoint URL where webhook events will be sent",
+            "example": "https://example.com/webhook"
+          },
+          "events": {
+            "description": "The events to subscribe to",
+            "example": [
+              "leads"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "secret": {
+            "type": "string",
+            "description": "Secret key for signature verification",
+            "example": "my-webhook-secret"
+          },
+          "headers": {
+            "type": "object",
+            "description": "Custom headers to include in webhook requests",
+            "example": {
+              "X-Custom-Header": "value"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the webhook is active",
+            "default": true
+          }
+        },
+        "required": [
+          "name",
+          "url",
+          "events"
+        ]
+      },
+      "WebhookResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The webhook ID",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The webhook name",
+            "example": "My Webhook"
+          },
+          "url": {
+            "type": "string",
+            "description": "The endpoint URL where webhook events will be sent",
+            "example": "https://example.com/webhook"
+          },
+          "events": {
+            "description": "The event(s) that trigger the webhook",
+            "example": [
+              "leads"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "headers": {
+            "type": "object",
+            "description": "Custom headers to include in webhook requests",
+            "example": {
+              "X-Custom-Header": "value"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the webhook is active",
+            "default": true
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the webhook was created",
+            "example": "2023-01-01T00:00:00.000Z"
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "type": "string",
+            "description": "When the webhook was last updated",
+            "example": "2023-01-02T00:00:00.000Z"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "url",
+          "events",
+          "isActive",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "UpdateWebhookDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The webhook name",
+            "example": "My Updated Webhook"
+          },
+          "url": {
+            "type": "string",
+            "description": "The endpoint URL where webhook events will be sent",
+            "example": "https://updated-example.com/webhook"
+          },
+          "events": {
+            "description": "The events to subscribe to",
+            "example": [
+              "leads"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "secret": {
+            "type": "string",
+            "description": "Secret key for signature verification",
+            "example": "my-updated-webhook-secret"
+          },
+          "headers": {
+            "type": "object",
+            "description": "Custom headers to include in webhook requests",
+            "example": {
+              "X-Custom-Header": "new-value"
+            }
+          },
+          "isActive": {
+            "type": "boolean",
+            "example": true,
+            "description": "Whether the webhook is active",
+            "default": true
+          }
+        }
+      },
+      "MetaDto": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "object",
+            "example": null,
+            "description": "Property metadata"
+          },
+          "development": {
+            "type": "object",
+            "example": null,
+            "description": "Development metadata"
+          }
+        }
+      },
+      "AssignedAgentDto": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "John",
+            "description": "Agent first name"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe",
+            "description": "Agent last name"
+          },
+          "email": {
+            "type": "string",
+            "example": "agent@example.com",
+            "description": "Agent email address"
+          },
+          "mlsAgentId": {
+            "type": "string",
+            "example": "MLS123456",
+            "description": "MLS agent ID"
+          }
+        }
+      },
+      "LeadDto": {
+        "type": "object",
+        "properties": {
+          "leadId": {
+            "type": "string",
+            "example": "1d53e414-c8ad-49b8-9e23-2046f846d3d9",
+            "description": "The lead ID"
+          },
+          "leadEmail": {
+            "type": "string",
+            "example": "buyer@gmail.com",
+            "description": "The lead email address"
+          },
+          "leadFirstName": {
+            "type": "string",
+            "example": "Fluffy",
+            "description": "The lead first name"
+          },
+          "leadLastName": {
+            "type": "string",
+            "example": "Trang",
+            "description": "The lead last name"
+          },
+          "leadPhoneNumber": {
+            "type": "string",
+            "example": "(718) 555-5555",
+            "description": "The lead phone number"
+          },
+          "leadSource": {
+            "type": "string",
+            "enum": [
+              "CONTACT_INQUIRY",
+              "NEWSLETTER_SIGNUP",
+              "HOME_SEARCH",
+              "HOME_VALUE",
+              "EBOOK",
+              "NEW_ACCOUNT",
+              "REFERRAL",
+              "GOOGLE_SIGN_ON",
+              "FORCED_LEAD_CAPTURE",
+              "PROPERTY_ACCESS",
+              "CONTACT",
+              "IMPORTED",
+              "COPILOT",
+              "DASHBOARD",
+              "FOLLOWUPBOSS",
+              "BLN"
+            ],
+            "example": "HOME_SEARCH",
+            "description": "The lead source"
+          },
+          "leadOrigin": {
+            "type": "string",
+            "enum": [
+              "HOME_SEARCH",
+              "CLIENT_WEBSITE",
+              "REFERRAL",
+              "COPILOT",
+              "FOLLOWUPBOSS",
+              "DASHBOARD"
+            ],
+            "example": "HOME_SEARCH",
+            "description": "The lead origin"
+          },
+          "activityType": {
+            "type": "string",
+            "enum": [
+              "SIGNUP",
+              "SHARE_LISTING",
+              "ADD_FAVORITE",
+              "REMOVE_FAVORITE",
+              "ADD_SEARCH",
+              "REMOVE_SEARCH",
+              "CONTACT_INQUIRY",
+              "NEWSLETTER_SIGNUP",
+              "HOME_SEARCH",
+              "HOME_VALUE",
+              "EBOOK",
+              "LOGIN",
+              "REFERRAL",
+              "GOOGLE_SIGN_ON",
+              "FORCED_LEAD_CAPTURE",
+              "PROPERTY_ACCESS",
+              "VIEW_LISTING",
+              "COMM_BROKERAGE_OPT_OUT",
+              "COMM_BROKERAGE_OPT_IN",
+              "COMM_OPT_IN",
+              "COMM_OPT_OUT",
+              "SHARE_PRIVATE_LISTING"
+            ],
+            "description": "The lead activity or origin",
+            "example": "ADD_FAVORITE"
+          },
+          "activityListingId": {
+            "type": "string",
+            "example": "b8fb82d6-03f4-42f3-ab57-526493b60949",
+            "description": "The activity listing ID"
+          },
+          "activityAction": {
+            "type": "string",
+            "enum": [
+              "SIGNUP",
+              "SHARE_LISTING",
+              "ADD_FAVORITE",
+              "REMOVE_FAVORITE",
+              "ADD_SEARCH",
+              "REMOVE_SEARCH",
+              "CONTACT_INQUIRY",
+              "NEWSLETTER_SIGNUP",
+              "HOME_SEARCH",
+              "HOME_VALUE",
+              "EBOOK",
+              "LOGIN",
+              "REFERRAL",
+              "GOOGLE_SIGN_ON",
+              "FORCED_LEAD_CAPTURE",
+              "PROPERTY_ACCESS",
+              "VIEW_LISTING",
+              "COMM_BROKERAGE_OPT_OUT",
+              "COMM_BROKERAGE_OPT_IN",
+              "COMM_OPT_IN",
+              "COMM_OPT_OUT",
+              "SHARE_PRIVATE_LISTING"
+            ],
+            "example": "ADD_FAVORITE",
+            "description": "The activity action"
+          },
+          "activityMessage": {
+            "type": "string",
+            "example": "",
+            "description": "The activity message"
+          },
+          "activityListingMlsId": {
+            "type": "string",
+            "example": "RLS30036941",
+            "description": "The activity listing MLS ID"
+          },
+          "activityListingAddress": {
+            "type": "string",
+            "example": "52 JANE Street 20",
+            "description": "The activity listing address"
+          },
+          "activityListingCity": {
+            "type": "string",
+            "example": "New York City",
+            "description": "The activity listing city"
+          },
+          "activityListingState": {
+            "type": "string",
+            "example": "NY",
+            "description": "The activity listing state"
+          },
+          "activityListingZip": {
+            "type": "string",
+            "example": "10014",
+            "description": "The activity listing zip code"
+          },
+          "activitySourceUrl": {
+            "type": "string",
+            "example": "p-110e844c-6254-4378-a176-f04ed117be61.staging.presencepreview.site/home-search/listings/b8fb82d6-03f4-42f3-ab57-526493b60949",
+            "description": "The lead activity source URL, likely your website"
+          },
+          "meta": {
+            "description": "Metadata object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MetaDto"
+              }
+            ]
+          },
+          "assignedAgents": {
+            "description": "Array of assigned agents",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssignedAgentDto"
+            }
+          },
+          "assignedAgent": {
+            "description": "Assigned agent object",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssignedAgentDto"
+              }
+            ]
+          },
+          "isNewLead": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether this is a new lead"
+          },
+          "newPhoneNumber": {
+            "type": "boolean",
+            "example": false,
+            "description": "Whether this is a new phone number"
+          },
+          "companyName": {
+            "type": "string",
+            "example": "The Aster Group !!",
+            "description": "The company name"
+          }
+        },
+        "required": [
+          "activityType",
+          "activitySourceUrl"
+        ]
+      },
+      "WebhookPayloadDto": {
+        "type": "object",
+        "properties": {
+          "eventName": {
+            "type": "string",
+            "description": "The event that triggered the webhook",
+            "example": "leads"
+          },
+          "companyId": {
+            "type": "string",
+            "description": "The account which the webhook belongs to",
+            "example": "f534988e-4671-4709-bb82-c06bc8b02d87"
+          },
+          "data": {
+            "description": "The webhook payload data containing lead information",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LeadDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "eventName",
+          "companyId",
+          "data"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "API key generated from the Luxury Presence dashboard (Settings > API Keys). Sent as the x-api-key request header."
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

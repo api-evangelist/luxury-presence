@@ -1,0 +1,22 @@
+{
+  "provider": "luxury-presence",
+  "sources": [
+    "luxury-presence-agents-api-openapi.yml",
+    "luxury-presence-media-api-openapi.yml",
+    "luxury-presence-offices-api-openapi.yml",
+    "luxury-presence-teams-api-openapi.yml",
+    "luxury-presence-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "luxury-presence-agents-api-openapi.yml",
+    "luxury-presence-media-api-openapi.yml",
+    "luxury-presence-offices-api-openapi.yml",
+    "luxury-presence-teams-api-openapi.yml",
+    "luxury-presence-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

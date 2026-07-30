@@ -1,0 +1,109 @@
+generated: '2026-07-20'
+method: generated
+source: https://docs.luxurypresence.com/docs/webhook-events
+spec_type: AsyncAPI
+notes: >-
+  Generated from Luxury Presence's published webhook documentation (Webhook Events
+  + Webhook Signature Verification) and the WebhookPayloadDto/LeadDto schemas in the
+  Public API OpenAPI. Luxury Presence delivers real-time lead-activity events to
+  subscriber URLs registered via POST /crm/v1/webhooks. Requests are signed with
+  HMAC-SHA256 (headers x-lp-signature, x-lp-timestamp, x-lp-signature-version).
+asyncapi: 2.6.0
+info:
+  title: Luxury Presence Lead Activity Webhooks
+  version: '1.0'
+  description: >-
+    Outbound webhooks that deliver lead-activity events from Luxury Presence
+    websites. Currently the `leads` event is supported. Subscriptions are managed
+    through the Public API webhook endpoints (/crm/v1/webhooks).
+defaultContentType: application/json
+channels:
+  leads:
+    description: A new lead was registered, or an existing lead performed an action with an activity type.
+    subscribe:
+      operationId: onLeadActivity
+      bindings:
+        http:
+          headers:
+            type: object
+            properties:
+              x-lp-signature:
+                type: string
+                description: HMAC-SHA256 signature in hexadecimal.
+              x-lp-timestamp:
+                type: string
+                description: Unix timestamp (ms) when the signature was generated.
+              x-lp-signature-version:
+                type: string
+                description: Signature algorithm version (currently "v1").
+      message:
+        $ref: '#/components/messages/LeadActivityEvent'
+components:
+  messages:
+    LeadActivityEvent:
+      name: LeadActivityEvent
+      title: Lead Activity Event
+      contentType: application/json
+      payload:
+        type: object
+        required: [eventName, companyId, data]
+        properties:
+          eventName:
+            type: string
+            enum: [leads]
+          companyId:
+            type: string
+            description: The account which the webhook belongs to.
+          data:
+            type: object
+            properties:
+              leadId: { type: string }
+              leadEmail: { type: string }
+              leadFirstName: { type: string }
+              leadLastName: { type: string }
+              leadPhoneNumber: { type: string }
+              leadSource: { type: string }
+              leadOrigin: { type: string }
+              activityType:
+                type: string
+                description: One of the documented activity types.
+                enum:
+                  - SIGNUP
+                  - LOGIN
+                  - ADD_FAVORITE
+                  - REMOVE_FAVORITE
+                  - ADD_SEARCH
+                  - REMOVE_SEARCH
+                  - VIEW_LISTING
+                  - SHARE_LISTING
+                  - SHARE_PRIVATE_LISTING
+                  - CONTACT_INQUIRY
+                  - NEWSLETTER_SIGNUP
+                  - HOME_SEARCH
+                  - HOME_VALUE
+                  - EBOOK
+                  - REFERRAL
+                  - GOOGLE_SIGN_ON
+                  - FORCED_LEAD_CAPTURE
+                  - PROPERTY_ACCESS
+                  - COMM_OPT_IN
+                  - COMM_OPT_OUT
+                  - COMM_BROKERAGE_OPT_IN
+                  - COMM_BROKERAGE_OPT_OUT
+              activityListingId: { type: string }
+              activityListingMlsId: { type: string }
+              activityListingAddress: { type: string }
+              activityListingCity: { type: string }
+              activityListingState: { type: string }
+              activityListingZip: { type: string }
+              assignedAgents:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstName: { type: string }
+                    lastName: { type: string }
+                    email: { type: string }
+                    mlsAgentId: { type: string }
+              isNewLead: { type: boolean }
+              companyName: { type: string }
