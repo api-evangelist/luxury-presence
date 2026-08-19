@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Documentation Agents Offices API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Offices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch existing offices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/offices",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to fetch"
+              },
+              {
+                "name": "externalSource",
+                "value": "",
+                "type": "query",
+                "description": "The external source of the office"
+              },
+              {
+                "name": "externalIds",
+                "value": "",
+                "type": "query",
+                "description": "The external IDs of the offices"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search query"
+              }
+            ]
+          },
+          "docs": "Fetch existing offices"
+        },
+        {
+          "info": {
+            "name": "Create a new office",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/offices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new office"
+        },
+        {
+          "info": {
+            "name": "Fetch an existing office",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office to fetch"
+              }
+            ]
+          },
+          "docs": "Fetch an existing office"
+        },
+        {
+          "info": {
+            "name": "Update an existing office",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing office"
+        },
+        {
+          "info": {
+            "name": "Delete an office",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office to delete"
+              }
+            ]
+          },
+          "docs": "Delete an office"
+        },
+        {
+          "info": {
+            "name": "Bulk create new offices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/bulkCreate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk create new offices"
+        },
+        {
+          "info": {
+            "name": "Delete multiple offices",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/bulkDelete",
+            "params": [
+              {
+                "name": "officeId",
+                "value": "",
+                "type": "query",
+                "description": "The items to delete"
+              }
+            ]
+          },
+          "docs": "Delete multiple offices"
+        },
+        {
+          "info": {
+            "name": "Fetch members of a specific office",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id/agents",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to fetch"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office"
+              }
+            ]
+          },
+          "docs": "Fetch members of a specific office"
+        },
+        {
+          "info": {
+            "name": "Add agent(s) to an office",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id/agents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add agent(s) to an office"
+        },
+        {
+          "info": {
+            "name": "Remove members from a specific office",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/offices/:id/agents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the office"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove members from a specific office"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

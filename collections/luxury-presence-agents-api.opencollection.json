@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Documentation Agents API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch existing agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/agents",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to fetch"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter agents by tags"
+              },
+              {
+                "name": "tagsMode",
+                "value": "",
+                "type": "query",
+                "description": "Mode to use for tags filters (default is ANY)"
+              },
+              {
+                "name": "externalSource",
+                "value": "",
+                "type": "query",
+                "description": "Filter agents by external source"
+              },
+              {
+                "name": "externalIds",
+                "value": "",
+                "type": "query",
+                "description": "Filter agents by external IDs"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search agents by name or email"
+              }
+            ]
+          },
+          "docs": "Fetch existing agents"
+        },
+        {
+          "info": {
+            "name": "Create a new agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/agents",
+            "params": [
+              {
+                "name": "doNotAllowDuplicates",
+                "value": "",
+                "type": "query",
+                "description": "If true, agents can not have the same license number or email address"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new agent"
+        },
+        {
+          "info": {
+            "name": "Fetch an existing agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the agent to fetch"
+              }
+            ]
+          },
+          "docs": "Fetch an existing agent"
+        },
+        {
+          "info": {
+            "name": "Update an existing agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/:id",
+            "params": [
+              {
+                "name": "doNotAllowDuplicates",
+                "value": "",
+                "type": "query",
+                "description": "If true, agents can not have the same license number or email address"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the agent to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing agent"
+        },
+        {
+          "info": {
+            "name": "Delete an existing agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/:id",
+            "params": [
+              {
+                "name": "action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the agent to delete"
+              }
+            ]
+          },
+          "docs": "Delete an existing agent"
+        },
+        {
+          "info": {
+            "name": "Bulk create new agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/bulkCreate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk create new agents"
+        },
+        {
+          "info": {
+            "name": "Delete an agent social link",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/:id/social-links/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "The type of social link to delete"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the agent to delete"
+              }
+            ]
+          },
+          "docs": "Delete an agent social link"
+        },
+        {
+          "info": {
+            "name": "Delete multiple agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/agents/bulkDelete",
+            "params": [
+              {
+                "name": "action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "query",
+                "description": "The items to delete"
+              }
+            ]
+          },
+          "docs": "Delete multiple agents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

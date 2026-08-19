@@ -1,0 +1,296 @@
+{
+  "item": [
+    {
+      "id": "ca9b8f30-693e-46ef-91e1-eef484a61168",
+      "name": "Media",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "150b473e-f17a-4adf-aee3-992763ac25fe",
+          "name": "Fetch a media record by ID",
+          "request": {
+            "name": "Fetch a media record by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "media",
+                ":mediaId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mediaId",
+                  "description": "(Required) The UUID of the media record to fetch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "244459ce-0ee0-4ca2-ba9d-9a79fc21a4db",
+              "name": "The media record has been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "media",
+                    ":mediaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mediaId",
+                      "description": "(Required) The UUID of the media record to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"url\": \"https://cdn.luxurypresence.com/media/example.jpg\",\n  \"resourceType\": \"image\",\n  \"format\": \"jpg\",\n  \"width\": 1920,\n  \"height\": 1080,\n  \"alt\": \"A beautiful oceanfront property\",\n  \"description\": \"A panoramic view of the oceanfront property at sunset\",\n  \"originalUrl\": \"https://cdn.luxurypresence.com/media/example_original.jpg\",\n  \"thumbnailUrl\": \"https://cdn.luxurypresence.com/media/example_thumbnail.jpg\",\n  \"smallUrl\": \"https://cdn.luxurypresence.com/media/example_small.jpg\",\n  \"mediumUrl\": \"https://cdn.luxurypresence.com/media/example_medium.jpg\",\n  \"largeUrl\": \"https://cdn.luxurypresence.com/media/example_large.jpg\",\n  \"xLargeUrl\": \"https://cdn.luxurypresence.com/media/example_xlarge.jpg\",\n  \"xxLargeUrl\": \"https://cdn.luxurypresence.com/media/example_xxlarge.jpg\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "541ed243-6ee8-4a65-8c3c-d31274815114",
+              "name": "Invalid mediaId format or missing company context.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "media",
+                    ":mediaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mediaId",
+                      "description": "(Required) The UUID of the media record to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e1d2342-0b39-480a-8a63-ce08125b8811",
+              "name": "Media not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "media",
+                    ":mediaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mediaId",
+                      "description": "(Required) The UUID of the media record to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6702137c-45b0-4326-8da1-1a371b49bc03",
+              "name": "Internal server error — GraphQL or upstream failure.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "media",
+                    ":mediaId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mediaId",
+                      "description": "(Required) The UUID of the media record to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.luxurypresence.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "effd02d1-36f0-4858-8a9f-de016ac89787",
+    "name": "API Documentation Agents Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Luxury Presence API Documentation.",
+      "type": "text/plain"
+    }
+  }
+}

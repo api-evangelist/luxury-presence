@@ -1,0 +1,1407 @@
+{
+  "item": [
+    {
+      "id": "6eb37f3c-3941-4da6-af45-225235853d07",
+      "name": "Agents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e512c506-c15a-403d-b72a-7dfedb99aa4c",
+          "name": "Fetch existing agents",
+          "request": {
+            "name": "Fetch existing agents",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "The number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "The number of items to fetch"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Filter agents by tags"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Filter agents by tags"
+                },
+                {
+                  "disabled": false,
+                  "key": "tagsMode",
+                  "value": "<string>",
+                  "description": "Mode to use for tags filters (default is ANY)"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalSource",
+                  "value": "<string>",
+                  "description": "Filter agents by external source"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "Filter agents by external IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "Filter agents by external IDs"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search agents by name or email"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ef2127e-2b70-4c77-a21b-75dd6e46d0df",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tagsMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalSource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"items\": [\n    {\n      \"agentId\": \"1b87e039-6d6d-4bda-ba32-259ded3c3f92\",\n      \"firstName\": \"Desiree\",\n      \"lastName\": \"Marks\",\n      \"email\": null,\n      \"displayOrder\": 22,\n      \"phoneNumber\": null,\n      \"secondaryNumber\": null,\n      \"avatarId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n      \"mediaId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n      \"secondaryAvatarId\": null,\n      \"secondaryMediaId\": null,\n      \"videoId\": null,\n      \"videoUrl\": null,\n      \"position\": null,\n      \"isLeadAgent\": false,\n      \"websiteUrl\": null,\n      \"bioLongDescription\": null,\n      \"bioShortDescription\": null,\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": null,\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"postCode\": \"80246\",\n        \"country\": \"United States\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"postalCode\": null,\n      \"seoTitle\": \"Desiree Marks\",\n      \"seoDescription\": null,\n      \"license\": null,\n      \"mlsIds\": [],\n      \"slug\": \"desiree-asdsad\",\n      \"tags\": [],\n      \"createdAt\": \"2023-01-05T18:18:52.473Z\",\n      \"updatedAt\": \"2025-01-23T15:01:53.276Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3fb5d1e-4007-4808-812d-52e3307ae9f4",
+          "name": "Create a new agent",
+          "request": {
+            "name": "Create a new agent",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "doNotAllowDuplicates",
+                  "value": "true",
+                  "description": "If true, agents can not have the same license number or email address"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"secondaryNumber\": \"<string>\",\n  \"avatarUrl\": \"<string>\",\n  \"avatarId\": \"<string>\",\n  \"secondaryAvatarUrl\": \"<string>\",\n  \"secondaryAvatarId\": \"<string>\",\n  \"videoId\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"position\": \"<string>\",\n  \"isLeadAgent\": \"<boolean>\",\n  \"bioLongDescription\": \"<string>\",\n  \"bioShortDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"youtube\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"tiktok\": \"<string>\",\n    \"zillow\": \"<string>\",\n    \"yelp\": \"<string>\",\n    \"google\": \"<string>\",\n    \"podcast\": \"<string>\"\n  },\n  \"websiteUrl\": \"<string>\",\n  \"seoTitle\": \"<string>\",\n  \"seoDescription\": \"<string>\",\n  \"license\": \"<string>\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"offices\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"externalSource\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c4db34ce-dc4b-4cce-8a12-5817c77d5848",
+              "name": "Agent has been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n  \"position\": \"Real Estate Agent\",\n  \"isLeadAgent\": true,\n  \"bioLongDescription\": \"A detailed description of the agent\",\n  \"bioShortDescription\": \"A short description of the agent\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"websiteUrl\": \"example.com\",\n  \"seoTitle\": \"Premium real estate agent\",\n  \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n  \"license\": \"123456\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"marvin-west\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"offices\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentId\": \"1b87e039-6d6d-4bda-ba32-259ded3c3f92\",\n  \"firstName\": \"Desiree\",\n  \"lastName\": \"Marks\",\n  \"email\": null,\n  \"displayOrder\": 22,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"avatarId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"mediaId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"secondaryAvatarId\": null,\n  \"secondaryMediaId\": null,\n  \"videoId\": null,\n  \"videoUrl\": null,\n  \"position\": null,\n  \"isLeadAgent\": false,\n  \"websiteUrl\": null,\n  \"bioLongDescription\": null,\n  \"bioShortDescription\": null,\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": null,\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"postCode\": \"80246\",\n    \"country\": \"United States\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"postalCode\": null,\n  \"seoTitle\": \"Desiree Marks\",\n  \"seoDescription\": null,\n  \"license\": null,\n  \"mlsIds\": [],\n  \"slug\": \"desiree-asdsad\",\n  \"tags\": [],\n  \"createdAt\": \"2023-01-05T18:18:52.473Z\",\n  \"updatedAt\": \"2025-01-23T15:01:53.276Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aaa832eb-c696-40a8-9980-e3d004a6b6bb",
+              "name": "The request failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n  \"position\": \"Real Estate Agent\",\n  \"isLeadAgent\": true,\n  \"bioLongDescription\": \"A detailed description of the agent\",\n  \"bioShortDescription\": \"A short description of the agent\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"websiteUrl\": \"example.com\",\n  \"seoTitle\": \"Premium real estate agent\",\n  \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n  \"license\": \"123456\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"marvin-west\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"offices\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"An agent with given license already exists\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f1c6f81-f503-4b2e-9c38-404d8afa44ef",
+          "name": "Fetch an existing agent",
+          "request": {
+            "name": "Fetch an existing agent",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the agent to fetch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c928348-f5a7-4092-a3c4-375dc6e66006",
+              "name": "The agent has been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentId\": \"1b87e039-6d6d-4bda-ba32-259ded3c3f92\",\n  \"firstName\": \"Desiree\",\n  \"lastName\": \"Marks\",\n  \"email\": null,\n  \"displayOrder\": 22,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"avatarId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"mediaId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"secondaryAvatarId\": null,\n  \"secondaryMediaId\": null,\n  \"videoId\": null,\n  \"videoUrl\": null,\n  \"position\": null,\n  \"isLeadAgent\": false,\n  \"websiteUrl\": null,\n  \"bioLongDescription\": null,\n  \"bioShortDescription\": null,\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": null,\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"postCode\": \"80246\",\n    \"country\": \"United States\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"postalCode\": null,\n  \"seoTitle\": \"Desiree Marks\",\n  \"seoDescription\": null,\n  \"license\": null,\n  \"mlsIds\": [],\n  \"slug\": \"desiree-asdsad\",\n  \"tags\": [],\n  \"createdAt\": \"2023-01-05T18:18:52.473Z\",\n  \"updatedAt\": \"2025-01-23T15:01:53.276Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0dcfff22-4250-4906-b459-95ce9c6d9cbb",
+              "name": "Agent not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdc9b56a-2a4a-4a41-b6c4-8e2154b2f342",
+          "name": "Update an existing agent",
+          "request": {
+            "name": "Update an existing agent",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "doNotAllowDuplicates",
+                  "value": "true",
+                  "description": "If true, agents can not have the same license number or email address"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the agent to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"displayOrder\": \"<number>\",\n  \"phoneNumber\": \"<string>\",\n  \"secondaryNumber\": \"<string>\",\n  \"avatarUrl\": \"<string>\",\n  \"avatarId\": \"<string>\",\n  \"secondaryAvatarUrl\": \"<string>\",\n  \"secondaryAvatarId\": \"<string>\",\n  \"videoId\": \"<string>\",\n  \"videoUrl\": \"<string>\",\n  \"position\": \"<string>\",\n  \"isLeadAgent\": \"<boolean>\",\n  \"networkAgent\": \"<boolean>\",\n  \"bioLongDescription\": \"<string>\",\n  \"bioShortDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"<string>\",\n    \"instagram\": \"<string>\",\n    \"youtube\": \"<string>\",\n    \"linkedin\": \"<string>\",\n    \"twitter\": \"<string>\",\n    \"tiktok\": \"<string>\",\n    \"zillow\": \"<string>\",\n    \"yelp\": \"<string>\",\n    \"google\": \"<string>\",\n    \"podcast\": \"<string>\"\n  },\n  \"websiteUrl\": \"<string>\",\n  \"seoTitle\": \"<string>\",\n  \"seoDescription\": \"<string>\",\n  \"license\": \"<string>\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"offices\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"externalSource\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "02af1b70-d973-4a6e-9bb4-cf864d0dd04a",
+              "name": "The agent has been successfully updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"displayOrder\": 32,\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n  \"position\": \"Real Estate Agent\",\n  \"isLeadAgent\": true,\n  \"networkAgent\": true,\n  \"bioLongDescription\": \"A detailed description of the agent\",\n  \"bioShortDescription\": \"A short description of the agent\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"websiteUrl\": \"example.com\",\n  \"seoTitle\": \"Premium real estate agent\",\n  \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n  \"license\": \"123456\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"marvin-west\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"offices\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agentId\": \"1b87e039-6d6d-4bda-ba32-259ded3c3f92\",\n  \"firstName\": \"Desiree\",\n  \"lastName\": \"Marks\",\n  \"email\": null,\n  \"displayOrder\": 22,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"avatarId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"mediaId\": \"94b2d5b1-db80-476e-a7d5-3336436fa1ca\",\n  \"secondaryAvatarId\": null,\n  \"secondaryMediaId\": null,\n  \"videoId\": null,\n  \"videoUrl\": null,\n  \"position\": null,\n  \"isLeadAgent\": false,\n  \"websiteUrl\": null,\n  \"bioLongDescription\": null,\n  \"bioShortDescription\": null,\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": null,\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"postCode\": \"80246\",\n    \"country\": \"United States\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"postalCode\": null,\n  \"seoTitle\": \"Desiree Marks\",\n  \"seoDescription\": null,\n  \"license\": null,\n  \"mlsIds\": [],\n  \"slug\": \"desiree-asdsad\",\n  \"tags\": [],\n  \"createdAt\": \"2023-01-05T18:18:52.473Z\",\n  \"updatedAt\": \"2025-01-23T15:01:53.276Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71ccd9dc-02a6-4f9e-9d93-b84d8c54459c",
+              "name": "Agent not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"displayOrder\": 32,\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n  \"position\": \"Real Estate Agent\",\n  \"isLeadAgent\": true,\n  \"networkAgent\": true,\n  \"bioLongDescription\": \"A detailed description of the agent\",\n  \"bioShortDescription\": \"A short description of the agent\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"socialLinks\": {\n    \"facebook\": \"https://facebook.com/123\",\n    \"instagram\": \"https://instagram.com/123\",\n    \"podcast\": \"https://podcast.com/123\",\n    \"linkedin\": \"https://linkedin.com/123\",\n    \"youtube\": \"https://youtube.com/123\",\n    \"twitter\": \"https://twitter.com/123\",\n    \"tiktok\": \"https://tiktok.com/123\",\n    \"zillow\": \"https://zillow.com/123\",\n    \"yelp\": \"https://yelp.com/123\",\n    \"google\": \"https://google.com/123\"\n  },\n  \"websiteUrl\": \"example.com\",\n  \"seoTitle\": \"Premium real estate agent\",\n  \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n  \"license\": \"123456\",\n  \"mlsIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"marvin-west\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"offices\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64cf2028-0a42-4396-bd70-7f944ee24638",
+          "name": "Delete an existing agent",
+          "request": {
+            "name": "Delete an existing agent",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the agent to delete"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2140e8d-5304-4790-8cfe-cd048515c38f",
+              "name": "The agent has been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2290f802-1c9e-43c6-99b3-c2308bdd6cee",
+              "name": "Agent not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c40f5711-2224-4718-a133-5868b0b44c5c",
+          "name": "Bulk create new agents",
+          "request": {
+            "name": "Bulk create new agents",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                "bulkCreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agents\": [\n    {\n      \"email\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"secondaryNumber\": \"<string>\",\n      \"avatarUrl\": \"<string>\",\n      \"avatarId\": \"<string>\",\n      \"secondaryAvatarUrl\": \"<string>\",\n      \"secondaryAvatarId\": \"<string>\",\n      \"videoId\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"position\": \"<string>\",\n      \"isLeadAgent\": \"<boolean>\",\n      \"bioLongDescription\": \"<string>\",\n      \"bioShortDescription\": \"<string>\",\n      \"address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postCode\": \"<string>\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"<string>\",\n        \"instagram\": \"<string>\",\n        \"youtube\": \"<string>\",\n        \"linkedin\": \"<string>\",\n        \"twitter\": \"<string>\",\n        \"tiktok\": \"<string>\",\n        \"zillow\": \"<string>\",\n        \"yelp\": \"<string>\",\n        \"google\": \"<string>\",\n        \"podcast\": \"<string>\"\n      },\n      \"websiteUrl\": \"<string>\",\n      \"seoTitle\": \"<string>\",\n      \"seoDescription\": \"<string>\",\n      \"license\": \"<string>\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"<string>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"offices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"externalSource\": \"<string>\",\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"email\": \"<string>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"secondaryNumber\": \"<string>\",\n      \"avatarUrl\": \"<string>\",\n      \"avatarId\": \"<string>\",\n      \"secondaryAvatarUrl\": \"<string>\",\n      \"secondaryAvatarId\": \"<string>\",\n      \"videoId\": \"<string>\",\n      \"videoUrl\": \"<string>\",\n      \"position\": \"<string>\",\n      \"isLeadAgent\": \"<boolean>\",\n      \"bioLongDescription\": \"<string>\",\n      \"bioShortDescription\": \"<string>\",\n      \"address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postCode\": \"<string>\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"<string>\",\n        \"instagram\": \"<string>\",\n        \"youtube\": \"<string>\",\n        \"linkedin\": \"<string>\",\n        \"twitter\": \"<string>\",\n        \"tiktok\": \"<string>\",\n        \"zillow\": \"<string>\",\n        \"yelp\": \"<string>\",\n        \"google\": \"<string>\",\n        \"podcast\": \"<string>\"\n      },\n      \"websiteUrl\": \"<string>\",\n      \"seoTitle\": \"<string>\",\n      \"seoDescription\": \"<string>\",\n      \"license\": \"<string>\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"<string>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"offices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"externalSource\": \"<string>\",\n      \"externalId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84f33f96-7172-4415-b1da-9840367071ae",
+              "name": "Agents created. With mlsAuthorizations, returns a per-agent results envelope { items[] }; 201 covers full and partial success. Without mlsAuthorizations the legacy data[] shape is returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agents\": [\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    },\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"agent\": {\n        \"email\": \"email@example.com\",\n        \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n        \"externalSource\": \"external_source\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"phoneNumber\": \"123-435-5321\",\n        \"secondaryNumber\": \"123-435-5321\",\n        \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n        \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n        \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"secondaryMediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n        \"position\": \"Executive Assistant\",\n        \"isLeadAgent\": true,\n        \"bioLongDescription\": \"A detailed description of the agent\",\n        \"bioShortDescription\": \"A short description of the agent\",\n        \"address\": {\n          \"line1\": \"Beach avenue, 4834\",\n          \"line2\": \"Beach avenue, 4834\",\n          \"city\": \"San Francisco\",\n          \"state\": \"CA\",\n          \"country\": \"United States\",\n          \"postCode\": \"80246\"\n        },\n        \"websiteUrl\": \"example.com\",\n        \"seoTitle\": \"Premium real estate agent\",\n        \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n        \"license\": \"123456\",\n        \"mlsIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mlsAgentId\": \"HDSU1931,HDSU1932,HDSU1933\",\n        \"slug\": \"marvin-west\",\n        \"tags\": [\n          \"premium\",\n          \"agent\",\n          \"exclusive\"\n        ],\n        \"offices\": [\n          \"9322c384-fd8e-4a13-80cd-1cbd1ef95ba8\",\n          \"986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e\"\n        ]\n      },\n      \"mlsAuthorizationResults\": [\n        {\n          \"mlsId\": \"string\",\n          \"status\": \"failed\",\n          \"mlsAuthorizationId\": \"string\",\n          \"message\": \"string\"\n        },\n        {\n          \"mlsId\": \"string\",\n          \"status\": \"failed\",\n          \"mlsAuthorizationId\": \"string\",\n          \"message\": \"string\"\n        }\n      ],\n      \"warnings\": [\n        {\n          \"code\": \"MLS_IDS_IGNORED\",\n          \"message\": \"string\"\n        },\n        {\n          \"code\": \"MLS_IDS_IGNORED\",\n          \"message\": \"string\"\n        }\n      ],\n      \"error\": {\n        \"code\": \"BOARD_NOT_FOUND\",\n        \"message\": \"string\"\n      }\n    },\n    {\n      \"agent\": {\n        \"email\": \"email@example.com\",\n        \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n        \"externalSource\": \"external_source\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"phoneNumber\": \"123-435-5321\",\n        \"secondaryNumber\": \"123-435-5321\",\n        \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n        \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n        \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"secondaryMediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n        \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n        \"position\": \"Executive Assistant\",\n        \"isLeadAgent\": true,\n        \"bioLongDescription\": \"A detailed description of the agent\",\n        \"bioShortDescription\": \"A short description of the agent\",\n        \"address\": {\n          \"line1\": \"Beach avenue, 4834\",\n          \"line2\": \"Beach avenue, 4834\",\n          \"city\": \"San Francisco\",\n          \"state\": \"CA\",\n          \"country\": \"United States\",\n          \"postCode\": \"80246\"\n        },\n        \"websiteUrl\": \"example.com\",\n        \"seoTitle\": \"Premium real estate agent\",\n        \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n        \"license\": \"123456\",\n        \"mlsIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"mlsAgentId\": \"HDSU1931,HDSU1932,HDSU1933\",\n        \"slug\": \"marvin-west\",\n        \"tags\": [\n          \"premium\",\n          \"agent\",\n          \"exclusive\"\n        ],\n        \"offices\": [\n          \"9322c384-fd8e-4a13-80cd-1cbd1ef95ba8\",\n          \"986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e\"\n        ]\n      },\n      \"mlsAuthorizationResults\": [\n        {\n          \"mlsId\": \"string\",\n          \"status\": \"created\",\n          \"mlsAuthorizationId\": \"string\",\n          \"message\": \"string\"\n        },\n        {\n          \"mlsId\": \"string\",\n          \"status\": \"created\",\n          \"mlsAuthorizationId\": \"string\",\n          \"message\": \"string\"\n        }\n      ],\n      \"warnings\": [\n        {\n          \"code\": \"MLS_IDS_IGNORED\",\n          \"message\": \"string\"\n        },\n        {\n          \"code\": \"MLS_IDS_IGNORED\",\n          \"message\": \"string\"\n        }\n      ],\n      \"error\": {\n        \"code\": \"BOARD_NOT_FOUND\",\n        \"message\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17231c86-ee8b-4d00-86ef-8f8f88d8009a",
+              "name": "The request failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agents\": [\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    },\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "218d81e2-e768-4a30-8630-9ef4d9d19071",
+              "name": "Every agent in the batch failed; per-agent errors are in items[].",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agents\": [\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    },\n    {\n      \"email\": \"email@example.com\",\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumber\": \"123-435-5321\",\n      \"secondaryNumber\": \"123-435-5321\",\n      \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"secondaryAvatarUrl\": \"https://www.example.com/images/example.jpg\",\n      \"secondaryAvatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"videoUrl\": \"https://www.youtube.com/watch?v=ZU7RcwBxe3g\",\n      \"position\": \"Real Estate Agent\",\n      \"isLeadAgent\": true,\n      \"bioLongDescription\": \"A detailed description of the agent\",\n      \"bioShortDescription\": \"A short description of the agent\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"socialLinks\": {\n        \"facebook\": \"https://facebook.com/123\",\n        \"instagram\": \"https://instagram.com/123\",\n        \"podcast\": \"https://podcast.com/123\",\n        \"linkedin\": \"https://linkedin.com/123\",\n        \"youtube\": \"https://youtube.com/123\",\n        \"twitter\": \"https://twitter.com/123\",\n        \"tiktok\": \"https://tiktok.com/123\",\n        \"zillow\": \"https://zillow.com/123\",\n        \"yelp\": \"https://yelp.com/123\",\n        \"google\": \"https://google.com/123\"\n      },\n      \"websiteUrl\": \"example.com\",\n      \"seoTitle\": \"Premium real estate agent\",\n      \"seoDescription\": \"Premium real estate agent who has over 10 years of experience\",\n      \"license\": \"123456\",\n      \"mlsIds\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"slug\": \"marvin-west\",\n      \"tags\": [\n        \"premium\",\n        \"agent\",\n        \"exclusive\"\n      ],\n      \"offices\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Gateway",
+              "code": 502,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36cfa668-f2e7-4af6-b869-9c0818614c08",
+          "name": "Delete an agent social link",
+          "request": {
+            "name": "Delete an agent social link",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                ":id",
+                "social-links",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) The type of social link to delete"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the agent to delete"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07bc6ac8-7371-4ad9-abde-465fcc79e06a",
+              "name": "The social link has been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id",
+                    "social-links",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The type of social link to delete"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2002d988-9e72-4260-bec6-2cb90fa3020f",
+              "name": "Social link not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    ":id",
+                    "social-links",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) The type of social link to delete"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the agent to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11156423-c9b9-42f3-9ebc-b0c6dbf04e95",
+          "name": "Delete multiple agents",
+          "request": {
+            "name": "Delete multiple agents",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "agents",
+                "bulkDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "agentId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "agentId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f061f60-aa9b-4edb-ae5b-27061a112974",
+              "name": "The agents have been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3308600f-b558-49f0-8ae4-5a38fe71e704",
+              "name": "Agents not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "agents",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "agentId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.luxurypresence.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "28d35c66-f99a-4456-8a48-3ae63b66d715",
+    "name": "API Documentation Agents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Luxury Presence API Documentation.",
+      "type": "text/plain"
+    }
+  }
+}

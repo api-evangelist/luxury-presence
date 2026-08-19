@@ -1,0 +1,1417 @@
+{
+  "item": [
+    {
+      "id": "da450e82-e640-4066-86d6-2b67a9fd36a0",
+      "name": "Teams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98666213-1da1-4d1c-805d-4cc9bce91436",
+          "name": "Fetch existing teams",
+          "request": {
+            "name": "Fetch existing teams",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "The number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "The number of items to fetch"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "The external IDs of the teams"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "The external IDs of the teams"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalSource",
+                  "value": "<string>",
+                  "description": "The external source of the teams"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Allows filtering teams by name or email."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e4762a0-4191-4fc2-83b1-b33a5be8eabc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalSource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"items\": [\n    {\n      \"teamId\": \"fdf7a2ee-72d9-4c45-aa39-ecddac6659cb\",\n      \"name\": \"Testier Team\",\n      \"email\": \"test@testierestate.com\",\n      \"externalSource\": \"anywhere_listing_syncdication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n      \"bioShortDescription\": null,\n      \"bioLongDescription\": null,\n      \"address\": null,\n      \"phoneNumber\": null,\n      \"secondaryNumber\": null,\n      \"postalCode\": null,\n      \"avatarId\": null,\n      \"mediaId\": null,\n      \"websiteUrl\": null,\n      \"socialLinks\": {},\n      \"tags\": [],\n      \"seoTitle\": null,\n      \"slug\": \"team-3\",\n      \"seoDesc\": null,\n      \"createdBy\": \"800fef83-98f4-4e4e-9dc8-15e418e1fb0c\",\n      \"createdAt\": \"2024-09-26T21:27:53.283Z\",\n      \"updatedAt\": \"2024-09-26T21:27:53.283Z\",\n      \"deletedAt\": null,\n      \"displayOrder\": null\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c912a8f6-f42b-481b-8811-b40971b1ab58",
+          "name": "Create a new team",
+          "request": {
+            "name": "Create a new team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "doNotAllowDuplicates",
+                  "value": "true",
+                  "description": "If true, teams can not have the same email address"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"externalSource\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"secondaryNumber\": \"<string>\",\n  \"seoTitle\": \"<string>\",\n  \"seoDesc\": \"<string>\",\n  \"bioShortDescription\": \"<string>\",\n  \"bioLongDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"avatarUrl\": \"<string>\",\n  \"avatarId\": \"<string>\",\n  \"websiteUrl\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c670317a-b268-4008-b8a4-e2a5bf7b9f41",
+              "name": "Team has been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"name\": \"The Presence Team\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"seoTitle\": \"Presence Team | NYC Real Estate\",\n  \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n  \"bioShortDescription\": \"A short description of The team\",\n  \"bioLongDescription\": \"A long description of the team\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"websiteUrl\": \"example.com\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"slug\": \"presence-team\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"teamId\": \"fdf7a2ee-72d9-4c45-aa39-ecddac6659cb\",\n  \"name\": \"Testier Team\",\n  \"email\": \"test@testierestate.com\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"bioShortDescription\": null,\n  \"bioLongDescription\": null,\n  \"address\": null,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"postalCode\": null,\n  \"avatarId\": null,\n  \"mediaId\": null,\n  \"websiteUrl\": null,\n  \"socialLinks\": {},\n  \"tags\": [],\n  \"seoTitle\": null,\n  \"slug\": \"team-3\",\n  \"seoDesc\": null,\n  \"createdBy\": \"800fef83-98f4-4e4e-9dc8-15e418e1fb0c\",\n  \"createdAt\": \"2024-09-26T21:27:53.283Z\",\n  \"updatedAt\": \"2024-09-26T21:27:53.283Z\",\n  \"deletedAt\": null,\n  \"displayOrder\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3ab3b7c-07a3-4b4f-a6db-75d29db5c96b",
+          "name": "Fetch an existing team",
+          "request": {
+            "name": "Fetch an existing team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team to fetch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee70405e-1e78-4111-aa93-a29e51508a1f",
+              "name": "The team has been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"teamId\": \"fdf7a2ee-72d9-4c45-aa39-ecddac6659cb\",\n  \"name\": \"Testier Team\",\n  \"email\": \"test@testierestate.com\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"bioShortDescription\": null,\n  \"bioLongDescription\": null,\n  \"address\": null,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"postalCode\": null,\n  \"avatarId\": null,\n  \"mediaId\": null,\n  \"websiteUrl\": null,\n  \"socialLinks\": {},\n  \"tags\": [],\n  \"seoTitle\": null,\n  \"slug\": \"team-3\",\n  \"seoDesc\": null,\n  \"createdBy\": \"800fef83-98f4-4e4e-9dc8-15e418e1fb0c\",\n  \"createdAt\": \"2024-09-26T21:27:53.283Z\",\n  \"updatedAt\": \"2024-09-26T21:27:53.283Z\",\n  \"deletedAt\": null,\n  \"displayOrder\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d770ee36-5fe7-43f2-9005-5f23497e6a68",
+              "name": "Team not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a794a30f-ef20-46a5-908e-d258696210f2",
+          "name": "Update an existing team",
+          "request": {
+            "name": "Update an existing team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "doNotAllowDuplicates",
+                  "value": "true",
+                  "description": "If true, teams can not have the same email address"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"secondaryNumber\": \"<string>\",\n  \"seoTitle\": \"<string>\",\n  \"seoDesc\": \"<string>\",\n  \"bioShortDescription\": \"<string>\",\n  \"bioLongDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"avatarUrl\": \"<string>\",\n  \"avatarId\": \"<string>\",\n  \"websiteUrl\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"externalSource\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58cb2bcd-3f76-47ed-b4ad-cdd9655cde89",
+              "name": "The team has been successfully updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"name\": \"The Presence Team\",\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"seoTitle\": \"Presence Team | NYC Real Estate\",\n  \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n  \"bioShortDescription\": \"A short description of The team\",\n  \"bioLongDescription\": \"A long description of the team\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"websiteUrl\": \"example.com\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"slug\": \"presence-team\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"teamId\": \"fdf7a2ee-72d9-4c45-aa39-ecddac6659cb\",\n  \"name\": \"Testier Team\",\n  \"email\": \"test@testierestate.com\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"bioShortDescription\": null,\n  \"bioLongDescription\": null,\n  \"address\": null,\n  \"phoneNumber\": null,\n  \"secondaryNumber\": null,\n  \"postalCode\": null,\n  \"avatarId\": null,\n  \"mediaId\": null,\n  \"websiteUrl\": null,\n  \"socialLinks\": {},\n  \"tags\": [],\n  \"seoTitle\": null,\n  \"slug\": \"team-3\",\n  \"seoDesc\": null,\n  \"createdBy\": \"800fef83-98f4-4e4e-9dc8-15e418e1fb0c\",\n  \"createdAt\": \"2024-09-26T21:27:53.283Z\",\n  \"updatedAt\": \"2024-09-26T21:27:53.283Z\",\n  \"deletedAt\": null,\n  \"displayOrder\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71551704-29f7-462a-af8d-ed08f0f4b5c1",
+              "name": "Team not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "doNotAllowDuplicates",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@example.com\",\n  \"name\": \"The Presence Team\",\n  \"phoneNumber\": \"123-435-5321\",\n  \"secondaryNumber\": \"123-435-5321\",\n  \"seoTitle\": \"Presence Team | NYC Real Estate\",\n  \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n  \"bioShortDescription\": \"A short description of The team\",\n  \"bioLongDescription\": \"A long description of the team\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n  \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"websiteUrl\": \"example.com\",\n  \"tags\": [\n    \"premium\",\n    \"agent\",\n    \"exclusive\"\n  ],\n  \"slug\": \"presence-team\",\n  \"externalSource\": \"anywhere_listing_syncdication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67119f08-1745-475f-b061-67f48e2b06cd",
+          "name": "Delete an existing team",
+          "request": {
+            "name": "Delete an existing team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team to delete"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7cfcf647-ca6b-4fd0-af7d-488b63ed4541",
+              "name": "Team has been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fe0b7b7-ed89-444d-b6e4-ba4c32d1e860",
+              "name": "Team not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98606444-873e-4754-9477-5db51d9f8cb6",
+          "name": "Fetch members of a specific team",
+          "request": {
+            "name": "Fetch members of a specific team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "The number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "The number of items to fetch"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9930ade0-3cce-4253-ae44-77bd91d48210",
+              "name": "Team members have been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4877f6f5-838b-4d06-8f30-ee608d52df42",
+          "name": "Remove members from a specific team",
+          "request": {
+            "name": "Remove members from a specific team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8ab11d3-1a19-44b5-8cc4-4bae0102b861",
+              "name": "Agents have been successfully removed from team.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40b0dd74-e081-4d77-85c5-69b34a7d2d5c",
+          "name": "Add agent(s) to a team",
+          "request": {
+            "name": "Add agent(s) to a team",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the team"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd8a9902-3e10-4d08-8d0f-f6251695ec62",
+              "name": "Agents have been successfully added to team.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the team"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"teamId\": \"c7c65a4c-4620-48d6-8463-6dab4ccf4cd8\",\n  \"agentId\": \"3dd21116-d8d1-469d-9772-777b337b061b\",\n  \"order\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c522e880-d300-475b-9f0d-1caa0b970e20",
+          "name": "Bulk create new teams",
+          "request": {
+            "name": "Bulk create new teams",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                "bulkCreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"externalSource\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"secondaryNumber\": \"<string>\",\n    \"seoTitle\": \"<string>\",\n    \"seoDesc\": \"<string>\",\n    \"bioShortDescription\": \"<string>\",\n    \"bioLongDescription\": \"<string>\",\n    \"address\": {\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postCode\": \"<string>\"\n    },\n    \"avatarUrl\": \"<string>\",\n    \"avatarId\": \"<string>\",\n    \"websiteUrl\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slug\": \"<string>\"\n  },\n  {\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"externalSource\": \"<string>\",\n    \"externalId\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"secondaryNumber\": \"<string>\",\n    \"seoTitle\": \"<string>\",\n    \"seoDesc\": \"<string>\",\n    \"bioShortDescription\": \"<string>\",\n    \"bioLongDescription\": \"<string>\",\n    \"address\": {\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postCode\": \"<string>\"\n    },\n    \"avatarUrl\": \"<string>\",\n    \"avatarId\": \"<string>\",\n    \"websiteUrl\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slug\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b271cf1c-7df5-41b4-8dfe-f0825b308f32",
+              "name": "Teams have been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"email\": \"email@example.com\",\n    \"name\": \"The Presence Team\",\n    \"externalSource\": \"anywhere_listing_syncdication\",\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"phoneNumber\": \"123-435-5321\",\n    \"secondaryNumber\": \"123-435-5321\",\n    \"seoTitle\": \"Presence Team | NYC Real Estate\",\n    \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n    \"bioShortDescription\": \"A short description of The team\",\n    \"bioLongDescription\": \"A long description of the team\",\n    \"address\": {\n      \"line1\": \"Beach avenue, 4834\",\n      \"line2\": \"Beach avenue, 4834\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"country\": \"United States\",\n      \"postCode\": \"80246\"\n    },\n    \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n    \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n    \"websiteUrl\": \"example.com\",\n    \"tags\": [\n      \"premium\",\n      \"agent\",\n      \"exclusive\"\n    ],\n    \"slug\": \"presence-team\"\n  },\n  {\n    \"email\": \"email@example.com\",\n    \"name\": \"The Presence Team\",\n    \"externalSource\": \"anywhere_listing_syncdication\",\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"phoneNumber\": \"123-435-5321\",\n    \"secondaryNumber\": \"123-435-5321\",\n    \"seoTitle\": \"Presence Team | NYC Real Estate\",\n    \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n    \"bioShortDescription\": \"A short description of The team\",\n    \"bioLongDescription\": \"A long description of the team\",\n    \"address\": {\n      \"line1\": \"Beach avenue, 4834\",\n      \"line2\": \"Beach avenue, 4834\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"country\": \"United States\",\n      \"postCode\": \"80246\"\n    },\n    \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n    \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n    \"websiteUrl\": \"example.com\",\n    \"tags\": [\n      \"premium\",\n      \"agent\",\n      \"exclusive\"\n    ],\n    \"slug\": \"presence-team\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"teamId\": \"fdf7a2ee-72d9-4c45-aa39-ecddac6659cb\",\n    \"name\": \"Testier Team\",\n    \"email\": \"test@testierestate.com\",\n    \"externalSource\": \"anywhere_listing_syncdication\",\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"bioShortDescription\": null,\n    \"bioLongDescription\": null,\n    \"address\": null,\n    \"phoneNumber\": null,\n    \"secondaryNumber\": null,\n    \"postalCode\": null,\n    \"avatarId\": null,\n    \"mediaId\": null,\n    \"websiteUrl\": null,\n    \"socialLinks\": {},\n    \"tags\": [],\n    \"seoTitle\": null,\n    \"slug\": \"team-3\",\n    \"seoDesc\": null,\n    \"createdBy\": \"800fef83-98f4-4e4e-9dc8-15e418e1fb0c\",\n    \"createdAt\": \"2024-09-26T21:27:53.283Z\",\n    \"updatedAt\": \"2024-09-26T21:27:53.283Z\",\n    \"deletedAt\": null,\n    \"displayOrder\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3f51652-cf97-4913-b9b9-efd1dedc5cdc",
+              "name": "The request failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"email\": \"email@example.com\",\n    \"name\": \"The Presence Team\",\n    \"externalSource\": \"anywhere_listing_syncdication\",\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"phoneNumber\": \"123-435-5321\",\n    \"secondaryNumber\": \"123-435-5321\",\n    \"seoTitle\": \"Presence Team | NYC Real Estate\",\n    \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n    \"bioShortDescription\": \"A short description of The team\",\n    \"bioLongDescription\": \"A long description of the team\",\n    \"address\": {\n      \"line1\": \"Beach avenue, 4834\",\n      \"line2\": \"Beach avenue, 4834\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"country\": \"United States\",\n      \"postCode\": \"80246\"\n    },\n    \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n    \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n    \"websiteUrl\": \"example.com\",\n    \"tags\": [\n      \"premium\",\n      \"agent\",\n      \"exclusive\"\n    ],\n    \"slug\": \"presence-team\"\n  },\n  {\n    \"email\": \"email@example.com\",\n    \"name\": \"The Presence Team\",\n    \"externalSource\": \"anywhere_listing_syncdication\",\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"phoneNumber\": \"123-435-5321\",\n    \"secondaryNumber\": \"123-435-5321\",\n    \"seoTitle\": \"Presence Team | NYC Real Estate\",\n    \"seoDesc\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n    \"bioShortDescription\": \"A short description of The team\",\n    \"bioLongDescription\": \"A long description of the team\",\n    \"address\": {\n      \"line1\": \"Beach avenue, 4834\",\n      \"line2\": \"Beach avenue, 4834\",\n      \"city\": \"San Francisco\",\n      \"state\": \"CA\",\n      \"country\": \"United States\",\n      \"postCode\": \"80246\"\n    },\n    \"avatarUrl\": \"https://www.example.com/images/example.jpg\",\n    \"avatarId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n    \"websiteUrl\": \"example.com\",\n    \"tags\": [\n      \"premium\",\n      \"agent\",\n      \"exclusive\"\n    ],\n    \"slug\": \"presence-team\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa8523bf-8297-4ade-84ac-0f123502d291",
+          "name": "Delete multiple teams",
+          "request": {
+            "name": "Delete multiple teams",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "teams",
+                "bulkDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "teamId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "teamId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "927f90c9-6485-4015-9de7-40b4c1bc9b21",
+              "name": "The teams have been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "27ba85d6-afe4-4563-8bd9-e301fa8c06ed",
+              "name": "Teams not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "teams",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.luxurypresence.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "28868d7c-b8e5-4839-b0d2-f41ead59194e",
+    "name": "API Documentation Agents Teams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Luxury Presence API Documentation.",
+      "type": "text/plain"
+    }
+  }
+}

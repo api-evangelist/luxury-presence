@@ -1,0 +1,270 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Documentation Agents Teams API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch existing teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/teams",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to fetch"
+              },
+              {
+                "name": "externalIds",
+                "value": "",
+                "type": "query",
+                "description": "The external IDs of the teams"
+              },
+              {
+                "name": "externalSource",
+                "value": "",
+                "type": "query",
+                "description": "The external source of the teams"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Allows filtering teams by name or email."
+              }
+            ]
+          },
+          "docs": "Fetch existing teams"
+        },
+        {
+          "info": {
+            "name": "Create a new team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/teams",
+            "params": [
+              {
+                "name": "doNotAllowDuplicates",
+                "value": "",
+                "type": "query",
+                "description": "If true, teams can not have the same email address"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new team"
+        },
+        {
+          "info": {
+            "name": "Fetch an existing team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team to fetch"
+              }
+            ]
+          },
+          "docs": "Fetch an existing team"
+        },
+        {
+          "info": {
+            "name": "Update an existing team",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team to update"
+              },
+              {
+                "name": "doNotAllowDuplicates",
+                "value": "",
+                "type": "query",
+                "description": "If true, teams can not have the same email address"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing team"
+        },
+        {
+          "info": {
+            "name": "Delete an existing team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team to delete"
+              }
+            ]
+          },
+          "docs": "Delete an existing team"
+        },
+        {
+          "info": {
+            "name": "Fetch members of a specific team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id/agents",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to skip"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of items to fetch"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team"
+              }
+            ]
+          },
+          "docs": "Fetch members of a specific team"
+        },
+        {
+          "info": {
+            "name": "Add agent(s) to a team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id/agents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add agent(s) to a team"
+        },
+        {
+          "info": {
+            "name": "Remove members from a specific team",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/:id/agents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the team"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove members from a specific team"
+        },
+        {
+          "info": {
+            "name": "Bulk create new teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/bulkCreate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk create new teams"
+        },
+        {
+          "info": {
+            "name": "Delete multiple teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/cms/v1/teams/bulkDelete",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query",
+                "description": "The items to delete"
+              }
+            ]
+          },
+          "docs": "Delete multiple teams"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

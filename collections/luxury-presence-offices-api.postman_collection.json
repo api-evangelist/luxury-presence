@@ -1,0 +1,1388 @@
+{
+  "item": [
+    {
+      "id": "12b7b6ca-dc90-4572-8c8b-694611e472e3",
+      "name": "Offices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3f23c05-6662-4d5f-baa5-cd3a423e76bd",
+          "name": "Fetch existing offices",
+          "request": {
+            "name": "Fetch existing offices",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "The number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "The number of items to fetch"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalSource",
+                  "value": "<string>",
+                  "description": "The external source of the office"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "The external IDs of the offices"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>",
+                  "description": "The external IDs of the offices"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "The search query"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3e96f1a-6ed9-4c40-abb5-33403205889b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "externalSource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1,\n  \"items\": [\n    {\n      \"officeId\": \"8068aff2-246c-4e01-b548-044d7ca1460f\",\n      \"mediaId\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"mediaIds\": [\n        \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n      ],\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"name\": \"1655 Almeida Street\",\n      \"slug\": \"my-office\",\n      \"officeMlsId\": \"12313\",\n      \"shortDescription\": null,\n      \"fullDescription\": null,\n      \"address\": {\n        \"line1\": null,\n        \"line2\": null,\n        \"city\": null,\n        \"state\": null,\n        \"postCode\": null,\n        \"country\": null\n      },\n      \"phone\": null,\n      \"email\": null,\n      \"officeHours\": {\n        \"Friday\": {\n          \"closed\": false,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Monday\": {\n          \"closed\": false,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Sunday\": {\n          \"closed\": true,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Tuesday\": {\n          \"closed\": false,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Saturday\": {\n          \"closed\": true,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Thursday\": {\n          \"closed\": false,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        },\n        \"Wednesday\": {\n          \"closed\": false,\n          \"closingAt\": \"17:00\",\n          \"openingAt\": \"09:00\"\n        }\n      },\n      \"coordinates\": {},\n      \"googlePlaceData\": null,\n      \"seoTitle\": \"my office\",\n      \"seoDescription\": null,\n      \"createdAt\": \"2023-12-20T20:14:46.382Z\",\n      \"updatedAt\": \"2024-05-09T22:47:08.962Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d82cb68c-4c80-42e3-9e98-0202c367406d",
+          "name": "Create a new office",
+          "request": {
+            "name": "Create a new office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"mediaId\": \"<string>\",\n  \"mediaUrl\": \"<string>\",\n  \"tags\": \"<object>\",\n  \"slug\": \"<string>\",\n  \"officeMlsId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shortDescription\": \"<string>\",\n  \"fullDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"coordinates\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"phoneNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"officeHours\": {\n    \"Monday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Tuesday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Wednesday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Thursday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Friday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    }\n  },\n  \"seoTitle\": \"<string>\",\n  \"seoDescription\": \"<string>\",\n  \"externalSource\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6ccdbd6-7758-4ef5-939a-5759984950f2",
+              "name": "Office has been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Beach Office\",\n  \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n  \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n  \"tags\": \"<object>\",\n  \"slug\": \"beach-office\",\n  \"officeMlsId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shortDescription\": \"The #1 office in the Central New York area.\",\n  \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"coordinates\": {\n    \"latitude\": 40.7630185,\n    \"longitude\": -73.9694391\n  },\n  \"phoneNumber\": \"123-457-8910\",\n  \"email\": \"office@email.com\",\n  \"officeHours\": {\n    \"Monday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Friday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    }\n  },\n  \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n  \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"officeId\": \"8068aff2-246c-4e01-b548-044d7ca1460f\",\n  \"mediaId\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"mediaIds\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"name\": \"1655 Almeida Street\",\n  \"slug\": \"my-office\",\n  \"officeMlsId\": \"12313\",\n  \"shortDescription\": null,\n  \"fullDescription\": null,\n  \"address\": {\n    \"line1\": null,\n    \"line2\": null,\n    \"city\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": null\n  },\n  \"phone\": null,\n  \"email\": null,\n  \"officeHours\": {\n    \"Friday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Monday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Sunday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Saturday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    }\n  },\n  \"coordinates\": {},\n  \"googlePlaceData\": null,\n  \"seoTitle\": \"my office\",\n  \"seoDescription\": null,\n  \"createdAt\": \"2023-12-20T20:14:46.382Z\",\n  \"updatedAt\": \"2024-05-09T22:47:08.962Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fae2379-ee1a-4dc1-9187-0e954e3a1df7",
+          "name": "Fetch an existing office",
+          "request": {
+            "name": "Fetch an existing office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office to fetch"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51699053-94a8-4236-a94d-e6cb245e4f31",
+              "name": "The office has been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"officeId\": \"8068aff2-246c-4e01-b548-044d7ca1460f\",\n  \"mediaId\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"mediaIds\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"name\": \"1655 Almeida Street\",\n  \"slug\": \"my-office\",\n  \"officeMlsId\": \"12313\",\n  \"shortDescription\": null,\n  \"fullDescription\": null,\n  \"address\": {\n    \"line1\": null,\n    \"line2\": null,\n    \"city\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": null\n  },\n  \"phone\": null,\n  \"email\": null,\n  \"officeHours\": {\n    \"Friday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Monday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Sunday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Saturday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    }\n  },\n  \"coordinates\": {},\n  \"googlePlaceData\": null,\n  \"seoTitle\": \"my office\",\n  \"seoDescription\": null,\n  \"createdAt\": \"2023-12-20T20:14:46.382Z\",\n  \"updatedAt\": \"2024-05-09T22:47:08.962Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a802e548-d121-4ea2-935a-d75d5c46f07a",
+              "name": "Office not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a302b43a-a3f2-4db9-a7a0-5fc80b435409",
+          "name": "Update an existing office",
+          "request": {
+            "name": "Update an existing office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"mediaId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mediaUrl\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": \"<string>\",\n  \"officeMlsId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shortDescription\": \"<string>\",\n  \"fullDescription\": \"<string>\",\n  \"address\": {\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postCode\": \"<string>\"\n  },\n  \"coordinates\": {\n    \"latitude\": \"<number>\",\n    \"longitude\": \"<number>\"\n  },\n  \"officeHours\": {\n    \"Monday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Tuesday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Wednesday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Thursday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    },\n    \"Friday\": {\n      \"closed\": \"<boolean>\",\n      \"closingAt\": \"<string>\",\n      \"openingAt\": \"<string>\"\n    }\n  },\n  \"phoneNumber\": \"<string>\",\n  \"email\": \"<string>\",\n  \"seoTitle\": \"<string>\",\n  \"seoDescription\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4adf699-e479-46d9-959c-ed59abf499a2",
+              "name": "The office has been successfully updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Beach Office\",\n  \"mediaId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n  \"tags\": [\n    \"beach\",\n    \"rental\"\n  ],\n  \"slug\": \"beach-office\",\n  \"officeMlsId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shortDescription\": \"The #1 office in the Central New York area.\",\n  \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"coordinates\": {\n    \"latitude\": 40.7630185,\n    \"longitude\": -73.9694391\n  },\n  \"officeHours\": {\n    \"Monday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Friday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    }\n  },\n  \"phoneNumber\": \"123-457-8910\",\n  \"email\": \"office@email.com\",\n  \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n  \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"officeId\": \"8068aff2-246c-4e01-b548-044d7ca1460f\",\n  \"mediaId\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"mediaIds\": [\n    \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n  ],\n  \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n  \"externalSource\": \"anywhere_listing_syndication\",\n  \"name\": \"1655 Almeida Street\",\n  \"slug\": \"my-office\",\n  \"officeMlsId\": \"12313\",\n  \"shortDescription\": null,\n  \"fullDescription\": null,\n  \"address\": {\n    \"line1\": null,\n    \"line2\": null,\n    \"city\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": null\n  },\n  \"phone\": null,\n  \"email\": null,\n  \"officeHours\": {\n    \"Friday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Monday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Sunday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Saturday\": {\n      \"closed\": true,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"closingAt\": \"17:00\",\n      \"openingAt\": \"09:00\"\n    }\n  },\n  \"coordinates\": {},\n  \"googlePlaceData\": null,\n  \"seoTitle\": \"my office\",\n  \"seoDescription\": null,\n  \"createdAt\": \"2023-12-20T20:14:46.382Z\",\n  \"updatedAt\": \"2024-05-09T22:47:08.962Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91d5e6eb-2966-46a0-aa67-aeee9fe55e24",
+              "name": "Office not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Beach Office\",\n  \"mediaId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n  \"tags\": [\n    \"beach\",\n    \"rental\"\n  ],\n  \"slug\": \"beach-office\",\n  \"officeMlsId\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shortDescription\": \"The #1 office in the Central New York area.\",\n  \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n  \"address\": {\n    \"line1\": \"Beach avenue, 4834\",\n    \"line2\": \"Beach avenue, 4834\",\n    \"city\": \"San Francisco\",\n    \"state\": \"CA\",\n    \"country\": \"United States\",\n    \"postCode\": \"80246\"\n  },\n  \"coordinates\": {\n    \"latitude\": 40.7630185,\n    \"longitude\": -73.9694391\n  },\n  \"officeHours\": {\n    \"Monday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Tuesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Wednesday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Thursday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    },\n    \"Friday\": {\n      \"closed\": false,\n      \"openingAt\": \"09:00\",\n      \"closingAt\": \"16:00\"\n    }\n  },\n  \"phoneNumber\": \"123-457-8910\",\n  \"email\": \"office@email.com\",\n  \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n  \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e760c3ca-2482-4487-a735-4943aa20a1c8",
+          "name": "Delete an office",
+          "request": {
+            "name": "Delete an office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office to delete"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8125477-65c0-4587-b3a9-f896e882fcb0",
+              "name": "The office has been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82b0c130-66b3-45c9-9dbd-8fe33091d707",
+              "name": "Office not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61ce7ee0-c389-4bc0-bdb0-cccf85d27fed",
+          "name": "Bulk create new offices",
+          "request": {
+            "name": "Bulk create new offices",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                "bulkCreate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"offices\": [\n    {\n      \"name\": \"<string>\",\n      \"mediaId\": \"<string>\",\n      \"mediaUrl\": \"<string>\",\n      \"tags\": \"<object>\",\n      \"slug\": \"<string>\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"<string>\",\n      \"fullDescription\": \"<string>\",\n      \"address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postCode\": \"<string>\"\n      },\n      \"coordinates\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"phoneNumber\": \"<string>\",\n      \"email\": \"<string>\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Tuesday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Wednesday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Thursday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Friday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"seoTitle\": \"<string>\",\n      \"seoDescription\": \"<string>\",\n      \"externalSource\": \"<string>\",\n      \"externalId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"mediaId\": \"<string>\",\n      \"mediaUrl\": \"<string>\",\n      \"tags\": \"<object>\",\n      \"slug\": \"<string>\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"<string>\",\n      \"fullDescription\": \"<string>\",\n      \"address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"postCode\": \"<string>\"\n      },\n      \"coordinates\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"phoneNumber\": \"<string>\",\n      \"email\": \"<string>\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Tuesday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Wednesday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Thursday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"Friday\": {\n          \"closed\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"closingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"openingAt\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"seoTitle\": \"<string>\",\n      \"seoDescription\": \"<string>\",\n      \"externalSource\": \"<string>\",\n      \"externalId\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb520590-7cad-417b-a6bc-0bc0e94e5e3b",
+              "name": "Offices have been successfully created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offices\": [\n    {\n      \"name\": \"Beach Office\",\n      \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n      \"tags\": \"<object>\",\n      \"slug\": \"beach-office\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"The #1 office in the Central New York area.\",\n      \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"coordinates\": {\n        \"latitude\": 40.7630185,\n        \"longitude\": -73.9694391\n      },\n      \"phoneNumber\": \"123-457-8910\",\n      \"email\": \"office@email.com\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Tuesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Wednesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Thursday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Friday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        }\n      },\n      \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n      \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    },\n    {\n      \"name\": \"Beach Office\",\n      \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n      \"tags\": \"<object>\",\n      \"slug\": \"beach-office\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"The #1 office in the Central New York area.\",\n      \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"coordinates\": {\n        \"latitude\": 40.7630185,\n        \"longitude\": -73.9694391\n      },\n      \"phoneNumber\": \"123-457-8910\",\n      \"email\": \"office@email.com\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Tuesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Wednesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Thursday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Friday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        }\n      },\n      \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n      \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"officeId\": \"8068aff2-246c-4e01-b548-044d7ca1460f\",\n    \"mediaId\": [\n      \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n    ],\n    \"mediaIds\": [\n      \"f534988e-4671-4709-bb82-c06bc8b02d87\"\n    ],\n    \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\",\n    \"externalSource\": \"anywhere_listing_syndication\",\n    \"name\": \"1655 Almeida Street\",\n    \"slug\": \"my-office\",\n    \"officeMlsId\": \"12313\",\n    \"shortDescription\": null,\n    \"fullDescription\": null,\n    \"address\": {\n      \"line1\": null,\n      \"line2\": null,\n      \"city\": null,\n      \"state\": null,\n      \"postCode\": null,\n      \"country\": null\n    },\n    \"phone\": null,\n    \"email\": null,\n    \"officeHours\": {\n      \"Friday\": {\n        \"closed\": false,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Monday\": {\n        \"closed\": false,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Sunday\": {\n        \"closed\": true,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Tuesday\": {\n        \"closed\": false,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Saturday\": {\n        \"closed\": true,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Thursday\": {\n        \"closed\": false,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      },\n      \"Wednesday\": {\n        \"closed\": false,\n        \"closingAt\": \"17:00\",\n        \"openingAt\": \"09:00\"\n      }\n    },\n    \"coordinates\": {},\n    \"googlePlaceData\": null,\n    \"seoTitle\": \"my office\",\n    \"seoDescription\": null,\n    \"createdAt\": \"2023-12-20T20:14:46.382Z\",\n    \"updatedAt\": \"2024-05-09T22:47:08.962Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6134d6f4-2a87-4039-95ec-2beb8fc2943c",
+              "name": "The request failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    "bulkCreate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"offices\": [\n    {\n      \"name\": \"Beach Office\",\n      \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n      \"tags\": \"<object>\",\n      \"slug\": \"beach-office\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"The #1 office in the Central New York area.\",\n      \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"coordinates\": {\n        \"latitude\": 40.7630185,\n        \"longitude\": -73.9694391\n      },\n      \"phoneNumber\": \"123-457-8910\",\n      \"email\": \"office@email.com\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Tuesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Wednesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Thursday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Friday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        }\n      },\n      \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n      \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    },\n    {\n      \"name\": \"Beach Office\",\n      \"mediaId\": \"f534988e-4671-4709-bb82-c06bc8b02d87\",\n      \"mediaUrl\": \"https://www.example.com/images/example.jpg\",\n      \"tags\": \"<object>\",\n      \"slug\": \"beach-office\",\n      \"officeMlsId\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"shortDescription\": \"The #1 office in the Central New York area.\",\n      \"fullDescription\": \"We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...\",\n      \"address\": {\n        \"line1\": \"Beach avenue, 4834\",\n        \"line2\": \"Beach avenue, 4834\",\n        \"city\": \"San Francisco\",\n        \"state\": \"CA\",\n        \"country\": \"United States\",\n        \"postCode\": \"80246\"\n      },\n      \"coordinates\": {\n        \"latitude\": 40.7630185,\n        \"longitude\": -73.9694391\n      },\n      \"phoneNumber\": \"123-457-8910\",\n      \"email\": \"office@email.com\",\n      \"officeHours\": {\n        \"Monday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Tuesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Wednesday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Thursday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        },\n        \"Friday\": {\n          \"closed\": false,\n          \"openingAt\": \"09:00\",\n          \"closingAt\": \"16:00\"\n        }\n      },\n      \"seoTitle\": \"Office Name | San Francisco Real Estate\",\n      \"seoDescription\": \"Connect with our team of dedicated agents. We're committed to providing exceptional service.\",\n      \"externalSource\": \"anywhere_listing_syndication\",\n      \"externalId\": \"0B4F722E-6FAE-4D56-BA9F-F325180C9BCE\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c06f692-6aa7-4586-b5dc-2eaaf5db722f",
+          "name": "Delete multiple offices",
+          "request": {
+            "name": "Delete multiple offices",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                "bulkDelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "officeId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "officeId",
+                  "value": "<string>",
+                  "description": "(Required) The items to delete"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48991cc7-c05b-47dc-a61a-68080f3b07ae",
+              "name": "The offices have been successfully deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "officeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "officeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b090d171-f647-4611-a2a2-167c1fa75f87",
+              "name": "Offices not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    "bulkDelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "officeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "officeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d95b82e9-7c5c-475e-b2dc-3f45b6c03dba",
+          "name": "Fetch members of a specific office",
+          "request": {
+            "name": "Fetch members of a specific office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<number>",
+                  "description": "The number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<number>",
+                  "description": "The number of items to fetch"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "233b7bd2-a7da-423a-b13b-7b1a93771a1a",
+              "name": "Office members have been successfully fetched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddd92385-ab2a-40b4-98f9-8d1744eb6c31",
+          "name": "Remove members from a specific office",
+          "request": {
+            "name": "Remove members from a specific office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a8a56c99-f14a-45ff-bafd-81ef5fdd9728",
+              "name": "Agents have been successfully removed from office.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a57f3786-e390-4624-8872-0216a18fba01",
+          "name": "Add agent(s) to an office",
+          "request": {
+            "name": "Add agent(s) to an office",
+            "description": {},
+            "url": {
+              "path": [
+                "cms",
+                "v1",
+                "offices",
+                ":id",
+                "agents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the office"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "28fd5d4d-d72e-406d-8469-f378c719d4cc",
+              "name": "Agents have been successfully added to office.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cms",
+                    "v1",
+                    "offices",
+                    ":id",
+                    "agents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the office"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agentIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"officeId\": \"c7c65a4c-4620-48d6-8463-6dab4ccf4cd8\",\n  \"agentId\": \"3dd21116-d8d1-469d-9772-777b337b061b\",\n  \"order\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.luxurypresence.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cdf46c02-8930-474d-93d2-3aa4ccf5dd3b",
+    "name": "API Documentation Agents Offices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Luxury Presence API Documentation.",
+      "type": "text/plain"
+    }
+  }
+}

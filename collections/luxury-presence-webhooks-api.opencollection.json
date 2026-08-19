@@ -1,0 +1,128 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Documentation Agents Webhooks API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List webhook subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks"
+          },
+          "docs": "List webhook subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Get webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook subscription ID"
+              }
+            ]
+          },
+          "docs": "Get webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Update webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook subscription ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Delete webhook subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Webhook subscription ID"
+              }
+            ]
+          },
+          "docs": "Delete webhook subscription"
+        },
+        {
+          "info": {
+            "name": "Example webhook payload (for docs only)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.luxurypresence.com/crm/v1/webhooks/webhook-example",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Example webhook payload (for docs only)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
