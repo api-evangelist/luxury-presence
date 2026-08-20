@@ -35,6 +35,16 @@ modified: '2026-07-20'
 tags:
 - Company
 - Vertical Software
+- Real-Estate
+- PropTech
+- CRM
+- Marketing
+- Websites
+- Webhook
+- Lead Generation
+tags_raw:
+- Company
+- Vertical Software
 - Real Estate
 - PropTech
 - CRM
@@ -97,6 +107,8 @@ apis:
   humanURL: https://docs.luxurypresence.com/reference
   baseURL: https://api.luxurypresence.com
   tags:
+  - Team
+  tags_raw:
   - Teams
   properties:
   - type: OpenAPI
@@ -113,6 +125,8 @@ apis:
   humanURL: https://docs.luxurypresence.com/reference
   baseURL: https://api.luxurypresence.com
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
