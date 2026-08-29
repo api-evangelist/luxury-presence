@@ -10,6 +10,18 @@ description: >-
   lead-activity webhooks signed with HMAC-SHA256. Documentation is hosted on a
   ReadMe developer hub that also exposes a hosted MCP server.
 url: https://raw.githubusercontent.com/api-evangelist/luxury-presence/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
