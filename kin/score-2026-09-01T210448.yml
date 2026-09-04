@@ -1,28 +1,31 @@
-# Kin Score artifact — luxury-presence — 2026-08-04T083143
+# Kin Score artifact — luxury-presence — 2026-09-01T210448
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: luxury-presence
-  schema_version: 0.9
-  scored_at: '2026-08-04'
-  run_ts: 2026-08-04T083143
-  composite: 49.8
+  schema_version: 0.18.0
+  scored_at: '2026-09-01'
+  run_ts: 2026-09-01T210448
+  composite: 40.5
   band: developing
   facets:
-    discoverability: 81.5
-    contract_quality: 66.2
-    governance: 11.5
+    discoverability: 75.9
+    contract_quality: 62.3
+    governance: 4.5
     operational_transparency: 7.9
-    developer_ergonomics: 69.0
-    commercial_clarity: 44.7
+    developer_ergonomics: 47.0
+    commercial_clarity: 31.6
+    contract_governance: 4.5
+    access_clarity: 31.6
   agent_readiness:
-    score: 47.5
-    band: agent-ready
+    score: 28.1
+    band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: derived
-      mcp_server: true
-      auth_clarity: true
+      reversibility_documented: false
+      mcp_server: documented
+      auth_clarity: bearer
       idempotency: false
       error_semantics: documented
       openapi_examples: partial
@@ -33,6 +36,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     mcp: first-party
     skills: derived
