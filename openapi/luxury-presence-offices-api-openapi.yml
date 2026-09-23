@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: API Documentation Agents Offices API
+  title: Documentation Offices API
   description: Luxury Presence API Documentation.
   version: '1.0'
   contact: {}
@@ -556,117 +556,6 @@ paths:
       - Offices
 components:
   schemas:
-    BulkCreateOfficeDto:
-      type: object
-      properties:
-        offices:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateOfficeDto'
-      required:
-      - offices
-    UpdateOfficeDto:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Beach Office
-          description: The office name
-        mediaId:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID(s). This field is for reference/tracking purposes only and is not a direct link to the media.
-          type: array
-          items:
-            type: string
-        mediaUrl:
-          type: string
-          example: https://www.example.com/images/example.jpg
-          description: An image URL containing the office media
-        tags:
-          example:
-          - beach
-          - rental
-          description: Tag or array of tags for later filtering on website
-          type: array
-          items:
-            type: string
-        slug:
-          type: string
-          example: beach-office
-          description: The office slug. Will be used as path for the details page
-        officeMlsId:
-          example: HDSU1931
-          description: The office MLS ID or an array of office MLS IDs
-          type: array
-          items:
-            type: string
-        shortDescription:
-          type: string
-          example: 'The #1 office in the Central New York area.'
-          description: The office short description
-        fullDescription:
-          type: string
-          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
-          description: The office long description
-        address:
-          example:
-            line1: Beach avenue, 4834
-            line2: null
-            city: San Francisco
-            state: CA
-            postCode: '80246'
-            country: United States
-          description: The office address
-          allOf:
-          - $ref: '#/components/schemas/AddressDto'
-        coordinates:
-          example:
-            latitude: 40.7630185
-            longitude: -73.9694391
-          description: The office coordinates
-          allOf:
-          - $ref: '#/components/schemas/CoordinatesDto'
-        officeHours:
-          example:
-            Monday:
-              closed: false
-              openingAt: 09:00
-              closingAt: '16:00'
-            Tuesday:
-              closed: false
-              openingAt: 09:00
-              closingAt: '16:00'
-            Wednesday:
-              closed: false
-              openingAt: 09:00
-              closingAt: '16:00'
-            Thursday:
-              closed: false
-              openingAt: 09:00
-              closingAt: '16:00'
-            Friday:
-              closed: false
-              openingAt: 09:00
-              closingAt: '16:00'
-          description: The office working hours. Sending a partial object replaces any existing office hour data
-          allOf:
-          - $ref: '#/components/schemas/OfficeHoursDto'
-        phoneNumber:
-          type: string
-          example: 123-457-8910
-          description: The office phone number
-        email:
-          type: string
-          example: office@email.com
-          description: The office email address
-        seoTitle:
-          type: string
-          example: Office Name | San Francisco Real Estate
-          description: The office SEO title
-        seoDescription:
-          type: string
-          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
-          description: The office SEO description
     CreateOfficeDto:
       type: object
       properties:
@@ -775,6 +664,196 @@ components:
           description: The office external ID
       required:
       - name
+    CoordinatesDto:
+      type: object
+      properties:
+        latitude:
+          type: number
+          example: 40.7630185
+          description: The latitude
+        longitude:
+          type: number
+          example: -73.9694391
+          description: The longitude
+    UpdateOfficeDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Office
+          description: The office name
+        mediaId:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID(s). This field is for reference/tracking purposes only and is not a direct link to the media.
+          type: array
+          items:
+            type: string
+        mediaUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the office media
+        tags:
+          example:
+          - beach
+          - rental
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: beach-office
+          description: The office slug. Will be used as path for the details page
+        officeMlsId:
+          example: HDSU1931
+          description: The office MLS ID or an array of office MLS IDs
+          type: array
+          items:
+            type: string
+        shortDescription:
+          type: string
+          example: 'The #1 office in the Central New York area.'
+          description: The office short description
+        fullDescription:
+          type: string
+          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
+          description: The office long description
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        coordinates:
+          example:
+            latitude: 40.7630185
+            longitude: -73.9694391
+          description: The office coordinates
+          allOf:
+          - $ref: '#/components/schemas/CoordinatesDto'
+        officeHours:
+          example:
+            Monday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Tuesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Wednesday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Thursday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+            Friday:
+              closed: false
+              openingAt: 09:00
+              closingAt: '16:00'
+          description: The office working hours. Sending a partial object replaces any existing office hour data
+          allOf:
+          - $ref: '#/components/schemas/OfficeHoursDto'
+        phoneNumber:
+          type: string
+          example: 123-457-8910
+          description: The office phone number
+        email:
+          type: string
+          example: office@email.com
+          description: The office email address
+        seoTitle:
+          type: string
+          example: Office Name | San Francisco Real Estate
+          description: The office SEO title
+        seoDescription:
+          type: string
+          example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
+          description: The office SEO description
+    DeleteOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    GetOfficesResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfficeDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    CreateOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    OfficeHoursDto:
+      type: object
+      properties:
+        Monday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '16:00'
+          description: The working hours on Mondays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Tuesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Tuesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Wednesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Wednesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Thursday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Thursdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Friday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Fridays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
     WorkingHoursDto:
       type: object
       properties:
@@ -875,28 +954,6 @@ components:
           description: The office SEO description
       required:
       - name
-    CreateOfficeAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    CoordinatesDto:
-      type: object
-      properties:
-        latitude:
-          type: number
-          example: 40.7630185
-          description: The latitude
-        longitude:
-          type: number
-          example: -73.9694391
-          description: The longitude
     AddressDto:
       type: object
       properties:
@@ -924,72 +981,15 @@ components:
           type: string
           example: '80246'
           description: The agent address postal code
-    DeleteOfficeAgentDto:
+    BulkCreateOfficeDto:
       type: object
       properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
+        offices:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/CreateOfficeDto'
       required:
-      - agentIds
-    GetOfficesResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfficeDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    OfficeHoursDto:
-      type: object
-      properties:
-        Monday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '16:00'
-          description: The working hours on Mondays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Tuesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Tuesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Wednesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Wednesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Thursday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Thursdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Friday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Fridays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
+      - offices
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

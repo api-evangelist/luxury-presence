@@ -1,0 +1,27 @@
+# Front Door AI Index — luxury-presence — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: luxury-presence
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.luxurypresence.com
+  final_host: www.luxurypresence.com
+  ownership: own
+  owner: luxury-presence
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 10
+  host_score: 10
+  density: 10.04
+  words: 996
+  tiers:
+    agentic: 0
+    core: 10
+    model: 0
+  ambiguous: 9
+  top_terms:
+    AI: 10
+    agent: 8
+    smart: 1

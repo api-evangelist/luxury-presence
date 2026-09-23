@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: API Documentation Agents Webhooks API
+  title: Documentation Webhooks API
   description: Luxury Presence API Documentation.
   version: '1.0'
   contact: {}
@@ -154,92 +154,6 @@ components:
       - eventName
       - companyId
       - data
-    CreateWebhookDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The webhook name
-          example: My Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://example.com/webhook
-        events:
-          description: The events to subscribe to
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        secret:
-          type: string
-          description: Secret key for signature verification
-          example: my-webhook-secret
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
-      required:
-      - name
-      - url
-      - events
-    WebhookResponseDto:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The webhook ID
-          example: 123e4567-e89b-12d3-a456-426614174000
-        name:
-          type: string
-          description: The webhook name
-          example: My Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://example.com/webhook
-        events:
-          description: The event(s) that trigger the webhook
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
-        createdAt:
-          format: date-time
-          type: string
-          description: When the webhook was created
-          example: '2023-01-01T00:00:00.000Z'
-        updatedAt:
-          format: date-time
-          type: string
-          description: When the webhook was last updated
-          example: '2023-01-02T00:00:00.000Z'
-      required:
-      - id
-      - name
-      - url
-      - events
-      - isActive
-      - createdAt
-      - updatedAt
     LeadDto:
       type: object
       properties:
@@ -409,17 +323,42 @@ components:
       required:
       - activityType
       - activitySourceUrl
-    MetaDto:
+    CreateWebhookDto:
       type: object
       properties:
-        property:
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-webhook-secret
+        headers:
           type: object
-          example: null
-          description: Property metadata
-        development:
-          type: object
-          example: null
-          description: Development metadata
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+      required:
+      - name
+      - url
+      - events
     AssignedAgentDto:
       type: object
       properties:
@@ -471,6 +410,67 @@ components:
           example: true
           description: Whether the webhook is active
           default: true
+    MetaDto:
+      type: object
+      properties:
+        property:
+          type: object
+          example: null
+          description: Property metadata
+        development:
+          type: object
+          example: null
+          description: Development metadata
+    WebhookResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The webhook ID
+          example: 123e4567-e89b-12d3-a456-426614174000
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The event(s) that trigger the webhook
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+        createdAt:
+          format: date-time
+          type: string
+          description: When the webhook was created
+          example: '2023-01-01T00:00:00.000Z'
+        updatedAt:
+          format: date-time
+          type: string
+          description: When the webhook was last updated
+          example: '2023-01-02T00:00:00.000Z'
+      required:
+      - id
+      - name
+      - url
+      - events
+      - isActive
+      - createdAt
+      - updatedAt
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

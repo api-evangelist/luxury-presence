@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: API Documentation Agents API
+  title: Documentation Agents API
   description: Luxury Presence API Documentation.
   version: '1.0'
   contact: {}
@@ -514,33 +514,13 @@ paths:
       - Agents
 components:
   schemas:
-    GetAgentsResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    AgentDto:
+    CreateAgentDto:
       type: object
       properties:
         email:
           type: string
           example: email@example.com
           description: The agent email
-        externalId:
-          type: string
-          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
-          description: The agent external ID
-        externalSource:
-          type: string
-          example: external_source
-          description: The agent external source
         firstName:
           type: string
           example: John
@@ -564,12 +544,7 @@ components:
         avatarId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
-          deprecated: true
-        mediaId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
         secondaryAvatarUrl:
           type: string
           example: https://www.example.com/images/example.jpg
@@ -577,23 +552,18 @@ components:
         secondaryAvatarId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use secondaryMediaId instead.
-          deprecated: true
-        secondaryMediaId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
         videoId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the agent's video. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
         videoUrl:
           type: string
           example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
-          description: A URL containing agent video
+          description: A URL containing the agent video
         position:
           type: string
-          example: Executive Assistant
+          example: Real Estate Agent
           description: The agent position
         isLeadAgent:
           type: boolean
@@ -615,9 +585,24 @@ components:
             state: CA
             postCode: '80246'
             country: United States
-          description: The office address
+          description: The agent address
           allOf:
           - $ref: '#/components/schemas/AddressDto'
+        socialLinks:
+          example:
+            facebook: https://facebook.com/123
+            instagram: https://instagram.com/123
+            podcast: https://podcast.com/123
+            linkedin: https://linkedin.com/123
+            youtube: https://youtube.com/123
+            twitter: https://twitter.com/123
+            tiktok: https://tiktok.com/123
+            zillow: https://zillow.com/123
+            yelp: https://yelp.com/123
+            google: https://google.com/123
+          description: The agent social links
+          allOf:
+          - $ref: '#/components/schemas/SocialLinksDto'
         websiteUrl:
           type: string
           example: example.com
@@ -640,15 +625,10 @@ components:
           type: array
           items:
             type: string
-        mlsAgentId:
-          type: string
-          example: HDSU1931,HDSU1932,HDSU1933
-          description: Comma-separated string of agent MLS IDs (generated from mlsIds array). Use mlsIds instead.
-          deprecated: true
         slug:
           type: string
           example: marvin-west
-          description: The agent slug
+          description: The agent slug. Will be used as path for the details page
         tags:
           example:
           - premium
@@ -659,13 +639,60 @@ components:
           items:
             type: string
         offices:
-          description: Comma separated office IDs
           example:
-          - 9322c384-fd8e-4a13-80cd-1cbd1ef95ba8
-          - 986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: agent office or array of agent offices
           type: array
           items:
             type: string
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The agent external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external id
+      required:
+      - email
+      - firstName
+      - lastName
+    BulkCreateAgentDto:
+      type: object
+      properties:
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateAgentDto'
+      required:
+      - agents
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
     UpdateAgentDto:
       type: object
       properties:
@@ -813,22 +840,21 @@ components:
           type: string
           example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
           description: The agent external id
-    BulkCreateAgentDto:
-      type: object
-      properties:
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateAgentDto'
-      required:
-      - agents
-    CreateAgentDto:
+    AgentDto:
       type: object
       properties:
         email:
           type: string
           example: email@example.com
           description: The agent email
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external ID
+        externalSource:
+          type: string
+          example: external_source
+          description: The agent external source
         firstName:
           type: string
           example: John
@@ -852,7 +878,12 @@ components:
         avatarId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
+          deprecated: true
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
         secondaryAvatarUrl:
           type: string
           example: https://www.example.com/images/example.jpg
@@ -860,18 +891,23 @@ components:
         secondaryAvatarId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use secondaryMediaId instead.
+          deprecated: true
+        secondaryMediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the agent's secondary avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
         videoId:
           type: string
           example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+          description: Media UUID for the agent's video. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
         videoUrl:
           type: string
           example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
-          description: A URL containing the agent video
+          description: A URL containing agent video
         position:
           type: string
-          example: Real Estate Agent
+          example: Executive Assistant
           description: The agent position
         isLeadAgent:
           type: boolean
@@ -893,24 +929,9 @@ components:
             state: CA
             postCode: '80246'
             country: United States
-          description: The agent address
+          description: The office address
           allOf:
           - $ref: '#/components/schemas/AddressDto'
-        socialLinks:
-          example:
-            facebook: https://facebook.com/123
-            instagram: https://instagram.com/123
-            podcast: https://podcast.com/123
-            linkedin: https://linkedin.com/123
-            youtube: https://youtube.com/123
-            twitter: https://twitter.com/123
-            tiktok: https://tiktok.com/123
-            zillow: https://zillow.com/123
-            yelp: https://yelp.com/123
-            google: https://google.com/123
-          description: The agent social links
-          allOf:
-          - $ref: '#/components/schemas/SocialLinksDto'
         websiteUrl:
           type: string
           example: example.com
@@ -933,10 +954,15 @@ components:
           type: array
           items:
             type: string
+        mlsAgentId:
+          type: string
+          example: HDSU1931,HDSU1932,HDSU1933
+          description: Comma-separated string of agent MLS IDs (generated from mlsIds array). Use mlsIds instead.
+          deprecated: true
         slug:
           type: string
           example: marvin-west
-          description: The agent slug. Will be used as path for the details page
+          description: The agent slug
         tags:
           example:
           - premium
@@ -947,24 +973,13 @@ components:
           items:
             type: string
         offices:
+          description: Comma separated office IDs
           example:
-          - f534988e-4671-4709-bb82-c06bc8b02d87
-          description: agent office or array of agent offices
+          - 9322c384-fd8e-4a13-80cd-1cbd1ef95ba8
+          - 986dcaf4-c1ea-4218-b6b4-e4fd95a3c28e
           type: array
           items:
             type: string
-        externalSource:
-          type: string
-          example: anywhere_listing_syndication
-          description: The agent external source
-        externalId:
-          type: string
-          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
-          description: The agent external id
-      required:
-      - email
-      - firstName
-      - lastName
     SocialLinksDto:
       type: object
       properties:
@@ -1008,33 +1023,18 @@ components:
           type: string
           example: https://podcast.com/123
           description: The podcast URL
-    AddressDto:
+    GetAgentsResponseDto:
       type: object
       properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

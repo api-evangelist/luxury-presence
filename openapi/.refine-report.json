@@ -1,11 +1,7 @@
 {
   "provider": "luxury-presence",
   "sources": [
-    "luxury-presence-agents-api-openapi.yml",
-    "luxury-presence-media-api-openapi.yml",
-    "luxury-presence-offices-api-openapi.yml",
-    "luxury-presence-teams-api-openapi.yml",
-    "luxury-presence-webhooks-api-openapi.yml"
+    "_original/luxury-presence-cms-openapi.json"
   ],
   "outputs": [
     "luxury-presence-agents-api-openapi.yml",
@@ -17,6 +13,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "luxury-presence-cms-openapi.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "luxury-presence-cms-openapi.json: declared missing tag: Agents",
+    "luxury-presence-cms-openapi.json: declared missing tag: Media",
+    "luxury-presence-cms-openapi.json: declared missing tag: Offices",
+    "luxury-presence-cms-openapi.json: declared missing tag: Teams",
+    "luxury-presence-cms-openapi.json: declared missing tag: Webhooks",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "luxury-presence-agents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "luxury-presence-media-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "luxury-presence-offices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "luxury-presence-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "luxury-presence-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

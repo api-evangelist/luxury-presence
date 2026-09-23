@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: API Documentation Agents Teams API
+  title: Documentation Teams API
   description: Luxury Presence API Documentation.
   version: '1.0'
   contact: {}
@@ -577,18 +577,28 @@ components:
       required:
       - email
       - name
-    GetTeamsResponseDto:
+    CreateTeamAgentDto:
       type: object
       properties:
-        items:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
           type: array
           items:
-            $ref: '#/components/schemas/TeamDto'
-        count:
-          type: number
+            type: string
       required:
-      - items
-      - count
+      - agentIds
+    DeleteTeamAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
     AddressDto:
       type: object
       properties:
@@ -695,28 +705,18 @@ components:
           type: string
           example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
           description: The team external id
-    CreateTeamAgentDto:
+    GetTeamsResponseDto:
       type: object
       properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
+        items:
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/TeamDto'
+        count:
+          type: number
       required:
-      - agentIds
-    DeleteTeamAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
+      - items
+      - count
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
