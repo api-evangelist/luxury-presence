@@ -135,6 +135,143 @@ paths:
       - Webhooks
 components:
   schemas:
+    AssignedAgentDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+          description: Agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: Agent last name
+        email:
+          type: string
+          example: agent@example.com
+          description: Agent email address
+        mlsAgentId:
+          type: string
+          example: MLS123456
+          description: MLS agent ID
+    WebhookResponseDto:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The webhook ID
+          example: 123e4567-e89b-12d3-a456-426614174000
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The event(s) that trigger the webhook
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+        createdAt:
+          format: date-time
+          type: string
+          description: When the webhook was created
+          example: '2023-01-01T00:00:00.000Z'
+        updatedAt:
+          format: date-time
+          type: string
+          description: When the webhook was last updated
+          example: '2023-01-02T00:00:00.000Z'
+      required:
+      - id
+      - name
+      - url
+      - events
+      - isActive
+      - createdAt
+      - updatedAt
+    CreateWebhookDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The webhook name
+          example: My Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-webhook-secret
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
+      required:
+      - name
+      - url
+      - events
+    UpdateWebhookDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The webhook name
+          example: My Updated Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://updated-example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-updated-webhook-secret
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: new-value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
     WebhookPayloadDto:
       type: object
       properties:
@@ -323,93 +460,6 @@ components:
       required:
       - activityType
       - activitySourceUrl
-    CreateWebhookDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The webhook name
-          example: My Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://example.com/webhook
-        events:
-          description: The events to subscribe to
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        secret:
-          type: string
-          description: Secret key for signature verification
-          example: my-webhook-secret
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
-      required:
-      - name
-      - url
-      - events
-    AssignedAgentDto:
-      type: object
-      properties:
-        firstName:
-          type: string
-          example: John
-          description: Agent first name
-        lastName:
-          type: string
-          example: Doe
-          description: Agent last name
-        email:
-          type: string
-          example: agent@example.com
-          description: Agent email address
-        mlsAgentId:
-          type: string
-          example: MLS123456
-          description: MLS agent ID
-    UpdateWebhookDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The webhook name
-          example: My Updated Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://updated-example.com/webhook
-        events:
-          description: The events to subscribe to
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        secret:
-          type: string
-          description: Secret key for signature verification
-          example: my-updated-webhook-secret
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: new-value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
     MetaDto:
       type: object
       properties:
@@ -421,56 +471,6 @@ components:
           type: object
           example: null
           description: Development metadata
-    WebhookResponseDto:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The webhook ID
-          example: 123e4567-e89b-12d3-a456-426614174000
-        name:
-          type: string
-          description: The webhook name
-          example: My Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://example.com/webhook
-        events:
-          description: The event(s) that trigger the webhook
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
-        createdAt:
-          format: date-time
-          type: string
-          description: When the webhook was created
-          example: '2023-01-01T00:00:00.000Z'
-        updatedAt:
-          format: date-time
-          type: string
-          description: When the webhook was last updated
-          example: '2023-01-02T00:00:00.000Z'
-      required:
-      - id
-      - name
-      - url
-      - events
-      - isActive
-      - createdAt
-      - updatedAt
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

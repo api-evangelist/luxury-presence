@@ -49,7 +49,7 @@ modified: '2026-07-20'
 tags:
 - Company
 - Vertical Software
-- Real-Estate
+- Real Estate
 - PropTech
 - CRM
 - Marketing
@@ -66,6 +66,7 @@ tags_raw:
 - Websites
 - Webhooks
 - Lead Generation
+- Real-Estate
 apis:
 - aid: luxury-presence:luxury-presence-agents-api
   name: Luxury Presence Agents API

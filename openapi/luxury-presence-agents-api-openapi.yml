@@ -657,42 +657,49 @@ components:
       - email
       - firstName
       - lastName
-    BulkCreateAgentDto:
+    SocialLinksDto:
       type: object
       properties:
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateAgentDto'
-      required:
-      - agents
-    AddressDto:
-      type: object
-      properties:
-        line1:
+        facebook:
           type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
+          example: https://facebook.com/123
+          description: The Facebook Profile URL
+        instagram:
           type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
+          example: https://instagram.com/123
+          description: The Instagram Profile URL
+        youtube:
           type: string
-          example: San Francisco
-          description: The address city
-        state:
+          example: https://youtube.com/123
+          description: The Youtube URL
+        linkedin:
           type: string
-          example: CA
-          description: The agent address state
-        country:
+          example: https://linkedin.com/in/123
+          description: The linkedin Profile URL
+        twitter:
           type: string
-          example: United States
-          description: The agent address country
-        postCode:
+          example: https://x.com/123
+          description: The X Profile URL
+        tiktok:
           type: string
-          example: '80246'
-          description: The agent address postal code
+          example: https://tiktok.com/123
+          description: The tiktok Profile URL
+        zillow:
+          type: string
+          example: https://zillow.com/123
+          description: The Zillow Profile URL
+        yelp:
+          type: string
+          example: https://yelp.com/123
+          description: The Yelp Profile URL
+        google:
+          type: string
+          example: https://google.com/123
+          description: The Google Profile URL
+        podcast:
+          type: string
+          example: https://podcast.com/123
+          description: The podcast URL
     UpdateAgentDto:
       type: object
       properties:
@@ -980,49 +987,15 @@ components:
           type: array
           items:
             type: string
-    SocialLinksDto:
+    BulkCreateAgentDto:
       type: object
       properties:
-        facebook:
-          type: string
-          example: https://facebook.com/123
-          description: The Facebook Profile URL
-        instagram:
-          type: string
-          example: https://instagram.com/123
-          description: The Instagram Profile URL
-        youtube:
-          type: string
-          example: https://youtube.com/123
-          description: The Youtube URL
-        linkedin:
-          type: string
-          example: https://linkedin.com/in/123
-          description: The linkedin Profile URL
-        twitter:
-          type: string
-          example: https://x.com/123
-          description: The X Profile URL
-        tiktok:
-          type: string
-          example: https://tiktok.com/123
-          description: The tiktok Profile URL
-        zillow:
-          type: string
-          example: https://zillow.com/123
-          description: The Zillow Profile URL
-        yelp:
-          type: string
-          example: https://yelp.com/123
-          description: The Yelp Profile URL
-        google:
-          type: string
-          example: https://google.com/123
-          description: The Google Profile URL
-        podcast:
-          type: string
-          example: https://podcast.com/123
-          description: The podcast URL
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateAgentDto'
+      required:
+      - agents
     GetAgentsResponseDto:
       type: object
       properties:
@@ -1035,6 +1008,33 @@ components:
       required:
       - items
       - count
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

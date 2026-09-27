@@ -556,6 +556,92 @@ paths:
       - Offices
 components:
   schemas:
+    CoordinatesDto:
+      type: object
+      properties:
+        latitude:
+          type: number
+          example: 40.7630185
+          description: The latitude
+        longitude:
+          type: number
+          example: -73.9694391
+          description: The longitude
+    OfficeHoursDto:
+      type: object
+      properties:
+        Monday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '16:00'
+          description: The working hours on Mondays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Tuesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Tuesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Wednesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Wednesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Thursday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Thursdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Friday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Fridays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+    CreateOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    GetOfficesResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfficeDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    BulkCreateOfficeDto:
+      type: object
+      properties:
+        offices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateOfficeDto'
+      required:
+      - offices
     CreateOfficeDto:
       type: object
       properties:
@@ -664,17 +750,6 @@ components:
           description: The office external ID
       required:
       - name
-    CoordinatesDto:
-      type: object
-      properties:
-        latitude:
-          type: number
-          example: 40.7630185
-          description: The latitude
-        longitude:
-          type: number
-          example: -73.9694391
-          description: The longitude
     UpdateOfficeDto:
       type: object
       properties:
@@ -777,83 +852,33 @@ components:
           type: string
           example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
           description: The office SEO description
-    DeleteOfficeAgentDto:
+    AddressDto:
       type: object
       properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    GetOfficesResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfficeDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    CreateOfficeAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    OfficeHoursDto:
-      type: object
-      properties:
-        Monday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '16:00'
-          description: The working hours on Mondays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Tuesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Tuesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Wednesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Wednesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Thursday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Thursdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Friday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Fridays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
     WorkingHoursDto:
       type: object
       properties:
@@ -869,6 +894,17 @@ components:
           type: string
           example: 09:00
           description: The opening time
+    DeleteOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
     OfficeDto:
       type: object
       properties:
@@ -954,42 +990,6 @@ components:
           description: The office SEO description
       required:
       - name
-    AddressDto:
-      type: object
-      properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
-    BulkCreateOfficeDto:
-      type: object
-      properties:
-        offices:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateOfficeDto'
-      required:
-      - offices
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
