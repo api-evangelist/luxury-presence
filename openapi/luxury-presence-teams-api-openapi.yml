@@ -414,18 +414,17 @@ paths:
       - Teams
 components:
   schemas:
-    GetTeamsResponseDto:
+    CreateTeamAgentDto:
       type: object
       properties:
-        items:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
           type: array
           items:
-            $ref: '#/components/schemas/TeamDto'
-        count:
-          type: number
+            type: string
       required:
-      - items
-      - count
+      - agentIds
     CreateTeamDto:
       type: object
       properties:
@@ -508,6 +507,33 @@ components:
       required:
       - email
       - name
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
     UpdateTeamDto:
       type: object
       properties:
@@ -587,55 +613,6 @@ components:
           type: string
           example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
           description: The team external id
-    DeleteTeamAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    AddressDto:
-      type: object
-      properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
-    CreateTeamAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
     TeamDto:
       type: object
       properties:
@@ -717,6 +694,29 @@ components:
           type: string
           example: west-team
           description: The team slug
+    GetTeamsResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
+    DeleteTeamAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
