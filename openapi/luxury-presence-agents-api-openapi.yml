@@ -514,6 +514,219 @@ paths:
       - Agents
 components:
   schemas:
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+    CreateAgentDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The agent email
+        firstName:
+          type: string
+          example: John
+          description: The agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: The agent last name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The agent secondary phone number
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        secondaryAvatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the agent secondary avatar
+        secondaryAvatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
+        videoUrl:
+          type: string
+          example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
+          description: A URL containing the agent video
+        position:
+          type: string
+          example: Real Estate Agent
+          description: The agent position
+        isLeadAgent:
+          type: boolean
+          example: true
+          description: Whether or not to mark agent as lead agent
+        bioLongDescription:
+          type: string
+          example: A detailed description of the agent
+          description: The agent long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the agent
+          description: The agent short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The agent address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        socialLinks:
+          example:
+            facebook: https://facebook.com/123
+            instagram: https://instagram.com/123
+            podcast: https://podcast.com/123
+            linkedin: https://linkedin.com/123
+            youtube: https://youtube.com/123
+            twitter: https://twitter.com/123
+            tiktok: https://tiktok.com/123
+            zillow: https://zillow.com/123
+            yelp: https://yelp.com/123
+            google: https://google.com/123
+          description: The agent social links
+          allOf:
+          - $ref: '#/components/schemas/SocialLinksDto'
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The agent's personal website URL
+        seoTitle:
+          type: string
+          example: Premium real estate agent
+          description: The agent SEO title
+        seoDescription:
+          type: string
+          example: Premium real estate agent who has over 10 years of experience
+          description: The agent SEO description
+        license:
+          type: string
+          example: '123456'
+          description: The agent license
+        mlsIds:
+          example: HDSU1931
+          description: The agent MLS ID or an array of agent MLS IDs
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: marvin-west
+          description: The agent slug. Will be used as path for the details page
+        tags:
+          example:
+          - premium
+          - agent
+          - exclusive
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        offices:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: agent office or array of agent offices
+          type: array
+          items:
+            type: string
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The agent external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The agent external id
+      required:
+      - email
+      - firstName
+      - lastName
+    SocialLinksDto:
+      type: object
+      properties:
+        facebook:
+          type: string
+          example: https://facebook.com/123
+          description: The Facebook Profile URL
+        instagram:
+          type: string
+          example: https://instagram.com/123
+          description: The Instagram Profile URL
+        youtube:
+          type: string
+          example: https://youtube.com/123
+          description: The Youtube URL
+        linkedin:
+          type: string
+          example: https://linkedin.com/in/123
+          description: The linkedin Profile URL
+        twitter:
+          type: string
+          example: https://x.com/123
+          description: The X Profile URL
+        tiktok:
+          type: string
+          example: https://tiktok.com/123
+          description: The tiktok Profile URL
+        zillow:
+          type: string
+          example: https://zillow.com/123
+          description: The Zillow Profile URL
+        yelp:
+          type: string
+          example: https://yelp.com/123
+          description: The Yelp Profile URL
+        google:
+          type: string
+          example: https://google.com/123
+          description: The Google Profile URL
+        podcast:
+          type: string
+          example: https://podcast.com/123
+          description: The podcast URL
     UpdateAgentDto:
       type: object
       properties:
@@ -661,76 +874,27 @@ components:
           type: string
           example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
           description: The agent external id
-    AddressDto:
+    BulkCreateAgentDto:
       type: object
       properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
-    SocialLinksDto:
+        agents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateAgentDto'
+      required:
+      - agents
+    GetAgentsResponseDto:
       type: object
       properties:
-        facebook:
-          type: string
-          example: https://facebook.com/123
-          description: The Facebook Profile URL
-        instagram:
-          type: string
-          example: https://instagram.com/123
-          description: The Instagram Profile URL
-        youtube:
-          type: string
-          example: https://youtube.com/123
-          description: The Youtube URL
-        linkedin:
-          type: string
-          example: https://linkedin.com/in/123
-          description: The linkedin Profile URL
-        twitter:
-          type: string
-          example: https://x.com/123
-          description: The X Profile URL
-        tiktok:
-          type: string
-          example: https://tiktok.com/123
-          description: The tiktok Profile URL
-        zillow:
-          type: string
-          example: https://zillow.com/123
-          description: The Zillow Profile URL
-        yelp:
-          type: string
-          example: https://yelp.com/123
-          description: The Yelp Profile URL
-        google:
-          type: string
-          example: https://google.com/123
-          description: The Google Profile URL
-        podcast:
-          type: string
-          example: https://podcast.com/123
-          description: The podcast URL
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
     AgentDto:
       type: object
       properties:
@@ -871,170 +1035,6 @@ components:
           type: array
           items:
             type: string
-    GetAgentsResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AgentDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    BulkCreateAgentDto:
-      type: object
-      properties:
-        agents:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateAgentDto'
-      required:
-      - agents
-    CreateAgentDto:
-      type: object
-      properties:
-        email:
-          type: string
-          example: email@example.com
-          description: The agent email
-        firstName:
-          type: string
-          example: John
-          description: The agent first name
-        lastName:
-          type: string
-          example: Doe
-          description: The agent last name
-        phoneNumber:
-          type: string
-          example: 123-435-5321
-          description: The agent phone number
-        secondaryNumber:
-          type: string
-          example: 123-435-5321
-          description: The agent secondary phone number
-        avatarUrl:
-          type: string
-          example: https://www.example.com/images/example.jpg
-          description: An image URL containing the agent avatar
-        avatarId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
-        secondaryAvatarUrl:
-          type: string
-          example: https://www.example.com/images/example.jpg
-          description: An image URL containing the agent secondary avatar
-        secondaryAvatarId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
-        videoId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Internal Luxury Presence media reference ID. This field is for reference/tracking purposes only and is not a direct link to the media.
-        videoUrl:
-          type: string
-          example: https://www.youtube.com/watch?v=ZU7RcwBxe3g
-          description: A URL containing the agent video
-        position:
-          type: string
-          example: Real Estate Agent
-          description: The agent position
-        isLeadAgent:
-          type: boolean
-          example: true
-          description: Whether or not to mark agent as lead agent
-        bioLongDescription:
-          type: string
-          example: A detailed description of the agent
-          description: The agent long bio
-        bioShortDescription:
-          type: string
-          example: A short description of the agent
-          description: The agent short bio
-        address:
-          example:
-            line1: Beach avenue, 4834
-            line2: null
-            city: San Francisco
-            state: CA
-            postCode: '80246'
-            country: United States
-          description: The agent address
-          allOf:
-          - $ref: '#/components/schemas/AddressDto'
-        socialLinks:
-          example:
-            facebook: https://facebook.com/123
-            instagram: https://instagram.com/123
-            podcast: https://podcast.com/123
-            linkedin: https://linkedin.com/123
-            youtube: https://youtube.com/123
-            twitter: https://twitter.com/123
-            tiktok: https://tiktok.com/123
-            zillow: https://zillow.com/123
-            yelp: https://yelp.com/123
-            google: https://google.com/123
-          description: The agent social links
-          allOf:
-          - $ref: '#/components/schemas/SocialLinksDto'
-        websiteUrl:
-          type: string
-          example: example.com
-          description: The agent's personal website URL
-        seoTitle:
-          type: string
-          example: Premium real estate agent
-          description: The agent SEO title
-        seoDescription:
-          type: string
-          example: Premium real estate agent who has over 10 years of experience
-          description: The agent SEO description
-        license:
-          type: string
-          example: '123456'
-          description: The agent license
-        mlsIds:
-          example: HDSU1931
-          description: The agent MLS ID or an array of agent MLS IDs
-          type: array
-          items:
-            type: string
-        slug:
-          type: string
-          example: marvin-west
-          description: The agent slug. Will be used as path for the details page
-        tags:
-          example:
-          - premium
-          - agent
-          - exclusive
-          description: Tag or array of tags for later filtering on website
-          type: array
-          items:
-            type: string
-        offices:
-          example:
-          - f534988e-4671-4709-bb82-c06bc8b02d87
-          description: agent office or array of agent offices
-          type: array
-          items:
-            type: string
-        externalSource:
-          type: string
-          example: anywhere_listing_syndication
-          description: The agent external source
-        externalId:
-          type: string
-          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
-          description: The agent external id
-      required:
-      - email
-      - firstName
-      - lastName
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

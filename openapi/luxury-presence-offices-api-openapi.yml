@@ -556,6 +556,142 @@ paths:
       - Offices
 components:
   schemas:
+    BulkCreateOfficeDto:
+      type: object
+      properties:
+        offices:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateOfficeDto'
+      required:
+      - offices
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+    OfficeDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Beach Office
+          description: The office name
+        mediaId:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Array of media UUIDs associated with this office. Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaIds instead.
+          deprecated: true
+          type: array
+          items:
+            type: string
+        mediaIds:
+          example:
+          - f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Array of media UUIDs associated with this office — offices can have multiple media assets, so this is an array (unlike the single mediaId avatar on agents and teams). Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}.
+          type: array
+          items:
+            type: string
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The office external ID
+        externalSource:
+          type: string
+          example: anywhere_listing_syndication
+          description: The office external source
+        tags:
+          example:
+          - beach
+          - rental
+          description: Tag or array of tags for later filtering on website
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: beach-office
+          description: The office slug. Will be used as path for the details page
+        officeMlsId:
+          example: HDSU1931
+          description: The office MLS ID or an array of office MLS IDs
+          type: array
+          items:
+            type: string
+        shortDescription:
+          type: string
+          example: 'The #1 office in the Central New York area.'
+          description: The office description (short)
+        fullDescription:
+          type: string
+          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
+          description: The office description (long)
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        phoneNumber:
+          type: string
+          example: 123-457-8910
+          description: The office phone number
+        email:
+          type: string
+          example: office@email.com
+          description: The office email address
+        seoTitle:
+          type: string
+          example: office@email.com
+          description: The office SEO title
+        seoDescription:
+          type: string
+          example: office@email.com
+          description: The office SEO description
+      required:
+      - name
+    WorkingHoursDto:
+      type: object
+      properties:
+        closed:
+          type: boolean
+          example: false
+          description: Whether or not the office is closed that day
+        closingAt:
+          type: string
+          example: '17:00'
+          description: The closing time
+        openingAt:
+          type: string
+          example: 09:00
+          description: The opening time
     UpdateOfficeDto:
       type: object
       properties:
@@ -658,230 +794,6 @@ components:
           type: string
           example: Connect with our team of dedicated agents. We're committed to providing exceptional service.
           description: The office SEO description
-    AddressDto:
-      type: object
-      properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
-    WorkingHoursDto:
-      type: object
-      properties:
-        closed:
-          type: boolean
-          example: false
-          description: Whether or not the office is closed that day
-        closingAt:
-          type: string
-          example: '17:00'
-          description: The closing time
-        openingAt:
-          type: string
-          example: 09:00
-          description: The opening time
-    CreateOfficeAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    GetOfficesResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfficeDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    BulkCreateOfficeDto:
-      type: object
-      properties:
-        offices:
-          type: array
-          items:
-            $ref: '#/components/schemas/CreateOfficeDto'
-      required:
-      - offices
-    DeleteOfficeAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
-    OfficeDto:
-      type: object
-      properties:
-        name:
-          type: string
-          example: Beach Office
-          description: The office name
-        mediaId:
-          example:
-          - f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Array of media UUIDs associated with this office. Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaIds instead.
-          deprecated: true
-          type: array
-          items:
-            type: string
-        mediaIds:
-          example:
-          - f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Array of media UUIDs associated with this office — offices can have multiple media assets, so this is an array (unlike the single mediaId avatar on agents and teams). Resolve each to CDN URLs using GET /cms/v1/media/{mediaId}.
-          type: array
-          items:
-            type: string
-        externalId:
-          type: string
-          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
-          description: The office external ID
-        externalSource:
-          type: string
-          example: anywhere_listing_syndication
-          description: The office external source
-        tags:
-          example:
-          - beach
-          - rental
-          description: Tag or array of tags for later filtering on website
-          type: array
-          items:
-            type: string
-        slug:
-          type: string
-          example: beach-office
-          description: The office slug. Will be used as path for the details page
-        officeMlsId:
-          example: HDSU1931
-          description: The office MLS ID or an array of office MLS IDs
-          type: array
-          items:
-            type: string
-        shortDescription:
-          type: string
-          example: 'The #1 office in the Central New York area.'
-          description: The office description (short)
-        fullDescription:
-          type: string
-          example: We are a boutique brokerage operating as one team. Our core values revolve around excellence, authenticity, and providing world-class service and marketing...
-          description: The office description (long)
-        address:
-          example:
-            line1: Beach avenue, 4834
-            line2: null
-            city: San Francisco
-            state: CA
-            postCode: '80246'
-            country: United States
-          description: The office address
-          allOf:
-          - $ref: '#/components/schemas/AddressDto'
-        phoneNumber:
-          type: string
-          example: 123-457-8910
-          description: The office phone number
-        email:
-          type: string
-          example: office@email.com
-          description: The office email address
-        seoTitle:
-          type: string
-          example: office@email.com
-          description: The office SEO title
-        seoDescription:
-          type: string
-          example: office@email.com
-          description: The office SEO description
-      required:
-      - name
-    OfficeHoursDto:
-      type: object
-      properties:
-        Monday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '16:00'
-          description: The working hours on Mondays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Tuesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Tuesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Wednesday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Wednesdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Thursday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Thursdays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-        Friday:
-          example:
-            closed: false
-            openingAt: 09:00
-            closingAt: '17:00'
-          description: The working hours on Fridays
-          allOf:
-          - $ref: '#/components/schemas/WorkingHoursDto'
-    CoordinatesDto:
-      type: object
-      properties:
-        latitude:
-          type: number
-          example: 40.7630185
-          description: The latitude
-        longitude:
-          type: number
-          example: -73.9694391
-          description: The longitude
     CreateOfficeDto:
       type: object
       properties:
@@ -990,6 +902,94 @@ components:
           description: The office external ID
       required:
       - name
+    OfficeHoursDto:
+      type: object
+      properties:
+        Monday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '16:00'
+          description: The working hours on Mondays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Tuesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Tuesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Wednesday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Wednesdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Thursday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Thursdays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+        Friday:
+          example:
+            closed: false
+            openingAt: 09:00
+            closingAt: '17:00'
+          description: The working hours on Fridays
+          allOf:
+          - $ref: '#/components/schemas/WorkingHoursDto'
+    DeleteOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    CoordinatesDto:
+      type: object
+      properties:
+        latitude:
+          type: number
+          example: 40.7630185
+          description: The latitude
+        longitude:
+          type: number
+          example: -73.9694391
+          description: The longitude
+    CreateOfficeAgentDto:
+      type: object
+      properties:
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    GetOfficesResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfficeDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

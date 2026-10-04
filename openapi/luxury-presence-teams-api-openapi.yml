@@ -414,7 +414,115 @@ paths:
       - Teams
 components:
   schemas:
-    CreateTeamAgentDto:
+    TeamDto:
+      type: object
+      properties:
+        email:
+          type: string
+          example: email@example.com
+          description: The team email
+        externalSource:
+          type: string
+          example: anywhere_listing_syncdication
+          description: The team external source
+        externalId:
+          type: string
+          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
+          description: The team external id
+        name:
+          type: string
+          example: John
+          description: The team name
+        phoneNumber:
+          type: string
+          example: 123-435-5321
+          description: The team phone number
+        secondaryNumber:
+          type: string
+          example: 123-435-5321
+          description: The team secondary phone number
+        seoTitle:
+          type: string
+          example: team@email.com
+          description: The team SEO title
+        seoDesc:
+          type: string
+          example: team@email.com
+          description: The team SEO description
+        bioLongDescription:
+          type: string
+          example: A detailed description of the team
+          description: The team long bio
+        bioShortDescription:
+          type: string
+          example: A short description of the team
+          description: The team short bio
+        address:
+          example:
+            line1: Beach avenue, 4834
+            line2: null
+            city: San Francisco
+            state: CA
+            postCode: '80246'
+            country: United States
+          description: The office address
+          allOf:
+          - $ref: '#/components/schemas/AddressDto'
+        avatarUrl:
+          type: string
+          example: https://www.example.com/images/example.jpg
+          description: An image URL containing the team avatar
+        avatarId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
+          deprecated: true
+        mediaId:
+          type: string
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
+        websiteUrl:
+          type: string
+          example: example.com
+          description: The team website URL
+        tags:
+          example: premium,best,exclusive
+          description: Comma separated tags
+          type: array
+          items:
+            type: string
+        slug:
+          type: string
+          example: west-team
+          description: The team slug
+    AddressDto:
+      type: object
+      properties:
+        line1:
+          type: string
+          example: Beach avenue, 4834
+          description: The address first line
+        line2:
+          type: string
+          example: Beach avenue, 4834
+          description: The address second line
+        city:
+          type: string
+          example: San Francisco
+          description: The address city
+        state:
+          type: string
+          example: CA
+          description: The agent address state
+        country:
+          type: string
+          example: United States
+          description: The agent address country
+        postCode:
+          type: string
+          example: '80246'
+          description: The agent address postal code
+    DeleteTeamAgentDto:
       type: object
       properties:
         agentIds:
@@ -507,33 +615,29 @@ components:
       required:
       - email
       - name
-    AddressDto:
+    CreateTeamAgentDto:
       type: object
       properties:
-        line1:
-          type: string
-          example: Beach avenue, 4834
-          description: The address first line
-        line2:
-          type: string
-          example: Beach avenue, 4834
-          description: The address second line
-        city:
-          type: string
-          example: San Francisco
-          description: The address city
-        state:
-          type: string
-          example: CA
-          description: The agent address state
-        country:
-          type: string
-          example: United States
-          description: The agent address country
-        postCode:
-          type: string
-          example: '80246'
-          description: The agent address postal code
+        agentIds:
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+          description: The agent ID or an array of agent IDs
+          type: array
+          items:
+            type: string
+      required:
+      - agentIds
+    GetTeamsResponseDto:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamDto'
+        count:
+          type: number
+      required:
+      - items
+      - count
     UpdateTeamDto:
       type: object
       properties:
@@ -613,110 +717,6 @@ components:
           type: string
           example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
           description: The team external id
-    TeamDto:
-      type: object
-      properties:
-        email:
-          type: string
-          example: email@example.com
-          description: The team email
-        externalSource:
-          type: string
-          example: anywhere_listing_syncdication
-          description: The team external source
-        externalId:
-          type: string
-          example: 0B4F722E-6FAE-4D56-BA9F-F325180C9BCE
-          description: The team external id
-        name:
-          type: string
-          example: John
-          description: The team name
-        phoneNumber:
-          type: string
-          example: 123-435-5321
-          description: The team phone number
-        secondaryNumber:
-          type: string
-          example: 123-435-5321
-          description: The team secondary phone number
-        seoTitle:
-          type: string
-          example: team@email.com
-          description: The team SEO title
-        seoDesc:
-          type: string
-          example: team@email.com
-          description: The team SEO description
-        bioLongDescription:
-          type: string
-          example: A detailed description of the team
-          description: The team long bio
-        bioShortDescription:
-          type: string
-          example: A short description of the team
-          description: The team short bio
-        address:
-          example:
-            line1: Beach avenue, 4834
-            line2: null
-            city: San Francisco
-            state: CA
-            postCode: '80246'
-            country: United States
-          description: The office address
-          allOf:
-          - $ref: '#/components/schemas/AddressDto'
-        avatarUrl:
-          type: string
-          example: https://www.example.com/images/example.jpg
-          description: An image URL containing the team avatar
-        avatarId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}. Use mediaId instead.
-          deprecated: true
-        mediaId:
-          type: string
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: Media UUID for the team's avatar. Resolve to CDN URLs using GET /cms/v1/media/{mediaId}.
-        websiteUrl:
-          type: string
-          example: example.com
-          description: The team website URL
-        tags:
-          example: premium,best,exclusive
-          description: Comma separated tags
-          type: array
-          items:
-            type: string
-        slug:
-          type: string
-          example: west-team
-          description: The team slug
-    GetTeamsResponseDto:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamDto'
-        count:
-          type: number
-      required:
-      - items
-      - count
-    DeleteTeamAgentDto:
-      type: object
-      properties:
-        agentIds:
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-          description: The agent ID or an array of agent IDs
-          type: array
-          items:
-            type: string
-      required:
-      - agentIds
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
