@@ -231,7 +231,6 @@
   arazzo: null
 - slug: luxury-presence-monday-com
   label: monday.com
-  partner: monday-com
   partner_name: monday.com
   category: Project Management
   type: marketplace
@@ -239,7 +238,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/luxury-presence/integrations/monday
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-copper
   label: Copper
@@ -379,5 +378,30 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/luxury-presence/integrations/manychat
   source: edge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-zapier
+  label: Zapier
+  partner: zapier
+  partner_name: Zapier
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  evidence: https://zapier.com/apps/luxury-presence/integrations
+  source: edge
+  relationship: ipaas-bridge
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: Luxury Presence
+    matched_domain: luxurypresence.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: luxury-presence
+    beta: false
+    builder: unknown (not in the directory record)
   status: pending-generation
   arazzo: null
