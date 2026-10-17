@@ -135,6 +135,87 @@ paths:
       - Webhooks
 components:
   schemas:
+    WebhookPayloadDto:
+      type: object
+      properties:
+        eventName:
+          type: string
+          description: The event that triggered the webhook
+          example: leads
+        companyId:
+          type: string
+          description: The account which the webhook belongs to
+          example: f534988e-4671-4709-bb82-c06bc8b02d87
+        data:
+          description: The webhook payload data containing lead information
+          allOf:
+          - $ref: '#/components/schemas/LeadDto'
+      required:
+      - eventName
+      - companyId
+      - data
+    AssignedAgentDto:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: John
+          description: Agent first name
+        lastName:
+          type: string
+          example: Doe
+          description: Agent last name
+        email:
+          type: string
+          example: agent@example.com
+          description: Agent email address
+        mlsAgentId:
+          type: string
+          example: MLS123456
+          description: MLS agent ID
+    MetaDto:
+      type: object
+      properties:
+        property:
+          type: object
+          example: null
+          description: Property metadata
+        development:
+          type: object
+          example: null
+          description: Development metadata
+    UpdateWebhookDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The webhook name
+          example: My Updated Webhook
+        url:
+          type: string
+          description: The endpoint URL where webhook events will be sent
+          example: https://updated-example.com/webhook
+        events:
+          description: The events to subscribe to
+          example:
+          - leads
+          type: array
+          items:
+            type: string
+        secret:
+          type: string
+          description: Secret key for signature verification
+          example: my-updated-webhook-secret
+        headers:
+          type: object
+          description: Custom headers to include in webhook requests
+          example:
+            X-Custom-Header: new-value
+        isActive:
+          type: boolean
+          example: true
+          description: Whether the webhook is active
+          default: true
     LeadDto:
       type: object
       properties:
@@ -304,61 +385,6 @@ components:
       required:
       - activityType
       - activitySourceUrl
-    CreateWebhookDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: The webhook name
-          example: My Webhook
-        url:
-          type: string
-          description: The endpoint URL where webhook events will be sent
-          example: https://example.com/webhook
-        events:
-          description: The events to subscribe to
-          example:
-          - leads
-          type: array
-          items:
-            type: string
-        secret:
-          type: string
-          description: Secret key for signature verification
-          example: my-webhook-secret
-        headers:
-          type: object
-          description: Custom headers to include in webhook requests
-          example:
-            X-Custom-Header: value
-        isActive:
-          type: boolean
-          example: true
-          description: Whether the webhook is active
-          default: true
-      required:
-      - name
-      - url
-      - events
-    AssignedAgentDto:
-      type: object
-      properties:
-        firstName:
-          type: string
-          example: John
-          description: Agent first name
-        lastName:
-          type: string
-          example: Doe
-          description: Agent last name
-        email:
-          type: string
-          example: agent@example.com
-          description: Agent email address
-        mlsAgentId:
-          type: string
-          example: MLS123456
-          description: MLS agent ID
     WebhookResponseDto:
       type: object
       properties:
@@ -409,47 +435,17 @@ components:
       - isActive
       - createdAt
       - updatedAt
-    WebhookPayloadDto:
-      type: object
-      properties:
-        eventName:
-          type: string
-          description: The event that triggered the webhook
-          example: leads
-        companyId:
-          type: string
-          description: The account which the webhook belongs to
-          example: f534988e-4671-4709-bb82-c06bc8b02d87
-        data:
-          description: The webhook payload data containing lead information
-          allOf:
-          - $ref: '#/components/schemas/LeadDto'
-      required:
-      - eventName
-      - companyId
-      - data
-    MetaDto:
-      type: object
-      properties:
-        property:
-          type: object
-          example: null
-          description: Property metadata
-        development:
-          type: object
-          example: null
-          description: Development metadata
-    UpdateWebhookDto:
+    CreateWebhookDto:
       type: object
       properties:
         name:
           type: string
           description: The webhook name
-          example: My Updated Webhook
+          example: My Webhook
         url:
           type: string
           description: The endpoint URL where webhook events will be sent
-          example: https://updated-example.com/webhook
+          example: https://example.com/webhook
         events:
           description: The events to subscribe to
           example:
@@ -460,17 +456,21 @@ components:
         secret:
           type: string
           description: Secret key for signature verification
-          example: my-updated-webhook-secret
+          example: my-webhook-secret
         headers:
           type: object
           description: Custom headers to include in webhook requests
           example:
-            X-Custom-Header: new-value
+            X-Custom-Header: value
         isActive:
           type: boolean
           example: true
           description: Whether the webhook is active
           default: true
+      required:
+      - name
+      - url
+      - events
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
