@@ -14,6 +14,7 @@
   evidence: https://zapier.com/apps/cloze/integrations/luxury-presence/1106558/add-new-luxury-presence-leads-to-cloze
   template: https://zapier.com/apps/cloze/integrations/luxury-presence/1106558/add-new-luxury-presence-leads-to-cloze
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-add-new-luxury-presence-leads-as-kvcore-contacts
@@ -27,6 +28,7 @@
   evidence: https://zapier.com/apps/kvcore/integrations/luxury-presence/1106557/add-new-luxury-presence-leads-as-kvcore-contacts
   template: https://zapier.com/apps/kvcore/integrations/luxury-presence/1106557/add-new-luxury-presence-leads-as-kvcore-contacts
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-add-new-luxury-presence-leads-to-chime
@@ -40,6 +42,7 @@
   evidence: https://zapier.com/apps/lofty/integrations/luxury-presence/1106551/add-new-luxury-presence-leads-to-chime
   template: https://zapier.com/apps/lofty/integrations/luxury-presence/1106551/add-new-luxury-presence-leads-to-chime
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-create-and-update-flodesk-subscribers-from-new-or-updated-luxury-presence-
@@ -53,6 +56,7 @@
   evidence: https://zapier.com/apps/flodesk/integrations/luxury-presence/1330294/create-and-update-flodesk-subscribers-from-new-or-updated-luxury-presence-leads
   template: https://zapier.com/apps/flodesk/integrations/luxury-presence/1330294/create-and-update-flodesk-subscribers-from-new-or-updated-luxury-presence-leads
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-add-new-luxury-presence-leads-to-a-list-in-constant-contact-when-lead-acti
@@ -67,6 +71,7 @@
   evidence: https://zapier.com/apps/constant-contact/integrations/luxury-presence/1742851/add-new-luxury-presence-leads-to-a-list-in-constant-contact-when-lead-activity-occurs
   template: https://zapier.com/apps/constant-contact/integrations/luxury-presence/1742851/add-new-luxury-presence-leads-to-a-list-in-constant-contact-when-lead-activity-occurs
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: luxury-presence-create-new-leads-in-brivity-from-new-or-updated-lead-activity-in-luxury-pr
@@ -80,6 +85,7 @@
   evidence: https://zapier.com/apps/brivity/integrations/luxury-presence/1617893/create-new-leads-in-brivity-from-new-or-updated-lead-activity-in-luxury-presence
   template: https://zapier.com/apps/brivity/integrations/luxury-presence/1617893/create-new-leads-in-brivity-from-new-or-updated-lead-activity-in-luxury-presence
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-add-new-luxury-presence-leads-to-boomtown
@@ -93,6 +99,7 @@
   evidence: https://zapier.com/apps/boomtown/integrations/luxury-presence/1106535/add-new-luxury-presence-leads-to-boomtown
   template: https://zapier.com/apps/boomtown/integrations/luxury-presence/1106535/add-new-luxury-presence-leads-to-boomtown
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: luxury-presence-add-new-luxury-presence-leads-as-mailchimp-subscribers
@@ -107,6 +114,7 @@
   evidence: https://zapier.com/apps/luxury-presence/integrations/mailchimp/1106538/add-new-luxury-presence-leads-as-mailchimp-subscribers
   template: https://zapier.com/apps/luxury-presence/integrations/mailchimp/1106538/add-new-luxury-presence-leads-as-mailchimp-subscribers
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: luxury-presence-create-contacts-on-constant-contact-for-new-luxury-presence-leads
@@ -121,263 +129,7 @@
   evidence: https://zapier.com/apps/constant-contact/integrations/luxury-presence/1106543/create-contacts-on-constant-contact-for-new-luxury-presence-leads
   template: https://zapier.com/apps/constant-contact/integrations/luxury-presence/1106543/create-contacts-on-constant-contact-for-new-luxury-presence-leads
   source: template
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-follow-up-boss
-  label: Follow Up Boss
-  partner: follow-up-boss
-  partner_name: Follow Up Boss
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/follow-up-boss
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-leadconnector
-  label: LeadConnector
-  partner_name: LeadConnector
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/leadconnector
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-keller-williams-command
-  label: Keller Williams Command
-  partner: keller-williams
-  partner_name: Keller Williams Command
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/kwcommand
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-hubspot
-  label: HubSpot
-  partner: hubspot
-  partner_name: HubSpot
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/hubspot
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-gmail
-  label: Gmail
-  partner: gmail
-  partner_name: Gmail
-  category: Email
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/gmail
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-cinc
-  label: CINC
-  partner_name: CINC
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/cinc
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-pipedrive
-  label: Pipedrive
-  partner: pipedrive
-  partner_name: Pipedrive
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/pipedrive
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-realscout
-  label: RealScout
-  partner: realscout
-  partner_name: RealScout
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/realscout
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-compass
-  label: Compass
-  partner: compass
-  partner_name: Compass
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/compass-da26590
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-monday-com
-  label: monday.com
-  partner_name: monday.com
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/monday
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-copper
-  label: Copper
-  partner: copper
-  partner_name: Copper
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/copper
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-zapier-lead-router
-  label: Zapier Lead Router
-  partner: zapier
-  partner_name: Zapier Lead Router
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/zapier-lead-router
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-rezora
-  label: rezora
-  partner_name: rezora
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/rezora
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-aweber
-  label: AWeber
-  partner: aweber
-  partner_name: AWeber
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/aweber
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-sure-send
-  label: Sure Send
-  partner_name: Sure Send
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/sure-send
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-activecampaign
-  label: ActiveCampaign
-  partner: activecampaign
-  partner_name: ActiveCampaign
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/activecampaign
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-agents
-  label: Agents
-  partner: agents
-  partner_name: Agents
-  category: AI Agents
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/agents
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-listings-to-leads
-  label: Listings To Leads
-  partner_name: Listings To Leads
-  category: Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/listings-to-leads
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-erelocation
-  label: eRelocation
-  partner_name: eRelocation
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/erelocation
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: luxury-presence-facebook-lead-ads
-  label: Facebook Lead Ads
-  partner: facebook-lead-ads
-  partner_name: Facebook Lead Ads
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/facebook-lead-ads
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-calendly
-  label: Calendly
-  partner: calendly
-  partner_name: Calendly
-  category: Scheduling & Booking
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/calendly
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: luxury-presence-manychat
-  label: Manychat
-  partner: manychat
-  partner_name: Manychat
-  category: Social Media Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/luxury-presence/integrations/manychat
-  source: edge
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: luxury-presence-zapier
@@ -404,4 +156,284 @@
     beta: false
     builder: unknown (not in the directory record)
   status: not-a-workflow
+  arazzo: null
+- slug: luxury-presence-follow-up-boss
+  label: Follow Up Boss
+  partner: follow-up-boss
+  partner_name: Follow Up Boss
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/follow-up-boss
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-leadconnector
+  label: LeadConnector
+  partner_name: LeadConnector
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/leadconnector
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-keller-williams-command
+  label: Keller Williams Command
+  partner: keller-williams
+  partner_name: Keller Williams Command
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/kwcommand
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-hubspot
+  label: HubSpot
+  partner: hubspot
+  partner_name: HubSpot
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/hubspot
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-gmail
+  label: Gmail
+  partner: gmail
+  partner_name: Gmail
+  category: Email
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/gmail
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-cinc
+  label: CINC
+  partner_name: CINC
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/cinc
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-realscout
+  label: RealScout
+  partner: realscout
+  partner_name: RealScout
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/realscout
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-compass
+  label: Compass
+  partner: compass
+  partner_name: Compass
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/compass-da26590
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-pipedrive
+  label: Pipedrive
+  partner: pipedrive
+  partner_name: Pipedrive
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/pipedrive
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-sure-send
+  label: Sure Send
+  partner_name: Sure Send
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/sure-send
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-monday-com
+  label: monday.com
+  partner: monday-com
+  partner_name: monday.com
+  category: Project Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/monday
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-copper
+  label: Copper
+  partner: copper
+  partner_name: Copper
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/copper
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-zapier-lead-router
+  label: Zapier Lead Router
+  partner: zapier
+  partner_name: Zapier Lead Router
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/zapier-lead-router
+  source: edge
+  relationship: ipaas-bridge
+  status: not-a-workflow
+  arazzo: null
+- slug: luxury-presence-rezora
+  label: rezora
+  partner_name: rezora
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/rezora
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-aweber
+  label: AWeber
+  partner: aweber
+  partner_name: AWeber
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/aweber
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-activecampaign
+  label: ActiveCampaign
+  partner: activecampaign
+  partner_name: ActiveCampaign
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/activecampaign
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-agents
+  label: Agents
+  partner: agents
+  partner_name: Agents
+  category: AI Agents
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/agents
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-listings-to-leads
+  label: Listings To Leads
+  partner_name: Listings To Leads
+  category: Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/listings-to-leads
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-erelocation
+  label: eRelocation
+  partner_name: eRelocation
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/erelocation
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: luxury-presence-facebook-lead-ads
+  label: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_name: Facebook Lead Ads
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/facebook-lead-ads
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-calendly
+  label: Calendly
+  partner: calendly
+  partner_name: Calendly
+  category: Scheduling & Booking
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/calendly
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: luxury-presence-manychat
+  label: Manychat
+  partner: manychat
+  partner_name: Manychat
+  category: Social Media Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/luxury-presence/integrations/manychat
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
   arazzo: null
